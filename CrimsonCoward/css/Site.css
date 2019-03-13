@@ -1,0 +1,1633 @@
+﻿
+@font-face {
+    font-family: 'arialmtlight';
+    src: url('../fonts/ArialMtLight/arialmt-light-webfont.eot');
+    src: url('../fonts/ArialMtLight/arialmt-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/ArialMtLight/arialmt-light-webfont.woff') format('woff'), url('../fonts/ArialMtLight/arialmt-light-webfont.ttf') format('truetype'), url('../fonts/ArialMtLight/arialmt-light-webfont.svg#arialmtlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Tungsten-Black";
+    src: url("../fonts/Tungsten/Tungsten-Black.eot");
+    src: url('../fonts/Tungsten/Tungsten-Black.eot?#iefix') format('embedded-opentype'), url("../fonts/Tungsten/Tungsten-Black.otf");
+}
+
+@font-face {
+    font-family: "Tungsten-Bold";
+    src: url("../fonts/Tungsten/Tungsten-Bold.eot");
+    src: url("../fonts/Tungsten/Tungsten-Bold.otf");
+}
+
+@font-face {
+    font-family: "Tungsten-Semibold";
+    src: url("../fonts/Tungsten/Tungsten-Semibold.eot");
+    src: url("../fonts/Tungsten/Tungsten-Semibold.otf");
+}
+
+@font-face {
+    font-family: "Tungsten-Book";
+    src: url("../fonts/Tungsten/Tungsten-Book.otf");
+}
+
+@font-face {
+    font-family: "Tungsten-Medium";
+    src: url("../fonts/Tungsten/Tungsten-Medium.eot");
+    src: url("../fonts/Tungsten/Tungsten-Medium.otf");
+}
+
+@font-face {
+    font-family: "Tungsten-Light";
+    src: url("../fonts/Tungsten/Tungsten-Light.otf");
+}
+
+@font-face {
+    font-family: "Tungsten-ExtraLight";
+    src: url("../fonts/Tungsten/Tungsten-ExtraLight.otf");
+}
+
+@font-face {
+    font-family: "Tungsten-Thin";
+    src: url("../fonts/Tungsten/Tungsten-Thin.otf");
+}
+
+html, body, form {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 18px;
+    font-family: Tungsten-Book;
+    background-color: #fff;
+    color: #808080; 
+    text-align: justify;
+}
+
+a, a:hover, a:visited, a:active, ul, li, p, img, h1, h2, h3, input, textarea, select {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    list-style: none;
+    background: none;
+    font-weight: normal;
+}
+
+#preload {
+    visibility: hidden;
+    display: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.rightDesc {
+
+}
+.hidden {
+    display: none;
+}
+
+.section_container {
+    margin-bottom: 20px;
+}
+
+.page_title {
+    margin: 40px 0px 20px 0px;
+    color: #808080;
+    font-family: "Tungsten-Medium";
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 35px;
+}
+
+.section_title, .item_title {
+    display: block;
+    color: #4D4D4D;
+    font-family: "Tungsten-Medium";
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.section_title {
+    margin: 10px 0px 20px 0px;
+}
+
+.item_title {
+    margin: 15px 0px 0px 0px;
+}
+
+.subtitle {
+    display: block;
+    margin-bottom: 10px;
+    color: #808080;
+    font-family: "Tungsten-Book";
+    font-size: 21px;
+    text-transform: uppercase;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.input_error, .noResults {
+    color: #be4141;
+    font-weight: bold;
+}
+
+.ddlFilter {
+    background-color: #DFDFDF;
+    margin-left: 0px; /*Ramzi ToDo*/
+    font-family:Tungsten-Book;
+    font-size:23px;
+    color: black;
+    margin-left:10px;
+}
+
+.ddlPlans {
+    background-color: #DFDFDF;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.centered {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
+#main {
+    width: 965px;
+    margin: 0px auto;
+    background-color: #fff;
+}
+
+#header {
+    padding: 25px 25px 10px;
+}
+
+    #header .right a {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    #header .right #slogan {
+        position: relative;
+    }
+
+        #header .right #slogan p {
+            text-transform: uppercase;
+            font-size: 23px;
+            font-family: "Tungsten-Medium";
+            color: #fff;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            top: 47px;
+        }
+/*929292*/
+
+#responsive_menu_container {
+    display: none;
+}
+
+#menu {
+    height: 37px;
+}
+
+    #menu li {
+        float: left;
+        height: 100%;
+    }
+
+        #menu li a {
+            display: block;
+            width: 160px;
+            height: 100%;
+            color: #929292;
+            font-family: "Tungsten-Light";
+            font-size: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #menu li .menu_sep {
+            display: inline-block;
+            width: 1px;
+            height: 17px;
+            margin-top: 10px;
+            background-color: #929292;
+        }
+
+        #menu li a span {
+            display: inline-block;
+            padding-top: 10px;
+        }
+
+#main_banner_container {
+    position: relative;
+}
+
+    #main_banner_container #main_banner {
+        position: relative;
+        width: 100%;
+        height: 320px;
+    }
+
+        #main_banner_container #main_banner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #main_banner_container #main_banner .main_banner_text {
+            display: none;
+            position: absolute;
+            left: 50px;
+            bottom: 65px;
+            width: 325px;
+            color: #fff;
+            font-family: "Tungsten-Bold";
+            font-size: 50px;
+            text-transform: uppercase;
+            line-height: 40px;
+            text-shadow: 1px 2px 0px #181f23;
+            text-align: left;
+        }
+
+        #main_banner_container #main_banner.prop_details_header .main_banner_text {
+            bottom: 30px;
+            font-family: "Tungsten-Semibold";
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+            #main_banner_container #main_banner.prop_details_header .main_banner_text h1 {
+                margin-bottom: 5px;
+                font-family: "Tungsten-Medium";
+                font-size: 30px;
+            }
+
+    #main_banner_container #main_search {
+        position: absolute;
+        top: 20px;
+        right: 50px;
+        padding: 15px 25px;
+        background-color: rgba(0,0,0, 0.65);
+        color: #fff;
+        font-family: "Tungsten-Medium";
+        z-index: 10;
+    }
+
+        #main_banner_container #main_search p {
+            margin-bottom: 15px;
+            font-size: 24px;
+            display: inline-block;
+        }
+
+            #main_banner_container #main_search p SPAN {
+                margin-left: 3px;
+            }
+
+        #main_banner_container #main_search .ddl_container {
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+            #main_banner_container #main_search .ddl_container div {
+                width: 230px;
+                height: 25px;
+                padding-top: 5px;
+                background-color: #c3002f; /*#AA6574 kamal*/
+                background-image: url('../images/arrow_ddl_back.gif');
+                background-position: right;
+                background-repeat: no-repeat;
+            }
+
+            #main_banner_container #main_search .ddl_container div, #main_banner_container #main_search .ddl_container select {
+                padding-left: 5px;
+            }
+
+            #main_banner_container #main_search .ddl_container select {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 240px;
+                height: 30px;
+                opacity: 0;
+                z-index: 99;
+                background-color:rgb(237,238,238);
+            }
+
+            #main_banner_container #main_search .ddl_container div, #main_banner_container #main_search select, #main_banner_container #main_search input {
+                background-color: rgb(237,238,238);
+                text-transform: uppercase;
+                font-family: "Tungsten-Medium";
+                letter-spacing: 1px;
+                font-size: 22px;
+                color: rgb(51,51,51);
+            }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+     color: rgb(51,51,51);
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: rgb(51,51,51);
+    opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: rgb(51,51,51);
+    opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: rgb(51,51,51);
+}
+
+.txt::-webkit-input-placeholder { /* WebKit browsers */
+    color: #39859E;
+}
+
+.txt:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #39859E;
+    opacity: 1;
+}
+
+.txt::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #39859E;
+    opacity: 1;
+}
+
+.txt:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #39859E;
+}
+
+#main_banner_container #main_search div input {
+    width: 104.5px;
+    margin-bottom: 5px;
+    padding: 2px 5px;
+
+}
+
+    #main_banner_container #main_search div input:first-child {
+        margin-right: 4.5px;
+        /*color: #fff !important;*/
+    }
+
+#main_banner_container #main_search .btn {
+    width: 239px;
+    margin-top: 5px;
+    border: 1px solid #fff;
+    font-size: 26px;
+    color: rgb(51,51,51);
+}
+
+    #main_banner_container #main_search .btn:hover {
+        background-color: #929292;
+    }
+
+.txtRefNb {
+    /*border:none !important;
+    background:transparent !important;*/
+    padding-left: 3px;
+    width: 110px;
+    margin-left: 2px;
+    color: #fff;
+}
+
+#main_banner_container #main_search #location {
+    position: relative;
+}
+
+    #main_banner_container #main_search #location select:first-child {
+        margin-right: 4.5px;
+        /*color: #fff !important;*/
+    }
+
+    #main_banner_container #main_search #location select {
+        width: 114px;
+        margin-bottom: 5px;
+        padding: 2px 5px;
+        appearance: none;
+        -webkit-appearance: none; /*Removes default chrome and safari style*/
+        -moz-appearance: none; /*Removes default style Firefox*/
+        -ms-appearance: none;
+        -o-appearance: none;
+        background: url("../images/arrow_ddl_back.gif") no-repeat right;
+        background-color:rgb(237,238,238);
+    }
+
+        #main_banner_container #main_search #location select::-ms-expand {
+            display: none;
+            -webkit-appearance: none; /*Removes default chrome and safari style*/
+            -moz-appearance: none; /*Removes default style Firefox*/
+            text-indent: 0.01px;
+            background: url("../images/arrow_ddl_back.gif") no-repeat right;
+            background-color: #C3002F;
+        }
+
+#content .form {
+    margin: 30px 0px;
+}
+
+    #content .form .form_field {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+        #content .form .form_field .form_field_name {
+            float: left;
+            width: 100px;
+            font-weight: bold;
+        }
+
+        #content .form .form_field .txt, #content .form .form_field .ddl {
+            border: 1px solid #acacac;
+        }
+
+        #content .form .form_field .txt {
+            width: -webkit-calc(100% - 112px);
+            width: -moz-calc(100% - 112px);
+            width: calc(100% - 112px);
+            padding: 2px 5px;
+        }
+
+        #content .form .form_field .ddl {
+            width: -webkit-calc(100% - 107px);
+            width: -moz-calc(100% - 107px);
+            width: calc(100% - 107px);
+            padding: 2px 0px 2px 5px;
+        }
+
+        #content .form .form_field textarea {
+            height: 100px;
+        }
+
+    #content .form .btn {
+        float: right;
+        padding: 4px 7px;
+        background-color: #929292;
+        color: #fff;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+        #content .form .btn:hover {
+            background-color: #c3002f;
+        }
+
+#content .props_listing {
+    width: 100%;
+   }
+
+    #content .props_listing .prop_item_container {
+        float: left;
+        width: 20%;
+        margin-bottom: 15px;
+    }
+
+        #content .props_listing .prop_item_container h1 {
+            width: -webkit-calc(100% - 20px);
+            width: -moz-calc(100% - 20px);
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 6px 10px;
+            color: #fff;
+            font-family: "Tungsten-Medium";
+            font-size: 26px;
+            -webkit-box-shadow: inset 9px 0px 4px -5px rgba(50, 50, 50, 0.37);
+            -moz-box-shadow: inset 9px 0px 4px -5px rgba(50, 50, 50, 0.37);
+            box-shadow: inset 9px 0px 4px -5px rgba(50, 50, 50, 0.37);
+            white-space: nowrap;
+            overflow: hidden;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            text-transform: capitalize;
+        }
+
+    #content .props_listing .prop_item {
+        display: inline-block;
+        width: 98%;
+        margin-left: 1%;
+        color: #4D4D4D;
+        box-shadow: 5px 5px 10px grey;
+        margin-top:12px;
+    }
+
+    #content .props_listing .item1 .prop_item {
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    #content .props_listing .prop_item .prop_image {
+        display: block;
+        width: 100%;
+        height: 195px;
+        margin: 0px auto;
+    }
+
+    #content .props_listing .prop_item .prop_details {
+        display: block;
+        margin-left: 10px;
+        padding-bottom: 10px;
+        font-family: "Tungsten-Medium";
+        /*text-transform: capitalize;*/
+    }
+
+        #content .props_listing .prop_item .prop_details .prop_features {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+            #content .props_listing .prop_item .prop_details .prop_features img {
+                margin: 0px 8px 0px 3px;
+            }
+
+    #content .props_listing .prop_item .item_title {
+        font-size: 25px;
+    }    
+
+#content .featured_prop {
+    float: left;
+    width: 310px;
+    margin-right: 12px;
+    padding-bottom: 20px;
+    background-color: #DFDFDF;
+    text-align: center;
+}
+
+    #content .featured_prop a {
+        display: block;
+        width: 100%;
+    }
+
+    #content .featured_prop .item_title {
+        text-align: center;
+    }
+
+    #content .featured_prop .item_desc {
+        text-align: justify;
+    }
+
+    #content .featured_prop a:hover,
+    #content .featured_prop a:hover .item_title {
+        color: #368BB4;
+    }
+
+    #content .featured_prop img {
+        width: 310px;
+        height: 240px;
+    }
+
+    #content .featured_prop .item_desc {
+        display: block;
+        height: 78px;
+        overflow: hidden;
+        padding: 0px 20px 5px 20px;
+    }
+
+#content #advertisement {
+    float: right;
+    width: 321px;
+}
+
+    #content #advertisement img {
+        width: 100%;
+        height: 235px;
+        width: 321px;
+    }
+
+    #content #advertisement #call_center {
+        width: 95%;
+        height: 96px;
+        padding: 35px 5% 0px 0px;
+        color: #fff;
+        background-image: url('../images/bgCallCenter.jpg');
+        background-size: 100% 100%;
+        text-align: right;
+    }
+
+        #content #advertisement #call_center p {
+            margin-bottom: -14px;
+            font-family: "Tungsten-Book";
+            font-size: 40px;
+        }
+
+        #content #advertisement #call_center a {
+            font-family: Tungsten-Bold;
+            font-size: 60px;
+        }
+
+#content .contact_section iframe, #content .contact_section .contact_container {
+    float: left;
+    width: 49.9%;
+    height: 250px;
+}
+
+#home_map {
+    width: 49.58% !important;
+    height: 246px !important;
+}
+/*#content .contact_section #subs_stripe .stripe
+{
+    background-color:red;
+    position:absolute;
+    top:50%;
+    text-align:center;
+    vertical-align:middle;
+    font-size:100px;
+    font-weight:bold;
+    text-transform:uppercase;
+    color:#000;
+    text-shadow: 5px 5px #333;
+    -ms-transform: rotate(-9deg); /* IE 9 
+    -webkit-transform: rotate(-9deg); /* Chrome, Safari, Opera
+    transform: rotate(-9deg);
+}*/
+#content .contact_section .contact_container .contact {
+    margin: 35px 0px 0px 45px;
+    color: #fff;
+    font-family: "Tungsten-Book";
+    font-size: 27px;
+    line-height: 26px;
+}
+
+    #content .contact_section .contact_container .contact span {
+        display: inline-block;
+        margin-bottom: 10px;
+        font-family: "Tungsten-Medium";
+        letter-spacing: 1px;
+    }
+
+    #content .contact_section .contact_container .contact .title {
+        text-transform: uppercase;
+        font-family: "Tungsten-bold";
+        color: #fff;
+    }
+
+    #content .contact_section .contact_container .contact a:hover {
+        text-decoration: underline;
+    }
+
+    #content .contact_section .contact_container .contact .txt, #content .contact_section .contact_container .contact .btn {
+        float: left;
+        height: 30px;
+        padding: 0px 10px 0px 10px;
+        color: #368BB4;
+        background-color: #fff;
+        font-family: "Tungsten-Semibold";
+    }
+
+    #content .contact_section .contact_container .contact .txt {
+        width: 330px;
+        margin: 10px 5px 10px 0;
+    }
+
+    #content .contact_section .contact_container .contact .btn {
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+
+        #content .contact_section .contact_container .contact .btn:hover {
+            color: #C3002F;
+        }
+
+    #content .contact_section .contact_container .contact .number {
+        display: block;
+        margin: 15px 0px 0px -17px;
+        font-size: 48px;
+        letter-spacing: 1px;
+    }
+
+    #content .contact_section .contact_container .contact #pnlPropertyDetails {
+        margin-top: 15px;
+    }
+
+#content #pageContact a:hover {
+    color: #c3002f;
+}
+
+#content #pageContact .form {
+    width: 80%;
+}
+
+#content #pageContact ul li {
+    margin-bottom: 10px;
+    list-style-position: outside;
+    list-style-type: square;
+    color: #D12229;
+}
+
+    #content #pageContact ul li p {
+        color: #808080;
+    }
+
+#content #pageAbout #about_depts {
+    position: relative;
+    width: 100%;
+}
+/*********SLOGAN IN ABOUTUS PAGE****/
+/*
+#content #pageAbout #about_depts > p
+{
+    position:absolute;
+    top:80px;
+    right:20px;
+    text-transform:uppercase;
+    font-size:36px;
+    font-family: "Tungsten-Medium";
+    color:#929292;
+}*/
+#newAbout, #newAbout #about_JSK {
+    width: 100%;
+}
+
+    #newAbout #about_JSK .about_section {
+        width: 32.64%;
+        background-color: #DFDFDF;
+        float: left;
+    }
+
+        #newAbout #about_JSK .about_section img {
+            display: block;
+            width: 100%;
+        }
+
+    #newAbout #about_JSK .middle {
+        margin: 0 10px;
+    }
+
+    #newAbout #about_JSK h1 {
+        margin-top: 10px;
+        font-family: "Tungsten-Medium";
+        font-size: 30px;
+        color: #4D4D4D;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    #newAbout #about_JSK h2 {
+        margin: 10px 0;
+        font-family: "Tungsten-Book";
+        font-size: 21px;
+        color: #808080;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    #newAbout #about_JSK .about_txt {
+        padding: 10px 32px 20px;
+        text-align: justify;
+        font-size: 14px;
+        font: ArialMT Light*;
+        color: #808080;
+    }
+
+
+#jsk_departments {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.jsk_child {
+    display: inline-block;
+    margin-left: 10%;
+    width: 23%;
+}
+
+    .jsk_child img {
+        margin: 0 4%;
+    }
+
+    .jsk_child span {
+        display: block;
+        padding-top: 20px;
+        text-align: justify;
+        margin-left: -20%;
+        margin-right: 20%;
+    }
+
+#newAbout #jsk_departments > img {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#content #pageAbout #about_depts img {
+    display: block;
+    width: 100%;
+}
+
+#content #pageAbout #about_depts #AboutDepts_text {
+    padding: 25px 20px 50px 20px;
+    background-color: #dfdfdf;
+    font-size: 16px;
+}
+
+#content #pageAbout #about_text {
+    padding: 0px 20px;
+}
+
+    #content #pageAbout #about_text > h3 {
+        margin: 25px 0px 5px 0px;
+        text-transform: uppercase;
+        font-size: 26px;
+        font-family: "Tungsten-Medium";
+    }
+
+    #content #pageAbout #about_text > div {
+        font-size: 16px;
+    }
+
+#content .text_page {
+    padding: 0px 20px 0px 35px;
+}
+
+    #content .text_page .left {
+        width: 570px;
+    }
+
+    #content .text_page .contact_image {
+        position: relative;
+        top: 40px;
+        width: 340px;
+    }
+
+    #content .text_page .right img {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+#content #latest_news_container {
+    padding: 15px 20px 30px 20px;
+    background-color: #DDD;
+}
+
+    #content #latest_news_container #latest_news li {
+        margin-left: 20px;
+    }
+
+        #content #latest_news_container #latest_news li:first-child {
+            margin-left: 0px;
+        }
+
+        #content #latest_news_container #latest_news li > div {
+            padding-right: 30px;
+        }
+#content #latest_news_container_min {
+   visibility:hidden;
+   display:none;
+}
+#content #pageNewsListing {
+    padding: 0px 20px;
+}
+
+#content .news_img {
+    float: left;
+    width: 170px;
+    height: 170px;
+    margin-right: 20px;
+}
+
+#content .news_title {
+    margin-bottom: 10px;
+    padding-top: 5px;
+    font-family: "Tungsten-Medium";
+    font-size: 26px;
+    text-transform: capitalize;
+}
+
+    #content .news_title:hover {
+        color: #4d4d4d;
+    }
+
+#content #news_listing .news_item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dotted #000;
+}
+
+    #content #news_listing .news_item:last-child {
+        border-bottom: 0px;
+    }
+
+    #content #news_listing .news_item .news_image {
+        margin-right: 10px;
+    }
+
+    #content #news_listing .news_item .right {
+        width: 50%;
+    }
+
+    #content #news_listing .news_item .news_date {
+        margin: 0px 0px 5px 0px;
+        font-weight: bold;
+    }
+
+    #content #news_listing .news_item .news_desc {
+        width: 465px;
+    }
+
+#content #news_details .news_date {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.qadaas_listing h1 {
+    float: left;
+    /* width: -webkit-calc(20% - 20px);
+    width: -moz-calc(20% - 20px);
+    width: calc(20% - 20px);
+    padding: 0px 10px;*/
+    width: 20%;
+    height: 32px;
+    color: White;
+    font-family: "Tungsten-Medium";
+    font-size: 25px;
+    text-transform: uppercase;
+    background-color: rgb(235,236,237);
+    /*border-right: 1px;
+    border-right-color: white;
+    border-right-style: solid;*/
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-right-style:solid;
+    border-right-color:white;
+
+}
+
+    .qadaas_listing h1 a {
+        position:relative;
+        display: inline-block;
+        /*width: 173px;*/
+        padding: 2px 0px 0px 10px;
+        /*height: 80%;*/
+        width:96%;
+
+     
+    }
+
+        .qadaas_listing h1 a:hover {
+            background-color: rgba(46,117,161,0.5);
+
+
+        }
+
+.selected_qadaa {
+    /* background-color:rgba(46,117,161,1);*/
+    background-color: rgb(51,140,181);
+     
+    padding:2px;
+    box-shadow:5px 5px 10px gray;
+    z-index:9999;
+}
+
+
+#content #search_props .search_results {
+    width: 965px; /* 850px;*/
+    margin: 20px 0;
+}
+
+    #content #search_props .search_results .search_items {
+       
+        width: 100%;
+    }
+
+    #content #search_props .search_results .search_ads {
+        float: right;
+        width: 280px; /*190px;Ramzi ToDo*/
+    }
+
+        #content #search_props .search_results .search_ads p {
+            width: 100%;
+            height: 214px; /*205px;Ramzi ToDo*/
+            margin-bottom: 20px;
+            padding-top: 0px; /*10px;*/
+        }
+
+        #content #search_props .search_results .search_ads img {
+            width: 100%;
+            height: 214px; /*190px;*/
+        }
+
+    #content #search_props .search_results .search_items .search_item_container {
+    width: 580px;
+    margin-bottom: 20px;
+    padding: 12px 10px;
+    background-color: #fff;
+    color: #4D4D4D;
+    font-family: Tungsten-Book;
+    font-size: 15px;
+    -webkit-box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.26);
+    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.26);
+}
+
+        #content #search_props .search_results .search_items .search_item_container img {
+            float: left;
+            width: 190px;
+            height: 190px;
+            margin-right: 10px;
+        }
+
+#content #search_props .search_results .search_items .search_item_container div h1 {
+            margin-bottom: 13px;
+            font-family: "Tungsten-Medium";
+            font-size: 26px;
+            text-transform: uppercase;
+        }
+
+        #content #search_props .search_results .search_items .search_item_container h1 a span,
+        #content #search_props .search_results .search_items .search_item_container .search_item_details span {
+            color: #BD4141;
+        }
+
+        #content #search_props .search_results .search_items .search_item_container div h1 span {
+            font-size: 18px;
+        }
+
+        #content #search_props .search_results .search_items .search_item_container .search_item_details {
+            float: left;
+            margin-left: 5px;
+            max-width:110px;
+        }
+            #content #search_props .search_results .search_items .search_item_container .search_item_details span {
+                display: inline-block;
+                margin-bottom: 8px;
+            }
+
+            #content #search_props .search_results .search_items .search_item_container .search_item_details p {
+                margin-top: 8px;
+            }
+
+        #content #search_props .search_results .search_items .search_item_container .search_item_desc {
+            float: right;
+            width: 175px;
+            height: 77px;
+            margin-top: 28px;
+            overflow: hidden;
+            font-size:16px;
+        }
+
+#content #prop_details_container .section_container {
+    margin-bottom: 40px;
+    margin-top: 5px;
+}
+
+#content #prop_details_container #prop_specs_container .section_title,
+#content #prop_details_container #prop_plans .section_title {
+    margin-left: 2.9%;
+}
+
+#content #prop_details_container #prop_details {
+    padding: 25px;
+    padding-bottom:40px;
+    background-color: #ddd;
+    font-size: 18px;
+    margin-bottom:-5px;
+}
+
+#content #prop_details_container #prop_details  p{
+font-size:28px;
+font-family:Tungsten-Medium;
+}
+
+
+    #content #prop_details_container #prop_details #imgProp {
+        display:block;
+        margin:auto;
+        max-width:100%;
+        height:509px;
+        /*max-height: 510px;*/
+        
+    }
+
+    #content #prop_details_container #prop_details .left {
+        float: left;
+        width: 30%;
+
+    }
+
+    #content #prop_details_container #prop_details h1, #content #prop_details_container #prop_details .prop_price {
+        font-family: "Tungsten-Medium";
+        text-transform: capitalize;
+    }
+
+    #content #prop_details_container #prop_details  h1 {
+        margin: 0px 0px 10px 0px;
+        font-size: 48px;
+        font-family:Tungsten-Semibold;
+    }
+
+    #content #prop_details_container #prop_details .prop_price {
+        margin-bottom: 15px;
+        font-size: 48px;
+         font-family:Tungsten-Semibold;
+        
+        
+    }
+     #content #prop_details_container #prop_details .prop_size {
+        margin-bottom: 0px;
+        font-size: 38px;
+         font-family:Tungsten-Semibold;
+          margin-top:-30px;
+    }
+
+#content #prop_details_container .prop_ref {
+    font-size: 23px;
+    font-family:Tungsten-Medium;
+    float:right;
+    padding-right:15px;
+}
+
+#content #prop_details_container #prop_details .prop_desc {
+    margin-top:30px;
+    font-size:21px;
+    font-family:Tungsten-Medium;
+    max-height:180px;
+    margin-bottom:25px;
+    min-height:120px;
+
+    /*float:right;*/
+}
+
+#content #prop_details_container #prop_details .prop_info  {
+    float:left;
+    font-size:28px;
+    font-family:Tungsten-Medium;
+   
+}
+
+    #content #prop_details_container #prop_details .prop_info span {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+        #content #prop_details_container #prop_details .prop_info span span {
+            width: 60px;
+        }
+
+.share {
+    margin-top: -35px ;
+    margin-right:20px;
+    float:right ;
+ 
+}
+
+    #content #prop_details_container #prop_details .share .stLarge {
+        width: 24px;
+        height: 24px;
+        background-size: 100% 100%;
+    }
+
+#content #prop_details_container #prop_thumbs {
+    margin-top: 5px;
+}
+
+    #content #prop_details_container #prop_thumbs img {
+        width: 190px;
+        height: 190px;
+        margin-left: 3.5px;
+        cursor: pointer;
+    }
+
+        #content #prop_details_container #prop_thumbs img:first-child {
+            margin-left: 0px;
+        }
+
+#content #prop_details_container #prop_specs {
+    float: left;
+    width: 20%;
+    padding: 20px 3%;
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+    #content #prop_details_container #prop_specs .prop_ref {
+        margin-top: 8px;
+    }
+
+#content #prop_details_container #prop_features {
+    float: left;
+    width: 74%;
+}
+
+    #content #prop_details_container #prop_features p {
+        float: left;
+        width: 45%;
+        margin-left: 5%;
+    }
+
+#content #prop_details_container #prop_plans #imgPlan {
+    display: block;
+    max-width: 90%;
+    margin: 0px auto;
+}
+
+#content #prop_details_container #prop_plans #plans_thumbs {
+    color: #929292;
+    font-family: "Tungsten-Medium";
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+    #content #prop_details_container #prop_plans #plans_thumbs span {
+        display: block;
+        margin: 40px 0px 20px 50px;
+    }
+
+    #content #prop_details_container #prop_plans #plans_thumbs p {
+        float: left;
+        width: 25%;
+        margin-left: 5%;
+    }
+
+        #content #prop_details_container #prop_plans #plans_thumbs p img {
+            width: 100%;
+            height: 117px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+#content #prop_details_container #construction_progress .left {
+    width: 35%;
+}
+
+#content #prop_details_container #construction_progress .right {
+    width: 60%;
+}
+
+    #content #prop_details_container #construction_progress .right img {
+        width: 180px;
+        height: 180px;
+        margin-left: 10px;
+    }
+
+#footer {
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px 0px;
+    border-top: 1px solid #ACACAC;
+    text-align: center;
+    color: #ACACAC;
+}
+
+    #footer div a {
+        display: inline-block;
+        padding: 0px 10px;
+        border-left: 1px solid #ACACAC;
+        font-family: "Tungsten-Light";
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 20px;
+    }
+
+        #footer div a:first-child {
+            border-left: 0px;
+        }
+
+    #footer p {
+        margin-top: 20px;
+        margin-left: 20px;
+        text-align: center;
+    }
+
+    #footer a:hover {
+        color: #c3002f;
+    }
+
+#map {
+    margin-top: 30px;
+    height: 270px;
+    width: 270px;
+}
+
+#carousel {
+    height: 260px;
+    width: 100%;
+    position: relative;
+}
+
+    #carousel img {
+        visibility: hidden; /* hide images until carousel prepares them */
+        cursor: pointer; /* not needed if you wrap carousel items in links */
+    }
+
+#prop_thumbs_container {
+    margin-top: 5px;
+}
+
+#carousel_links {
+    margin-left: 50%;
+}
+
+#margin {
+    margin-left: 7px;
+}
+
+.ltrTitleBanner {
+    font-size: 25px;
+    font-family: "Tungsten-Semibold";
+}
+
+.first {
+    margin-left: -2% !important;
+}
+
+#prop_thumbs_container li {
+    /*display: inline;*/
+    cursor: pointer;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and . ie10 #hack {
+    input, select, textarea {
+        -webkit-appearance: none;
+    }
+
+    #content .props_listing .prop_item_container h1, #content #search_props .qadaas_listing h1 {
+        padding: 8px 10px 5px 10px;
+    }
+}
+
+.pager {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+    .pager input {
+        padding: 4px 8px;
+    }
+
+        .pager input:not(.aspNetDisabled) {
+            cursor: pointer;
+        }
+    /*.pager input:hover
+{
+    background-color: #eccfd1;
+    color: #a71e28;
+}*/
+    .pager span a, .pager span span {
+        display: inline-block;
+        margin: 0px 5px;
+        background-color: none;
+        padding: 3px 7px;
+        /* border: 1px solid #b2b2b2;*/
+        color: #4e4e4e;
+    }
+    /*.pager a:hover, .pager span span
+{
+    color: #a71e28;
+    background-color: #eccfd1;
+}*/
+    .pager .selected {
+        /*text-decoration: underline;*/
+        color:red;
+    }
+
+.admin #menu a {
+    width: auto;
+    padding: 0px 23px;
+}
+
+.admin #content {
+    margin-left: 20px;
+}
+
+.admin .form {
+    width: 600px;
+}
+
+    .admin .form .form_field .form_field_name {
+        text-transform: capitalize;
+    }
+
+    .admin .form .btn_container {
+        margin-top: 20px;
+        text-align: right;
+    }
+
+        .admin .form .btn_container .btn {
+            float: none !important;
+            margin-left: 10px;
+        }
+
+.admin .gridview {
+    margin-top: 20px;
+}
+
+    .admin .gridview img {
+        width: 100px;
+        height: 100px;
+    }
+
+/* CSS for IE10-11 */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    #header .right #slogan p {
+        font-family: "Tungsten" !important;
+    }
+
+    #menu li a {
+        font-family: "Tungsten" !important;
+    }
+
+    #main_banner_container #main_banner .main_banner_text {
+        font-weight: bold;
+        line-height: 33px;
+        font-family: "Tungsten" !important;
+    }
+
+    #main_search * {
+        font-family: "Tungsten" !important;
+    }
+
+    #main_search div input {
+        font-family: "Tungsten" !important;
+    }
+
+    #content #advertisement #call_center a {
+        font-family: "Tungsten" !important;
+    }
+
+    .section_title, .item_title {
+        font-size: 25px;
+        font-family: "Tungsten" !important;
+        
+    }
+
+    .item_desc {
+        font-size: 18px;
+    }
+
+    #content .props_listing .prop_item .item_title {
+        display: inline-block;
+        font-family: "Tungsten" !important;
+        height: 35px;
+    }
+
+    #content .news_title {
+        font-family: "Tungsten" !important;
+    }
+
+    .contact_container * {
+        font-family: "Tungsten" !important;
+    }
+
+    #content #search_props .search_results .search_items .search_item_container {
+        font-family: "Tungsten" !important;
+    }
+
+    #footer div a {
+        font-family: "Tungsten" !important;
+    }
+
+    h1, p, a, li, input, select {
+        font-family: "Tungsten" !important;
+    }
+
+    #latest_news div {
+        font-size: 16px;
+    }
+
+    .ddlFilter {
+        font-size: 18px !important;
+        width: 125px;
+    }
+
+    #content #prop_details_container #prop_details {
+        font-size: 19px !important;
+    }
+
+    #content #prop_details_container .prop_ref {
+        font-size: 25px !important;
+    }
+
+    #main_banner_container #main_search .ddl_container div, #main_banner_container #main_search select, #main_banner_container #main_search input {
+        font-size: 22px !important;
+    }
+
+    .search_item_container, .prop_details {
+        font-size: 1.3em !important;
+    }
+
+    #content .form .form_field .form_field_name, #content .section_container ul li p {
+        font-size: 1.3em !important;
+    }
+}
+
+@media screen and (min-width:0\0) {
+    /* IE9 and IE10 rule sets go here */
+    #header .right #slogan p {
+        font-family: "Tungsten" !important;
+    }
+
+    #menu li a {
+        font-family: "Tungsten" !important;
+    }
+
+    #main_banner_container #main_banner .main_banner_text {
+        font-weight: bold;
+        line-height: 33px;
+        font-family: "Tungsten" !important;
+    }
+
+    #main_search * {
+        font-family: "Tungsten" !important;
+    }
+
+    #main_search div input {
+        font-family: "Tungsten" !important;
+    }
+
+    #content #advertisement #call_center a {
+        font-family: "Tungsten" !important;
+    }
+
+    .section_title, .item_title {
+        font-size: 25px;
+        font-family: "Tungsten" !important;
+    }
+
+    .item_desc {
+        font-size: 18px;
+    }
+
+    #content .props_listing .prop_item .item_title {
+        display: inline-block;
+        font-family: "Tungsten" !important;
+        height: 35px;
+    }
+
+    #content .news_title {
+        font-family: "Tungsten" !important;
+    }
+
+    .contact_container * {
+        font-family: "Tungsten" !important;
+    }
+
+    #content #search_props .search_results .search_items .search_item_container {
+        font-family: "Tungsten" !important;
+    }
+
+    #footer div a {
+        font-family: "Tungsten" !important;
+    }
+
+    h1, p, a, li, input, select {
+        font-family: "Tungsten" !important;
+    }
+
+    #latest_news div {
+        font-size: 16px;
+    }
+
+    .ddlFilter {
+        font-size: 18px !important;
+        width: 125px;
+    }
+
+    #content #prop_details_container #prop_details {
+        font-size: 19px !important;
+    }
+
+    #content #prop_details_container .prop_ref {
+        font-size: 25px !important;
+    }
+
+    #main_banner_container #main_search .ddl_container div, #main_banner_container #main_search select, #main_banner_container #main_search input {
+        font-size: 22px !important;
+    }
+
+    .search_item_container, .prop_details {
+        font-size: 1.3em !important;
+    }
+
+    #content .form .form_field .form_field_name, #content .section_container ul li p {
+        font-size: 1.3em !important;
+    }
+}
