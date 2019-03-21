@@ -743,18 +743,20 @@ header ul.nav li {
     padding-right: 20px;
     font-size: 16px !important;
     padding-left: 20px;
-    font-weight: bold;
     font-weight: 800 !important;
 }
 
 .navbar .nav a:hover {
     color: #832623 !important;
-    font-style: unset !important;
+    font-family: Lato-Bold !important;
+    font-size: 16px;
+    font-weight: 800 !important;
+    border-bottom: 3px solid #832623;
+    padding-bottom: 30%;
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
     background: none;
-    font-weight: 700;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -2382,6 +2384,7 @@ article img.pull-right, article .align-right {
         background: none;
         font-weight: 700;
         color: #1B1B1B;
+        font-family: Lato-Bold;
     }
 
     header .navbar-nav > li {
@@ -2545,7 +2548,6 @@ article img.pull-right, article .align-right {
         padding: 0 15px;
         font-size: 13px;
         color: #808080;
-        line-height: 26px;
     }
 
     .testimonial .testimonial-title {
@@ -2644,7 +2646,7 @@ td {
     }
 
     td.line {
-        width: 100%;
+        width: 50%;
         background: center;
         background-image: url(../assets/MenuLine.jpg);
         background-repeat: no-repeat;
@@ -2663,7 +2665,7 @@ td {
         font-family: Lato-Bold;
         background-color: white;
         position: relative;
-        padding-bottom: 10px;
+        padding-bottom: 2px;
     }
 
     td.foodsample {
@@ -2671,6 +2673,7 @@ td {
         background-color: white;
         position: relative;
         padding-bottom: 10px;
+        text-transform: uppercase;
     }
 
     td.fooddesc {

@@ -74,10 +74,10 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img src="/assets/logo.png" style="height: 105px; margin-top: -20px" alt="logo" /></a>
+                            <img src="/assets/logo.png" style="height: 115px; margin-top: -20px" alt="logo" /></a>
                     </div>
                     <div class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav " style="margin-top: 30px">
+                        <ul class="nav navbar-nav " style="margin-top: 30px; font-family: Lato-Regular">
                            <%-- <li class="MenuItem" id="menu_Home"><a href="javascript:$('html, body').animate({ scrollTop: 0 }, 700);">HOME</a></li>--%>
                             <li class="MenuItem" id="menu_Menu"><a href="javascript:$('html, body').animate({ scrollTop: $('#foodmenu').position().top},700);">MENU</a></li>
                             <li class="MenuItem" id="menu_Story"><a href="javascript:$('html, body').animate({ scrollTop: $('#story').position().top},500);">OUR STORY</a></li>
@@ -117,7 +117,7 @@
 
             $("#testimonial-slider").owlCarousel({
                 items: 3,
-                itemsDesktop: [1499, 4],
+                itemsDesktop: [1499, 3],
                 itemsDesktopSmall: [979, 2],
                 itemsTablet: [768, 2],
                 itemsMobile: [600, 1],
