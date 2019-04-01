@@ -74,7 +74,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img src="/assets/logo.png" style="padding-left:20px; 115px; margin-top: -20px" alt="logo" /></a>
+                            <img src="/assets/logo.png" style="padding-left:20px; height: 115px; margin-top: -20px" alt="logo" /></a>
                     </div>
                     <div class="navbar-collapse collapse text-center">
                         <ul class="nav navbar-nav menuitem" style="margin-top: 30px; font-family: Lato-Regular">
