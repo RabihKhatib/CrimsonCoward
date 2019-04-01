@@ -12,15 +12,10 @@ namespace CrimsonCoward.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class FoodMenu
+    public partial class Career
     {
-        public System.Guid Id { get; set; }
-        public string Description { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public System.Guid CategoryID { get; set; }
-        public Nullable<decimal> MENU_ORDER { get; set; }
-    
-        public virtual FoodCategory FoodCategory { get; set; }
+        public int Id { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
     }
 }

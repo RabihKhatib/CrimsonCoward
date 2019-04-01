@@ -85,8 +85,12 @@
                             <li class="MenuItem" style="border-right: solid 2px #832623; height: 44px;" id="menu_seperator">&nbsp</li>
                         </ul>
                         <ul class="nav navbar-nav desktop">
-                            <li style="float: right;">
-                                <img imageheight="33px" src="~/assets/HeaderItem.png" style="float: right; margin-top: 0px; margin-bottom: 5px;" runat="server" />
+                            <li style="float: left; text-align:left; margin-top: 15px;">
+                                
+                    <h5 style="color: #656565; margin-bottom: 5px;">HOURS OF OPERATION</h5>
+                <h6 style="color: #656565; margin-bottom: 5px;">Sunday - Thursday 11am to 10pm<br />
+                    Friday - Saturday 11am to midnight</h6>
+                             
                             </li>
 
                         </ul>

@@ -205,6 +205,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="240" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
           <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MENU_ORDER" Type="numeric" Precision="3" Scale="0" />
         </EntityType>
         <EntityType Name="HomeTips">
           <Key>
@@ -2789,6 +2790,7 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <Property Name="Price" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
           <Property Name="CategoryID" Type="Guid" Nullable="false" />
           <NavigationProperty Name="FoodCategory" Relationship="CrimsonCowardModel.FK_FoodMenu_FoodCategory" FromRole="FoodMenu" ToRole="FoodCategory" />
+          <Property Name="MENU_ORDER" Type="Decimal" Precision="3" Scale="0" />
         </EntityType>
         <Association Name="FK_FoodCategory_FoodCategory">
           <End Type="CrimsonCowardModel.FoodCategory" Role="FoodCategory" Multiplicity="1" />
@@ -3540,6 +3542,7 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySetMapping Name="FoodMenus">
             <EntityTypeMapping TypeName="CrimsonCowardModel.FoodMenu">
               <MappingFragment StoreEntitySet="FoodMenu">
+                <ScalarProperty Name="MENU_ORDER" ColumnName="MENU_ORDER" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

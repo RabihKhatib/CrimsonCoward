@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fa52a7ad808044dcb6b56f3f2652ded9" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="fa52a7ad808044dcb6b56f3f2652ded9" Name="Diagram1" ZoomLevel="94">
         <EntityTypeShape EntityType="CrimsonCowardModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CrimsonCowardModel.aspnet_Membership" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CrimsonCowardModel.aspnet_Paths" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />

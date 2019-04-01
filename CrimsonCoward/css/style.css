@@ -545,22 +545,22 @@ header .nav li a.dropdown-toggle:hover,
 header .nav li a.dropdown-toggle:focus,
 header .nav li.active ul.dropdown-menu li a:hover,
 header .nav li.active ul.dropdown-menu li.active a {
-    -webkit-transition: all .3s ease;
+    /*-webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
-    transition: all .3s ease;
+    transition: all .3s ease;*/
 }
 
 
 header .navbar-default .navbar-nav > .open > a,
 header .navbar-default .navbar-nav > .open > a:hover,
 header .navbar-default .navbar-nav > .open > a:focus {
-    -webkit-transition: all .3s ease;
+   /* -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
-    transition: all .3s ease;
+    transition: all .3s ease;*/
 }
 
 .navbar-nav .menu_social {
@@ -605,11 +605,11 @@ header .navbar-nav > li > a {
     padding-bottom: 6px;
     padding-top: 5px;
     margin-left: 2px;
-    -webkit-transition: all .3s ease;
+ /*   -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
-    transition: all .3s ease;
+    transition: all .3s ease;*/
 }
 
 
@@ -748,7 +748,7 @@ header ul.nav li {
     font-family: Lato-Bold !important;
     font-size: 20px;
     border-bottom: 3px solid #832623;
-    padding-bottom: 52px;
+    padding-bottom: 51px;
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover {

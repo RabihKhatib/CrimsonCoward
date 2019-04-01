@@ -21,11 +21,14 @@ namespace CrimsonCoward
             List<DAL.FoodCategory> lstFoodCategory = new List<FoodCategory>();
             CrimsonCowardEntities db = new CrimsonCowardEntities();
             var sliders = db.Sliders.Where(x => x.Active).ToList();
+
             lstImages = (from s in db.Sliders join i in db.Images on s.ImageId equals i.Id select i).ToList();
             lstReviews = db.Reviews.ToList();
 
 
             lstFoodCategory = db.FoodCategories.OrderBy(x=>x.catOrder).ToList();
+
+      
             if (lstImages.Count > 0)
             {
                 rptBanner.DataSource = lstImages;
@@ -40,15 +43,30 @@ namespace CrimsonCoward
             {
                 rptMenuCat.DataSource = lstFoodCategory;
                 rptMenuCat.DataBind();
-                
             }
-
         }
+protected void rptMenuCat_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                int count = ((List<string>)rptMenuCat.DataSource).Count;
+                if (e.Item.ItemIndex != 0 && e.Item.ItemIndex % 2 == 0 && e.Item.ItemIndex == count - 1)
+                {
+                    PlaceHolder PlaceHolder1 = e.Item.FindControl("PlaceHolder1") as PlaceHolder;
+                    System.Web.UI.WebControls.Image img = new System.Web.UI.WebControls.Image();
+                    img.ImageUrl = "pholder.jpg";
+                    TableCell td = new TableCell();
+                    td.Controls.Add(img);
+                    PlaceHolder1.Controls.Add(td);
+                }
+            }
+        }
+
         protected List<DAL.FoodMenu> GetFoodList(object dataItem)
         {
             DAL.FoodCategory c = dataItem as DAL.FoodCategory;
             ICollection<DAL.FoodMenu> foodmenu = c.FoodMenus;
-            return foodmenu.ToList();
+            return foodmenu.OrderBy(x => x.MENU_ORDER).ToList();
         }
         bool IsValidEmail(string email)
         {

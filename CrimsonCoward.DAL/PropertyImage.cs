@@ -12,15 +12,18 @@ namespace CrimsonCoward.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class FoodMenu
+    public partial class PropertyImage
     {
         public System.Guid Id { get; set; }
         public string Description { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public System.Guid CategoryID { get; set; }
-        public Nullable<decimal> MENU_ORDER { get; set; }
-    
-        public virtual FoodCategory FoodCategory { get; set; }
+        public byte[] Image { get; set; }
+        public string Extension { get; set; }
+        public Nullable<bool> ShowAsFirstImage { get; set; }
+        public string PRL { get; set; }
+        public string PropertyType { get; set; }
+        public string PropertyFor { get; set; }
+        public string Qadaa { get; set; }
+        public string District { get; set; }
+        public Nullable<int> Size { get; set; }
     }
 }

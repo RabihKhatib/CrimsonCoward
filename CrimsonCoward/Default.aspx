@@ -16,7 +16,7 @@
                 <asp:Repeater runat="server" ID="rptBanner">
                     <ItemTemplate>
                         <li>
-                            <asp:Image runat="server" class="sliderimg" Style="max-height: 680px; min-height:500px;" ImageUrl='<%# ResolveUrl("~/") + "Thumbnail.aspx?id=" + Eval("Id") + "&secImg=HomeTips&r="+Guid.NewGuid()  %>' />
+                            <asp:Image runat="server" class="sliderimg" Style="max-height: 680px; min-height: 500px;" ImageUrl='<%# ResolveUrl("~/") + "Thumbnail.aspx?id=" + Eval("Id") + "&secImg=HomeTips&r="+Guid.NewGuid()  %>' />
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -28,12 +28,13 @@
         <h3 class="title">
             <img src="assets/CC_Assets_Titles_OUR-STORY.png" alt="Our Story" /></h3>
         <p class="text">
-Los Angeles native and Nashville inspired, Crimson Coward is dedicated to bringing the Nashville Hot Chicken phenomenon to the heart of Downey.  Our expertise for great quality and flavorful food is inspired by our time spent, meeting real Nashville chefs, and exploring the greatest eateries and hot chicken joints in Nashville.         </p>
-        <p class="text" style="padding-bottom: 20px;">
-Here at Crimson Coward, we pride ourselves in serving chicken that does not compromise quality and flavor.  Our chicken and food redefine quality and is made from the freshest  ingredients.  We only serve premium, all-natural, Non-GMO chicken, from some of the most reputable farms in California. We only carry all natural, antibiotic & hormone free chicken, and our signature sides are all made fresh daily. 
+            Los Angeles native and Nashville inspired, Crimson Coward is dedicated to bringing the Nashville Hot Chicken phenomenon to the heart of Downey.  Our expertise for great quality and flavorful food is inspired by our time spent, meeting real Nashville chefs, and exploring the greatest eateries and hot chicken joints in Nashville.        
         </p>
         <p class="text" style="padding-bottom: 20px;">
-The Crimson family is proud to bring authentic Nashville hot chicken to the heart of Downey, and Los Angeles area.
+            Here at Crimson Coward, we pride ourselves in serving chicken that does not compromise quality and flavor.  Our chicken and food redefine quality and is made from the freshest  ingredients.  We only serve premium, all-natural, Non-GMO chicken, from some of the most reputable farms in California. We only carry all natural, antibiotic & hormone free chicken, and our signature sides are all made fresh daily. 
+        </p>
+        <p class="text" style="padding-bottom: 20px;">
+            The Crimson family is proud to bring authentic Nashville hot chicken to the heart of Downey, and Los Angeles area.
 
         </p>
     </section>
@@ -61,10 +62,14 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
         <div class=" col-lg-8 CenteredImage">
             <img src="assets/MenuText.jpg" alt="Alternate Text" style="margin-bottom: 20px; max-width: 100%;" />
         </div>
-        <div class="col-lg-8 CenteredImage" style="text-align: left; margin-bottom: 15px;">
-            <asp:Repeater ID="rptMenuCat" runat="server">
-                <ItemTemplate>
-                    <div class="col-lg-6">
+        <asp:Repeater ID="rptMenuCat" runat="server">
+            <HeaderTemplate>
+                <div class="col-lg-8 CenteredImage" style="text-align: left; margin-bottom: 15px;">
+            </HeaderTemplate>
+            <ItemTemplate>
+                <%# (Container.ItemIndex) % 2 == 0 ? "<div class='row justify-content-center'>" : string.Empty%>
+                <div class="col-md-6">
+                    <div class="align-middle">
                         <table style="margin-bottom: 15px;">
                             <tr>
                                 <td class="foodcat">
@@ -77,35 +82,35 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                                 </td>
                             </tr>
                         </table>
-                        <asp:Repeater ID="rptMenuFood" DataSource="<%# GetFoodList(Container.DataItem) %>" runat="server">
+                        <asp:Repeater ID="rptMenuFood" DataSource="<%# GetFoodList(Container.DataItem).OrderBy(x => x.MENU_ORDER).ToList() %>" runat="server">
                             <ItemTemplate>
                                 <table style="margin-bottom: 15px;">
                                     <tr>
-                                        <td  class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
-                                             <span  <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "":"hidden"     %> style="float: left; font-size: 11pt;padding-top:2px; padding-left:20px;text-transform:initial !important;"><%# Eval("Description")%></span>
-
+                                        <td class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
+                                            <span <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "":"hidden"     %> style="float: left; font-size: 11pt; padding-top: 2px; padding-left: 20px; text-transform: initial !important;"><%# Eval("Description")%></span>
                                         </td>
                                         <td class="line" <%# Eval("Price").ToString() == "0"||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>&nbsp;</td>
                                         <td class="price" <%# Eval("Price").ToString() == "0"||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>
-                                            <span style="font-size:16pt; float: right; "><%# decimal.Parse(Eval("Price").ToString()).ToString("G29")  %></span>
+                                            <span style="font-size: 16pt; float: right;"><%# decimal.Parse(Eval("Price").ToString()).ToString("G29")  %></span>
                                         </td>
-                                       
-                                            
-                                   
                                     </tr>
-
                                     <tr class="fooddesc">
-                                        <td colspan="4"  <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "hidden":""     %>>
+                                        <td colspan="4" <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "hidden":""     %>>
                                             <span style="float: left; font-size: 11pt; vertical-align: top; line-height: 11pt;"><%# Eval("Description")%></span> </td>
                                     </tr>
                                 </table>
                             </ItemTemplate>
                         </asp:Repeater>
-                        <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top:5px; padding-bottom:20px"/>
+                        <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top: 5px; padding-bottom: 20px" />
                     </div>
-                </ItemTemplate>
-            </asp:Repeater>
-        </div>
+                </div>
+                <%# (Container.ItemIndex-1) % 2 == 0 ? "</div>" : string.Empty%>
+            </ItemTemplate>
+
+            <FooterTemplate>
+                </div>
+            </FooterTemplate>
+        </asp:Repeater>
     </section>
 
     <section id="banner" style="position: relative;">
@@ -119,11 +124,7 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
             <div id="ReviewsBox" style="min-height: 200px; box-shadow: 5px 10px 30px 10px #c7c6c6; border-radius: 20px; margin-left: auto; margin-right: auto; background-color: #f5f5f594;">
                 <br />
                 <h2 style="display: inline; color: #842522;">YOUR OPINION</h2>
-                <h2 style="display: inline; color: #E9B244;">MATTERS THE MOST</h2>
-                <br />
-                <h4 style="display: inline; color: #333;">Our customers recommend us with a rating of </h4>
-                <h4 style="display: inline; color: #E9B244;">4.8/5</h4>
-                <h4 style="display: inline; color: #333;">... And they speak best!</h4>
+                <h2 style="display: inline; color: #E9B244;">MATTERS</h2>
                 <br />
                 <br />
                 <asp:TextBox placeholder="Your name" runat="server" ID="txtReviewTitle" CssClass="reviewcss" />
@@ -136,7 +137,7 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                 <asp:UpdatePanel ID="up2" runat="server">
                     <ContentTemplate>
                         <asp:Label ID="lblReview" Style="display: block; text-align: center; font-weight: bold;" runat="server" />
-                        <asp:Button Text="SEND" Style="margin-bottom:30px; background-color: #842522; width: 15%; font-weight: bold; height: 30px; border-radius: 3px 4px; border-style: none; color: white" ID="btnReview" runat="server" OnClick="btnReview_Click" />
+                        <asp:Button Text="SEND" Style="margin-bottom: 30px; background-color: #842522; width: 15%; font-weight: bold; height: 30px; border-radius: 3px 4px; border-style: none; color: white" ID="btnReview" runat="server" OnClick="btnReview_Click" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </div>
@@ -148,45 +149,45 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
-                                    <div id="testimonial-slider" class="owl-carousel">
-                            <asp:Repeater runat="server" ID="rptReviews">
-                                <ItemTemplate>
-                                    
+                            <div id="testimonial-slider" class="owl-carousel">
+                                <asp:Repeater runat="server" ID="rptReviews">
+                                    <ItemTemplate>
+
                                         <div class="testimonial">
 
                                             <div class="row">
-                                                    <div class="col-xs-3">
-                                                        <div class="pic">
-                                                            <img src="assets/CC_Assets_Testimonials_Chicken-Head.png" alt="Avatar">
-                                                        </div>
+                                                <div class="col-xs-3">
+                                                    <div class="pic">
+                                                        <img src="assets/CC_Assets_Testimonials_Chicken-Head.png" alt="Avatar">
                                                     </div>
-                                                    <div class="col-xs-9" style="pointer-events: none; text-align:left;">
-                                                        <div class="description">
-                                                            <div> <%# Eval("Text") %></div>
-                                                            <div style="font-weight:bold;"><%# Eval("Title") %> </div>
+                                                </div>
+                                                <div class="col-xs-9" style="pointer-events: none; text-align: left;">
+                                                    <div class="description">
+                                                        <div><%# Eval("Text") %></div>
+                                                        <div style="font-weight: bold;"><%# Eval("Title") %> </div>
                                                         <div class="reviewsRating" id="rating_<%# Eval("Id") %>">
                                                         </div>
-                                                        </div>
-                                                        <script>
-                                                            $('#rating_<%# Eval("Id") %>').addRating({
-                                                                max: 5,
-                                                                disabled: true,
+                                                    </div>
+                                                    <script>
+                                                        $('#rating_<%# Eval("Id") %>').addRating({
+                                                            max: 5,
+                                                            disabled: true,
 
-                                                                fieldName: 'rating_<%# Eval("Id") %>',
-                                                            fieldId: 'rating_<%# Eval("Id") %>',
-                                                            icon: 'star',
-                                                            selectedRatings: '<%# Eval("Rating") %>'
+                                                            fieldName: 'rating_<%# Eval("Id") %>',
+                                                                fieldId: 'rating_<%# Eval("Id") %>',
+                                                                icon: 'star',
+                                                                selectedRatings: '<%# Eval("Rating") %>'
 
-                                                            });
+                                                        });
                                            <%-- $("#rating_<%# Eval("Id") %>").find('.stars').unbind(); $("#rating_<%# Eval("Id") %>").find('.stars .star').unbind();--%>
                                             //$('owl-item').unbind();
-                                                        </script>
-                                                    </div>
+                                                    </script>
+                                                </div>
                                             </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
                                         </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,13 +239,13 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
             </div>
             <div class="col-lg-12" style="text-align: center">
                 <div class="col-lg-12 CenteredImage" style="width: 60%">
-                    <h3 style="color: white; font-weight: bold;">DO YOU NEED ANY HELP?</h3>
+                    <h3 style="color: white; font-weight: bold;">NEED HELP?</h3>
                 </div>
             </div>
             <div class="col-lg-12 ">
-               <div class="col-lg-4 col-xs-12 phone" style="text-align: center">
+                <div class="col-lg-4 col-xs-12 phone" style="text-align: center">
                     <h5 style="color: white; font-weight: lighter">“We're always a click away!.”</h5>
-                    <asp:HyperLink NavigateUrl="mailTo:alihijazi@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
+                    <asp:HyperLink NavigateUrl="mailTo:hello@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
 
                     <div class="clear"></div>
                     <img imageheight="33px" src="~/assets/footer_Facebook.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
@@ -253,18 +254,18 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                 </div>
                 <div class="col-lg-push-1 col-lg-4 col-xs-12" style="text-align: center">
 
-                    <h4 style="color: white;">HOURS OF OPERATION</h4>
-                <h5 style="color: white;">Sunday - Thursday 11am to 10pm<br />
-                    Friday - Saturday 11am to midnight</h5>
-                    <h5 style="color: white;">10405 Lakewood Blvd
+                    <h4 style="color: white;">10405 Lakewood Blvd
                     <br />
-                        Downey CA 90241</h5>
+                        Downey CA 90241</h4>
+                    <h4 style="color: white;">HOURS OF OPERATION</h4>
+                    <h5 style="color: white;">Sunday - Thursday 11am to 10pm<br />
+                        Friday - Saturday 11am to midnight</h5>
                     <div>
                         <%--<a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: 0 }, 700);">HOME</a>&nbsp-&nbsp--%>
                         <h5><a style="color: white;" href="#">CRIMSON COWARD</a>&nbsp-&nbsp
                                 <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#menu').position().top},700);">MENU</a>&nbsp-&nbsp
                                 <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#story').position().top},700);">OUR STORY</a>&nbsp-&nbsp</h5>
-                               <%-- <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $(document).height()},700);">CONTACT US</a>--%>
+                        <%-- <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $(document).height()},700);">CONTACT US</a>--%>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-12 desktop" style="text-align: center">
@@ -272,7 +273,8 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                     <asp:HyperLink NavigateUrl="mailTo:alihijazi@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
 
                     <div class="clear"></div>
-                    <img imageheight="33px" src="~/assets/footer_Facebook.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
+                    <a>
+                        <img imageheight="33px" src="~/assets/footer_Facebook.png" style="margin-top: 20px; margin-bottom: 5px;" /></a>
                     <img imageheight="33px" src="~/assets/footer_Insta.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
                     <img imageheight="33px" src="~/assets/footer_Snap.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
                 </div>
