@@ -25,7 +25,7 @@ namespace CrimsonCoward
             lstReviews = db.Reviews.ToList();
 
 
-            lstFoodCategory = db.FoodCategories.ToList();
+            lstFoodCategory = db.FoodCategories.OrderBy(x=>x.catOrder).ToList();
             if (lstImages.Count > 0)
             {
                 rptBanner.DataSource = lstImages;
@@ -40,6 +40,7 @@ namespace CrimsonCoward
             {
                 rptMenuCat.DataSource = lstFoodCategory;
                 rptMenuCat.DataBind();
+                
             }
 
         }

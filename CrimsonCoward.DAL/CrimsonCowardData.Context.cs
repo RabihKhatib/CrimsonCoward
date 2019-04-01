@@ -39,7 +39,9 @@ namespace CrimsonCoward.DAL
         public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<BlogCat> BlogCats { get; set; }
+        public virtual DbSet<Career> Careers { get; set; }
         public virtual DbSet<Datum> Data { get; set; }
+        public virtual DbSet<RealEstateProperty> RealEstateProperties { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<Article> Articles { get; set; }
@@ -56,6 +58,10 @@ namespace CrimsonCoward.DAL
         public virtual DbSet<vw_aspnet_WebPartState_Shared> vw_aspnet_WebPartState_Shared { get; set; }
         public virtual DbSet<vw_aspnet_WebPartState_User> vw_aspnet_WebPartState_User { get; set; }
         public virtual DbSet<Subscriber> Subscribers { get; set; }
+        public virtual DbSet<HomeTip> HomeTips { get; set; }
+        public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<Partnership> Partnerships { get; set; }
+        public virtual DbSet<PropertyImage> PropertyImages { get; set; }
     
         [DbFunction("CrimsonCowardEntities", "fn_ParseCSVString")]
         public virtual IQueryable<fn_ParseCSVString_Result> fn_ParseCSVString(string iDS)

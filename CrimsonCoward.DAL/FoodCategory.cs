@@ -23,6 +23,8 @@ namespace CrimsonCoward.DAL
         public System.Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public int Order { get; set; }
+        public Nullable<decimal> catOrder { get; set; }
     
         public virtual FoodCategory FoodCategory1 { get; set; }
         public virtual FoodCategory FoodCategory2 { get; set; }

@@ -16,7 +16,7 @@
                 <asp:Repeater runat="server" ID="rptBanner">
                     <ItemTemplate>
                         <li>
-                            <asp:Image runat="server" Style="max-height: 680px" ImageUrl='<%# ResolveUrl("~/") + "Thumbnail.aspx?id=" + Eval("Id") + "&secImg=HomeTips&r="+Guid.NewGuid()  %>' />
+                            <asp:Image runat="server" class="sliderimg" Style="max-height: 680px; min-height:500px;" ImageUrl='<%# ResolveUrl("~/") + "Thumbnail.aspx?id=" + Eval("Id") + "&secImg=HomeTips&r="+Guid.NewGuid()  %>' />
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -41,8 +41,8 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
         <div id="article1" class="col-lg-6 article">
             <div class="CenteredImage">
                 <h2 style="color: white;">HOURS OF OPERATION</h2>
-                <h3 style="color: white;">MONDAY - Sunday<br />
-                    12 PM TO 12 AM</h3>
+                <h3 style="color: white;">Sunday - Thursday 11am to 10pm<br />
+                    Friday - Saturday 11am to midnight</h3>
             </div>
         </div>
 
@@ -81,23 +81,27 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                             <ItemTemplate>
                                 <table style="margin-bottom: 15px;">
                                     <tr>
-                                        <td class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span></td>
-                                        <td class="line" <%# Eval("Price").ToString() == "0"?"hidden":"" %>>&nbsp;</td>
-                                        <td class="price" <%# Eval("Price").ToString() == "0"?"hidden":"" %>>
-                                            <span style="font-size:16pt; float: right;"><%# Eval("Price") %></span>
+                                        <td  class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
+                                             <span  <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "":"hidden"     %> style="float: left; font-size: 11pt;padding-top:2px; padding-left:20px;text-transform:initial !important;"><%# Eval("Description")%></span>
+
                                         </td>
-                                        <td class="fooddesc" <%# Eval("Price").ToString() != "0"?"hidden":"" %>>
-                                            <span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Description")%></span>
+                                        <td class="line" <%# Eval("Price").ToString() == "0"||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>&nbsp;</td>
+                                        <td class="price" <%# Eval("Price").ToString() == "0"||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>
+                                            <span style="font-size:16pt; float: right; "><%# decimal.Parse(Eval("Price").ToString()).ToString("G29")  %></span>
                                         </td>
+                                       
+                                            
+                                   
                                     </tr>
 
-                                    <tr class="fooddesc" <%# Eval("Price").ToString() == "0.00"?"hidden":"" %>>
-                                        <td colspan="4"><span style="float: left; font-size: 14pt; vertical-align: top; line-height: 11px;"><%# Eval("Description")%></span> </td>
+                                    <tr class="fooddesc">
+                                        <td colspan="4"  <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "hidden":""     %>>
+                                            <span style="float: left; font-size: 11pt; vertical-align: top; line-height: 11pt;"><%# Eval("Description")%></span> </td>
                                     </tr>
                                 </table>
                             </ItemTemplate>
                         </asp:Repeater>
-                        <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" />
+                        <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top:5px; padding-bottom:20px"/>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
@@ -138,7 +142,7 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
             </div>
         </div>
     </section>
-    <section id="reviews" style="position: relative;">
+    <section id="reviews" style="position: relative">
         <div id="reviews1" class="col-lg-12" style="min-height: 150px; margin-top: 5%; margin-bottom: 5%;">
             <div class="container">
                 <div class="row">
@@ -157,14 +161,12 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-9" style="pointer-events: none; text-align:left;">
-                                                        <p class="description">
-                                                            <%# Eval("Text") %>
-                                                            <br />
-                                                            <%# Eval("Title") %>
-                                                            
-                                                        <div id="rating_<%# Eval("Id") %>">
+                                                        <div class="description">
+                                                            <div> <%# Eval("Text") %></div>
+                                                            <div style="font-weight:bold;"><%# Eval("Title") %> </div>
+                                                        <div class="reviewsRating" id="rating_<%# Eval("Id") %>">
                                                         </div>
-                                                        </p>
+                                                        </div>
                                                         <script>
                                                             $('#rating_<%# Eval("Id") %>').addRating({
                                                                 max: 5,
@@ -199,7 +201,7 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                     src="https://www.google.com/maps/embed/v1/place?key=*********************&q=CrimsonCoward" allowfullscreen></iframe>--%>
                 <div class="mapouter">
                     <div class="gmap_canvas">
-                        <iframe width="100%" height="300px" id="gmap_canvas" src="https://maps.google.com/maps?q=Downey&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        <iframe width="100%" height="300px" id="gmap_canvas" src="https://maps.google.com/maps?q=10405+Lakewood+Blvd,+Downey,+CA+90241&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                         <%--<a href="https://www.pureblack.de"></a>--%>
                     </div>
                     <style>
@@ -237,28 +239,11 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
             <div class="col-lg-12" style="text-align: center">
                 <div class="col-lg-12 CenteredImage" style="width: 60%">
                     <h3 style="color: white; font-weight: bold;">DO YOU NEED ANY HELP?</h3>
-                    <h5 style="color: white; font-weight: lighter">“We're always a click away!.”</h5>
                 </div>
             </div>
             <div class="col-lg-12 ">
-                <div class="col-lg-push-1 col-lg-4 col-xs-6">
-
-                    <h4 style="color: white;">HOURS OF OPERATION</h4>
-                    <h5 style="color: white;">MONDAY - Sunday<br />
-                        12 PM TO 12 AM</h5>
-                    <h5 style="color: white;">10405 Lakewood Blvd
-                    <br />
-                        Downey CA 90241</h5>
-                    <br />
-                    <div>
-                        <%--<a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: 0 }, 700);">HOME</a>&nbsp-&nbsp--%>
-                        <a style="color: white; font-weight: bold" href="#">CRIMSON COWARD</a>&nbsp-&nbsp
-                                <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#menu').position().top},700);">MENU</a>&nbsp-&nbsp
-                                <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#story').position().top},700);">OUR STORY</a>&nbsp-&nbsp
-                               <%-- <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $(document).height()},700);">CONTACT US</a>--%>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-6" style="text-align: center">
+               <div class="col-lg-4 col-xs-12 phone" style="text-align: center">
+                    <h5 style="color: white; font-weight: lighter">“We're always a click away!.”</h5>
                     <asp:HyperLink NavigateUrl="mailTo:alihijazi@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
 
                     <div class="clear"></div>
@@ -266,8 +251,34 @@ The Crimson family is proud to bring authentic Nashville hot chicken to the hear
                     <img imageheight="33px" src="~/assets/footer_Insta.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
                     <img imageheight="33px" src="~/assets/footer_Snap.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
                 </div>
-                <div class="col-lg-pull-1 col-lg-4 col-xs-12" style="text-align: right">
+                <div class="col-lg-push-1 col-lg-4 col-xs-12" style="text-align: center">
+
+                    <h4 style="color: white;">HOURS OF OPERATION</h4>
+                <h5 style="color: white;">Sunday - Thursday 11am to 10pm<br />
+                    Friday - Saturday 11am to midnight</h5>
+                    <h5 style="color: white;">10405 Lakewood Blvd
+                    <br />
+                        Downey CA 90241</h5>
+                    <div>
+                        <%--<a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: 0 }, 700);">HOME</a>&nbsp-&nbsp--%>
+                        <h5><a style="color: white;" href="#">CRIMSON COWARD</a>&nbsp-&nbsp
+                                <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#menu').position().top},700);">MENU</a>&nbsp-&nbsp
+                                <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#story').position().top},700);">OUR STORY</a>&nbsp-&nbsp</h5>
+                               <%-- <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $(document).height()},700);">CONTACT US</a>--%>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12 desktop" style="text-align: center">
+                    <h5 style="color: white; font-weight: lighter">“We're always a click away!.”</h5>
+                    <asp:HyperLink NavigateUrl="mailTo:alihijazi@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
+
+                    <div class="clear"></div>
+                    <img imageheight="33px" src="~/assets/footer_Facebook.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
+                    <img imageheight="33px" src="~/assets/footer_Insta.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
+                    <img imageheight="33px" src="~/assets/footer_Snap.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
+                </div>
+                <div class="col-lg-pull-1 col-lg-4 col-xs-12 footerlogo" style="text-align: center;">
                     <img src="assets/footer_logo.png" width="60%" />
+                    <br />
                     <h5 style="color: white">Copyright © <%=DateTime.Now.Year %> - CRIMSON COWARD - All Rights Reserved</h5>
                 </div>
             </div>

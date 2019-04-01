@@ -83,3 +83,14 @@ font-weight:300; color: #fff }
   .flex-direction-nav .flex-prev {opacity: 1; left: 30px;}
   .flex-direction-nav .flex-next {opacity: 1; right: 30px;}
 }
+@media only screen and (max-width: 860px) {
+    .flexslider .slides > li {
+        object-fit: cover;
+        height: 500px;
+    }
+    .sliderimg {
+        object-fit: cover;
+        height: 500px;
+    }
+}
+    

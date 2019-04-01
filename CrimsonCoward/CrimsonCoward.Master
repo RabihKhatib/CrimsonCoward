@@ -66,7 +66,7 @@
         <asp:ScriptManager runat="server" />
         <header style="position: sticky">
             <div class="navbar navbar-default navbar-static-top" style="background-color: white;">
-                <div class="container">
+                <div class="container" style="padding:0px">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="icon-bar"></span>
@@ -74,15 +74,15 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img src="/assets/logo.png" style="height: 115px; margin-top: -20px" alt="logo" /></a>
+                            <img src="/assets/logo.png" style="padding-left:20px; 115px; margin-top: -20px" alt="logo" /></a>
                     </div>
                     <div class="navbar-collapse collapse text-center">
-                        <ul class="nav navbar-nav " style="margin-top: 30px; font-family: Lato-Regular">
+                        <ul class="nav navbar-nav menuitem" style="margin-top: 30px; font-family: Lato-Regular">
                            <%-- <li class="MenuItem" id="menu_Home"><a href="javascript:$('html, body').animate({ scrollTop: 0 }, 700);">HOME</a></li>--%>
-                            <li class="MenuItem" id="menu_Menu"><a href="javascript:$('html, body').animate({ scrollTop: $('#foodmenu').position().top},700);">MENU</a></li>
+                            <li  id="menu_Menu"><a href="javascript:$('html, body').animate({ scrollTop: $('#foodmenu').position().top},700);">MENU</a></li>
                             <li class="MenuItem" id="menu_Story"><a href="javascript:$('html, body').animate({ scrollTop: $('#story').position().top},500);">OUR STORY</a></li>
-                            <li class="MenuItem" style="border-right: solid 2px #832623; height: 44px;" id="menu_ContactUs"><a href="javascript:$('html, body').animate({ scrollTop: $(document).height()},1000);">CONTACT US</a></li>
-                           <%-- <li class="MenuItem"  id="menu_seperator"></li>--%>
+                            <li class="MenuItem"  id="menu_ContactUs"><a href="javascript:$('html, body').animate({ scrollTop: $(document).height()},1000);">CONTACT US</a></li>
+                            <li class="MenuItem" style="border-right: solid 2px #832623; height: 44px;" id="menu_seperator">&nbsp</li>
                         </ul>
                         <ul class="nav navbar-nav desktop">
                             <li style="float: right;">
@@ -92,13 +92,13 @@
                         </ul>
                         <ul class="nav navbar-nav ">
                             <li class="menu_social" style="float: right;">
-                                <div id="facebook" style="float: right; margin-top: 0px; margin-bottom: 5px;height:33px; width:33px;" />
+                                <div id="snap" style="float: right; margin-top: 0px; margin-bottom: 5px;height:33px; width:33px;" />
                             </li>
                             <li class="menu_social" style="float: right;">
                                 <div id="instagram" style="float: right; margin-top: 0px; margin-bottom: 5px;height:33px; width:33px;" />
                             </li>
                             <li class="menu_social" style="float: right;">
-                                <div id="snap" style="float: right; margin-top: 0px; margin-bottom: 5px;height:33px; width:33px;" />
+                                <div id="facebook" style="float: right; margin-top: 0px; margin-bottom: 5px;height:33px; width:33px;" />
                             </li>
                         </ul>
                     </div>
@@ -131,6 +131,21 @@
         if (document.getElementById(menuID)) {
             document.getElementById(menuID).className = "active";
         }
+        $('#snap').click(function () {
+            //add stuff here
+            var win = window.open("https://twitter.com/CowardCrimson", '_blank');
+            win.focus();
+        });
+        $('#instagram').click(function () {
+            //add stuff here
+            var win = window.open("https://www.instagram.com/crimsoncoward/", '_blank');
+            win.focus();
+        });
+        $('#facebook').click(function () {
+            //add stuff here
+            var win = window.open("https://www.facebook.com/crimsoncoward1/", '_blank');
+            win.focus();
+        }); 
     </script>
 </body>
 </html>

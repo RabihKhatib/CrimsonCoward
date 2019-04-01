@@ -193,6 +193,8 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="240" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="2500" />
+          <Property Name="Order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="catOrder" Type="numeric" Precision="2" Scale="0" />
         </EntityType>
         <EntityType Name="FoodMenu">
           <Key>
@@ -204,6 +206,18 @@
           <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
           <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
+        <EntityType Name="HomeTips">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="image" Type="image" />
+          <Property Name="link" Type="nvarchar(max)" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="text1" Type="nvarchar(max)" />
+          <Property Name="text2" Type="nvarchar(max)" />
+          <Property Name="dateCreated" Type="datetime" />
+        </EntityType>
         <EntityType Name="Images">
           <Key>
             <PropertyRef Name="Id" />
@@ -213,6 +227,45 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Desc" Type="nvarchar(max)" />
           <Property Name="Ext" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="link" Type="nvarchar(max)" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="Subtitle" Type="nvarchar(max)" />
+          <Property Name="isInternational" Type="bit" />
+        </EntityType>
+        <EntityType Name="Partnership">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="text" Type="nvarchar(max)" />
+          <Property Name="image" Type="image" />
+          <Property Name="logo" Type="image" />
+          <Property Name="dateAdded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PropertyImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Extension" Type="nvarchar(max)" />
+          <Property Name="ShowAsFirstImage" Type="bit" />
+          <Property Name="PRL" Type="nvarchar(max)" />
+          <Property Name="PropertyType" Type="nvarchar(max)" />
+          <Property Name="PropertyFor" Type="nvarchar(max)" />
+          <Property Name="Qadaa" Type="nvarchar(max)" />
+          <Property Name="District" Type="nvarchar(max)" />
+          <Property Name="Size" Type="int" />
         </EntityType>
         <EntityType Name="RealEstateProperty">
           <Key>
@@ -1316,7 +1369,11 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySet Name="Data" EntityType="Self.Data" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FoodCategory" EntityType="Self.FoodCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FoodMenu" EntityType="Self.FoodMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeTips" EntityType="Self.HomeTips" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partnership" EntityType="Self.Partnership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyImage" EntityType="Self.PropertyImage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RealEstateProperty" EntityType="Self.RealEstateProperty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
@@ -2580,6 +2637,10 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySet Name="vw_aspnet_WebPartState_Shared" EntityType="CrimsonCowardModel.vw_aspnet_WebPartState_Shared" />
           <EntitySet Name="vw_aspnet_WebPartState_User" EntityType="CrimsonCowardModel.vw_aspnet_WebPartState_User" />
           <EntitySet Name="Subscribers" EntityType="CrimsonCowardModel.Subscriber" />
+          <EntitySet Name="HomeTips" EntityType="CrimsonCowardModel.HomeTip" />
+          <EntitySet Name="News" EntityType="CrimsonCowardModel.News" />
+          <EntitySet Name="Partnerships" EntityType="CrimsonCowardModel.Partnership" />
+          <EntitySet Name="PropertyImages" EntityType="CrimsonCowardModel.PropertyImage" />
         </EntityContainer>
         <ComplexType Name="aspnet_Membership_GetPassword_Result">
           <Property Type="String" Name="Column1" Nullable="true" MaxLength="128" />
@@ -2715,6 +2776,8 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <NavigationProperty Name="FoodCategory1" Relationship="CrimsonCowardModel.FK_FoodCategory_FoodCategory" FromRole="FoodCategory" ToRole="FoodCategory1" />
           <NavigationProperty Name="FoodCategory2" Relationship="CrimsonCowardModel.FK_FoodCategory_FoodCategory" FromRole="FoodCategory1" ToRole="FoodCategory" />
           <NavigationProperty Name="FoodMenus" Relationship="CrimsonCowardModel.FK_FoodMenu_FoodCategory" FromRole="FoodCategory" ToRole="FoodMenu" />
+          <Property Name="Order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="catOrder" Type="Decimal" Precision="2" Scale="0" />
         </EntityType>
         <EntityType Name="FoodMenu">
           <Key>
@@ -2888,6 +2951,57 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HomeTip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dateCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="Subtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isInternational" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Partnership">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="dateAdded" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PropertyImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Extension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShowAsFirstImage" Type="Boolean" />
+          <Property Name="PRL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PropertyFor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Qadaa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3415,6 +3529,8 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySetMapping Name="FoodCategories">
             <EntityTypeMapping TypeName="CrimsonCowardModel.FoodCategory">
               <MappingFragment StoreEntitySet="FoodCategory">
+                <ScalarProperty Name="catOrder" ColumnName="catOrder" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -3545,6 +3661,61 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
             <EntityTypeMapping TypeName="CrimsonCowardModel.Subscriber">
               <MappingFragment StoreEntitySet="Subscriber">
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeTips">
+            <EntityTypeMapping TypeName="CrimsonCowardModel.HomeTip">
+              <MappingFragment StoreEntitySet="HomeTips">
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="text2" ColumnName="text2" />
+                <ScalarProperty Name="text1" ColumnName="text1" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="CrimsonCowardModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="isInternational" ColumnName="isInternational" />
+                <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partnerships">
+            <EntityTypeMapping TypeName="CrimsonCowardModel.Partnership">
+              <MappingFragment StoreEntitySet="Partnership">
+                <ScalarProperty Name="dateAdded" ColumnName="dateAdded" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyImages">
+            <EntityTypeMapping TypeName="CrimsonCowardModel.PropertyImage">
+              <MappingFragment StoreEntitySet="PropertyImage">
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Qadaa" ColumnName="Qadaa" />
+                <ScalarProperty Name="PropertyFor" ColumnName="PropertyFor" />
+                <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+                <ScalarProperty Name="PRL" ColumnName="PRL" />
+                <ScalarProperty Name="ShowAsFirstImage" ColumnName="ShowAsFirstImage" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -605,8 +605,6 @@ header .navbar-nav > li > a {
     padding-bottom: 6px;
     padding-top: 5px;
     margin-left: 2px;
-    line-height: 30px;
-    font-weight: 700;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -725,7 +723,6 @@ header ul.nav li {
     header ul.nav li a {
         font-size: 16px;
         border: none;
-        font-weight: 700;
         text-transform: uppercase;
     }
 
@@ -739,20 +736,19 @@ header ul.nav li {
 
 .navbar .nav > li > a {
     color: #E9B244;
+    font-family: Lato-regular !important;
     text-shadow: none;
     padding-right: 20px;
-    font-size: 16px !important;
+    font-size: 20px !important;
     padding-left: 20px;
-    font-weight: 800 !important;
 }
 
 .navbar .nav a:hover {
     color: #832623 !important;
     font-family: Lato-Bold !important;
-    font-size: 16px;
-    font-weight: 800 !important;
+    font-size: 20px;
     border-bottom: 3px solid #832623;
-    padding-bottom: 30%;
+    padding-bottom: 52px;
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
@@ -2332,6 +2328,12 @@ article img.pull-right, article .align-right {
 	}
 }*/
 
+
+@media(min-width: 767px) {
+    .phone {
+        display: none !important;
+    }
+}
 @media (max-width: 767px) {
 
     body {
@@ -2355,9 +2357,19 @@ article img.pull-right, article .align-right {
         width: 100%;
     }
 
-    .MenuItem {
+    .menuitem {
+        font-family: Lato-Regular;
+        font-size:20pt;
+        font-weight:500;
         border: none !important;
     }
+
+        .menuitem :hover {
+            font-family: Lato-Bold;
+            font-size: 20pt;
+            font-weight: 800;
+            border: none !important;
+        }
 
     .desktop {
         display: none !important;
@@ -2382,9 +2394,7 @@ article img.pull-right, article .align-right {
 
     .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
         background: none;
-        font-weight: 700;
         color: #1B1B1B;
-        font-family: Lato-Bold;
     }
 
     header .navbar-nav > li {
@@ -2672,7 +2682,7 @@ td {
         font-family: Lato-Bold;
         background-color: white;
         position: relative;
-        padding-bottom: 10px;
+        /*padding-bottom: 10px;*/
         text-transform: uppercase;
     }
 
@@ -2701,3 +2711,17 @@ td {
         height: 100%;
         /*margin-left: -50px;*/
     }
+
+.reviewsRating
+{
+    padding-left:-5px;
+}
+@media only screen and (max-width: 300px) {
+    .footerlogo {
+        text-align:center;
+    }
+}
+
+.footerlogo {
+    text-align: right;
+}
