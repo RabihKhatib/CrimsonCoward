@@ -273,9 +273,13 @@
                     <asp:HyperLink NavigateUrl="mailTo:alihijazi@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
 
                     <div class="clear"></div>
-                    <a>
-                        <img imageheight="33px" src="~/assets/footer_Facebook.png" style="margin-top: 20px; margin-bottom: 5px;" /></a>
+                    <a  target="_blank"  style="height:33px" href="https://www.facebook.com/crimsoncoward1/">
+                        <img  src="/assets/footer_Facebook.png" style="margin-top: 20px; margin-bottom: 5px;" />
+
+                    </a>
+                    <a  target="_blank"  style="height:33px" href="https://www.instagram.com/crimsoncoward">
                     <img imageheight="33px" src="~/assets/footer_Insta.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
+                        </a>
                     <img imageheight="33px" src="~/assets/footer_Snap.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
                 </div>
                 <div class="col-lg-pull-1 col-lg-4 col-xs-12 footerlogo" style="text-align: center;">
