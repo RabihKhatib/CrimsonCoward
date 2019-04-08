@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fa52a7ad808044dcb6b56f3f2652ded9" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="fa52a7ad808044dcb6b56f3f2652ded9" Name="Diagram1" ZoomLevel="59">
         <EntityTypeShape EntityType="CrimsonCowardModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CrimsonCowardModel.aspnet_Membership" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CrimsonCowardModel.aspnet_Paths" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
@@ -18,8 +18,7 @@
         <EntityTypeShape EntityType="CrimsonCowardModel.Blog" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CrimsonCowardModel.BlogCat" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CrimsonCowardModel.Career" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.Datum" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.RealEstateProperty" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrimsonCowardModel.Datum" Width="1.5" PointX="7.875" PointY="3.25" IsExpanded="true" />
         <AssociationConnector Association="CrimsonCowardModel.FK__aspnet_Me__Appli__22401542" ManuallyRouted="false" />
         <AssociationConnector Association="CrimsonCowardModel.FK__aspnet_Pa__Appli__53D770D6" ManuallyRouted="false" />
         <AssociationConnector Association="CrimsonCowardModel.FK__aspnet_Ro__Appli__40C49C62" ManuallyRouted="false" />
@@ -30,10 +29,9 @@
         <AssociationConnector Association="CrimsonCowardModel.FK__aspnet_Pe__UserI__5E54FF49" ManuallyRouted="false" />
         <AssociationConnector Association="CrimsonCowardModel.FK__aspnet_Pr__UserI__373B3228" ManuallyRouted="false" />
         <AssociationConnector Association="CrimsonCowardModel.aspnet_UsersInRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.Image" Width="1.5" PointX="10.375" PointY="13.75" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.Slider" Width="1.5" PointX="13.375" PointY="12.75" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.Article" Width="1.5" PointX="5.375" PointY="14.75" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.Reviews" Width="1.5" PointX="7.375" PointY="14.75" />
+        <EntityTypeShape EntityType="CrimsonCowardModel.Image" Width="1.5" PointX="9.5" PointY="4.5" />
+        <EntityTypeShape EntityType="CrimsonCowardModel.Slider" Width="1.5" PointX="11.375" PointY="4.375" />
+        <EntityTypeShape EntityType="CrimsonCowardModel.Reviews" Width="1.5" PointX="6.875" PointY="5.375" />
         <EntityTypeShape EntityType="CrimsonCowardModel.FoodCategory" Width="1.5" PointX="15.375" PointY="0.875" />
         <EntityTypeShape EntityType="CrimsonCowardModel.FoodMenu" Width="1.5" PointX="17.625" PointY="0.875" />
         <AssociationConnector Association="CrimsonCowardModel.FK_FoodCategory_FoodCategory" />
@@ -48,10 +46,9 @@
         <EntityTypeShape EntityType="CrimsonCowardModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="2.75" PointY="17.75" />
         <EntityTypeShape EntityType="CrimsonCowardModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="17.75" PointY="4.75" />
         <EntityTypeShape EntityType="CrimsonCowardModel.Subscriber" Width="1.5" PointX="15.375" PointY="7.75" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.HomeTip" Width="1.5" PointX="7.375" PointY="6.75" />
         <EntityTypeShape EntityType="CrimsonCowardModel.News" Width="1.5" PointX="9.375" PointY="6.75" />
         <EntityTypeShape EntityType="CrimsonCowardModel.Partnership" Width="1.5" PointX="9.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.PropertyImage" Width="1.5" PointX="5.375" PointY="18.75" />
+        <EntityTypeShape EntityType="CrimsonCowardModel.Article" Width="1.5" PointX="12.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

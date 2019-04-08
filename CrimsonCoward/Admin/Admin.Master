@@ -81,6 +81,33 @@
                             <!-- second-level-items -->
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-pencil fa-fw"></i>Our Story<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Admin/OurStoryAdminEdit.aspx">&nbsp;&nbsp;&nbsp;<i class="fa fa-edit fa-fw"></i>Edit Our Story</a>
+                                </li>
+                            </ul>
+                            <!-- second-level-items -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil fa-fw"></i>Body Left Image<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Admin/LftBdyImgAdminEdit.aspx">&nbsp;&nbsp;&nbsp;<i class="fa fa-edit fa-fw"></i>Edit Body Left Image</a>
+                                </li>
+                            </ul>
+                            <!-- second-level-items -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil fa-fw"></i>Body Right Image<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Admin/RghtBdyImgAdminEdit.aspx">&nbsp;&nbsp;&nbsp;<i class="fa fa-edit fa-fw"></i>Body Right Image</a>
+                                </li>
+                            </ul>
+                            <!-- second-level-items -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-pencil fa-fw"></i>Reviews<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

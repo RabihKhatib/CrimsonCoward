@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="link" Type="nvarchar(max)" />
           <Property Name="title" Type="nvarchar(max)" />
           <Property Name="Body" Type="nvarchar(max)" />
@@ -17,6 +17,8 @@
           <Property Name="date" Type="datetime" />
           <Property Name="Subtitle" Type="nvarchar(max)" />
           <Property Name="isDouble" Type="bit" />
+          <Property Name="position" Type="nchar" MaxLength="10" />
+          <Property Name="imageId" Type="int" />
         </EntityType>
         <EntityType Name="aspnet_Applications">
           <Key>
@@ -195,6 +197,7 @@
           <Property Name="Description" Type="nvarchar" MaxLength="2500" />
           <Property Name="Order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="catOrder" Type="numeric" Precision="2" Scale="0" />
+          <Property Name="mobileOrder" Type="numeric" Precision="2" Scale="0" />
         </EntityType>
         <EntityType Name="FoodMenu">
           <Key>
@@ -206,18 +209,6 @@
           <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
           <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="MENU_ORDER" Type="numeric" Precision="3" Scale="0" />
-        </EntityType>
-        <EntityType Name="HomeTips">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="image" Type="image" />
-          <Property Name="link" Type="nvarchar(max)" />
-          <Property Name="title" Type="nvarchar(max)" />
-          <Property Name="text1" Type="nvarchar(max)" />
-          <Property Name="text2" Type="nvarchar(max)" />
-          <Property Name="dateCreated" Type="datetime" />
         </EntityType>
         <EntityType Name="Images">
           <Key>
@@ -251,72 +242,6 @@
           <Property Name="image" Type="image" />
           <Property Name="logo" Type="image" />
           <Property Name="dateAdded" Type="datetime" />
-        </EntityType>
-        <EntityType Name="PropertyImage">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Image" Type="image" />
-          <Property Name="Extension" Type="nvarchar(max)" />
-          <Property Name="ShowAsFirstImage" Type="bit" />
-          <Property Name="PRL" Type="nvarchar(max)" />
-          <Property Name="PropertyType" Type="nvarchar(max)" />
-          <Property Name="PropertyFor" Type="nvarchar(max)" />
-          <Property Name="Qadaa" Type="nvarchar(max)" />
-          <Property Name="District" Type="nvarchar(max)" />
-          <Property Name="Size" Type="int" />
-        </EntityType>
-        <EntityType Name="RealEstateProperty">
-          <Key>
-            <PropertyRef Name="PRL" />
-          </Key>
-          <Property Name="PRL" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Qadaa" Type="nvarchar" MaxLength="50" />
-          <Property Name="District" Type="nvarchar" MaxLength="50" />
-          <Property Name="PropertyFor" Type="nvarchar" MaxLength="50" />
-          <Property Name="PropertyType" Type="nvarchar" MaxLength="50" />
-          <Property Name="Neighborhood" Type="nvarchar" MaxLength="50" />
-          <Property Name="Quality" Type="nvarchar" MaxLength="50" />
-          <Property Name="Size" Type="int" />
-          <Property Name="Floor" Type="int" />
-          <Property Name="Receptions" Type="int" />
-          <Property Name="TotalBedrooms" Type="int" />
-          <Property Name="Bathrooms" Type="int" />
-          <Property Name="Age" Type="int" />
-          <Property Name="Exclusive" Type="bit" />
-          <Property Name="StartDate" Type="datetime" />
-          <Property Name="EndDate" Type="datetime" />
-          <Property Name="TotalFloor" Type="int" />
-          <Property Name="FamilyRoom" Type="int" />
-          <Property Name="MasterBedRooms" Type="int" />
-          <Property Name="Parkings" Type="int" />
-          <Property Name="RentPrice" Type="int" />
-          <Property Name="SalePrice" Type="int" />
-          <Property Name="BldChargesPerMonth" Type="int" />
-          <Property Name="AdditionalInformation" Type="nvarchar(max)" />
-          <Property Name="Web_GuideDescription" Type="nvarchar(max)" />
-          <Property Name="Active" Type="bit" />
-          <Property Name="Pending" Type="bit" />
-          <Property Name="Closed" Type="bit" />
-          <Property Name="Zone" Type="nvarchar" MaxLength="50" />
-          <Property Name="ZoneNbr" Type="nvarchar" MaxLength="50" />
-          <Property Name="ZoningDescription" Type="nvarchar" MaxLength="50" />
-          <Property Name="DriverRoom" Type="int" />
-          <Property Name="MaidRoom" Type="int" />
-          <Property Name="DiningRoom" Type="int" />
-          <Property Name="Kitchen" Type="int" />
-          <Property Name="MaidBathRoom" Type="int" />
-          <Property Name="ShowOnFirstPage" Type="bit" />
-          <Property Name="Generator" Type="bit" />
-          <Property Name="Furnished" Type="bit" />
-          <Property Name="AgentName" Type="nvarchar(max)" />
-          <Property Name="Department" Type="nvarchar(max)" />
-          <Property Name="Country" Type="nvarchar(max)" />
-          <Property Name="Features" Type="nvarchar(max)" />
-          <Property Name="MapLong" Type="nvarchar(max)" />
-          <Property Name="MapLat" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Reviews">
           <Key>
@@ -1370,12 +1295,9 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySet Name="Data" EntityType="Self.Data" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FoodCategory" EntityType="Self.FoodCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FoodMenu" EntityType="Self.FoodMenu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="HomeTips" EntityType="Self.HomeTips" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Partnership" EntityType="Self.Partnership" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PropertyImage" EntityType="Self.PropertyImage" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RealEstateProperty" EntityType="Self.RealEstateProperty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subscriber" EntityType="Self.Subscriber" Schema="dbo" store:Type="Tables" />
@@ -1718,56 +1640,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="RealEstateProperty">
-          <Key>
-            <PropertyRef Name="PRL" />
-          </Key>
-          <Property Name="PRL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Qadaa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyFor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Neighborhood" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Quality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Size" Type="Int32" />
-          <Property Name="Floor" Type="Int32" />
-          <Property Name="Receptions" Type="Int32" />
-          <Property Name="TotalBedrooms" Type="Int32" />
-          <Property Name="Bathrooms" Type="Int32" />
-          <Property Name="Age" Type="Int32" />
-          <Property Name="Exclusive" Type="Boolean" />
-          <Property Name="StartDate" Type="DateTime" Precision="3" />
-          <Property Name="EndDate" Type="DateTime" Precision="3" />
-          <Property Name="TotalFloor" Type="Int32" />
-          <Property Name="FamilyRoom" Type="Int32" />
-          <Property Name="MasterBedRooms" Type="Int32" />
-          <Property Name="Parkings" Type="Int32" />
-          <Property Name="RentPrice" Type="Int32" />
-          <Property Name="SalePrice" Type="Int32" />
-          <Property Name="BldChargesPerMonth" Type="Int32" />
-          <Property Name="AdditionalInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Web_GuideDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Active" Type="Boolean" />
-          <Property Name="Pending" Type="Boolean" />
-          <Property Name="Closed" Type="Boolean" />
-          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ZoneNbr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ZoningDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DriverRoom" Type="Int32" />
-          <Property Name="MaidRoom" Type="Int32" />
-          <Property Name="DiningRoom" Type="Int32" />
-          <Property Name="Kitchen" Type="Int32" />
-          <Property Name="MaidBathRoom" Type="Int32" />
-          <Property Name="ShowOnFirstPage" Type="Boolean" />
-          <Property Name="Generator" Type="Boolean" />
-          <Property Name="Furnished" Type="Boolean" />
-          <Property Name="AgentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Features" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MapLong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MapLat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <Association Name="FK__aspnet_Me__Appli__22401542">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
           <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
@@ -1895,7 +1767,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySet Name="BlogCats" EntityType="Self.BlogCat" />
           <EntitySet Name="Careers" EntityType="Self.Career" />
           <EntitySet Name="Data" EntityType="Self.Datum" />
-          <EntitySet Name="RealEstateProperties" EntityType="Self.RealEstateProperty" />
           <AssociationSet Name="FK__aspnet_Me__Appli__22401542" Association="Self.FK__aspnet_Me__Appli__22401542">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
@@ -2616,7 +2487,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           </FunctionImport>
           <EntitySet Name="Images" EntityType="CrimsonCowardModel.Image" />
           <EntitySet Name="Sliders" EntityType="CrimsonCowardModel.Slider" />
-          <EntitySet Name="Articles" EntityType="CrimsonCowardModel.Article" />
           <EntitySet Name="Reviews" EntityType="CrimsonCowardModel.Reviews" />
           <EntitySet Name="FoodCategories" EntityType="CrimsonCowardModel.FoodCategory" />
           <EntitySet Name="FoodMenus" EntityType="CrimsonCowardModel.FoodMenu" />
@@ -2638,10 +2508,9 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySet Name="vw_aspnet_WebPartState_Shared" EntityType="CrimsonCowardModel.vw_aspnet_WebPartState_Shared" />
           <EntitySet Name="vw_aspnet_WebPartState_User" EntityType="CrimsonCowardModel.vw_aspnet_WebPartState_User" />
           <EntitySet Name="Subscribers" EntityType="CrimsonCowardModel.Subscriber" />
-          <EntitySet Name="HomeTips" EntityType="CrimsonCowardModel.HomeTip" />
           <EntitySet Name="News" EntityType="CrimsonCowardModel.News" />
           <EntitySet Name="Partnerships" EntityType="CrimsonCowardModel.Partnership" />
-          <EntitySet Name="PropertyImages" EntityType="CrimsonCowardModel.PropertyImage" />
+          <EntitySet Name="Articles" EntityType="CrimsonCowardModel.Article" />
         </EntityContainer>
         <ComplexType Name="aspnet_Membership_GetPassword_Result">
           <Property Type="String" Name="Column1" Nullable="true" MaxLength="128" />
@@ -2740,19 +2609,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <Property Name="ImageId" Type="Int32" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Article">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="date" Type="DateTime" Precision="3" />
-          <Property Name="Subtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="isDouble" Type="Boolean" />
-        </EntityType>
         <EntityType Name="Reviews">
           <Key>
             <PropertyRef Name="Id" />
@@ -2779,6 +2635,7 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <NavigationProperty Name="FoodMenus" Relationship="CrimsonCowardModel.FK_FoodMenu_FoodCategory" FromRole="FoodCategory" ToRole="FoodMenu" />
           <Property Name="Order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="catOrder" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="mobileOrder" Type="Decimal" Precision="2" Scale="0" />
         </EntityType>
         <EntityType Name="FoodMenu">
           <Key>
@@ -2954,18 +2811,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="HomeTip">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="dateCreated" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="News">
           <Key>
             <PropertyRef Name="Id" />
@@ -2989,21 +2834,20 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <Property Name="logo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="dateAdded" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="PropertyImage">
+        <EntityType Name="Article">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Extension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ShowAsFirstImage" Type="Boolean" />
-          <Property Name="PRL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyFor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Qadaa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="District" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Size" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="Subtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isDouble" Type="Boolean" />
+          <Property Name="position" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="imageId" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3181,57 +3025,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
                 <ScalarProperty Name="data_ID" ColumnName="data_ID" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="text" ColumnName="text" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RealEstateProperties">
-            <EntityTypeMapping TypeName="CrimsonCowardModel.RealEstateProperty">
-              <MappingFragment StoreEntitySet="RealEstateProperty">
-                <ScalarProperty Name="PRL" ColumnName="PRL" />
-                <ScalarProperty Name="Qadaa" ColumnName="Qadaa" />
-                <ScalarProperty Name="District" ColumnName="District" />
-                <ScalarProperty Name="PropertyFor" ColumnName="PropertyFor" />
-                <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
-                <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
-                <ScalarProperty Name="Quality" ColumnName="Quality" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="Floor" ColumnName="Floor" />
-                <ScalarProperty Name="Receptions" ColumnName="Receptions" />
-                <ScalarProperty Name="TotalBedrooms" ColumnName="TotalBedrooms" />
-                <ScalarProperty Name="Bathrooms" ColumnName="Bathrooms" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="Exclusive" ColumnName="Exclusive" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="TotalFloor" ColumnName="TotalFloor" />
-                <ScalarProperty Name="FamilyRoom" ColumnName="FamilyRoom" />
-                <ScalarProperty Name="MasterBedRooms" ColumnName="MasterBedRooms" />
-                <ScalarProperty Name="Parkings" ColumnName="Parkings" />
-                <ScalarProperty Name="RentPrice" ColumnName="RentPrice" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="BldChargesPerMonth" ColumnName="BldChargesPerMonth" />
-                <ScalarProperty Name="AdditionalInformation" ColumnName="AdditionalInformation" />
-                <ScalarProperty Name="Web_GuideDescription" ColumnName="Web_GuideDescription" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="Pending" ColumnName="Pending" />
-                <ScalarProperty Name="Closed" ColumnName="Closed" />
-                <ScalarProperty Name="Zone" ColumnName="Zone" />
-                <ScalarProperty Name="ZoneNbr" ColumnName="ZoneNbr" />
-                <ScalarProperty Name="ZoningDescription" ColumnName="ZoningDescription" />
-                <ScalarProperty Name="DriverRoom" ColumnName="DriverRoom" />
-                <ScalarProperty Name="MaidRoom" ColumnName="MaidRoom" />
-                <ScalarProperty Name="DiningRoom" ColumnName="DiningRoom" />
-                <ScalarProperty Name="Kitchen" ColumnName="Kitchen" />
-                <ScalarProperty Name="MaidBathRoom" ColumnName="MaidBathRoom" />
-                <ScalarProperty Name="ShowOnFirstPage" ColumnName="ShowOnFirstPage" />
-                <ScalarProperty Name="Generator" ColumnName="Generator" />
-                <ScalarProperty Name="Furnished" ColumnName="Furnished" />
-                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Features" ColumnName="Features" />
-                <ScalarProperty Name="MapLong" ColumnName="MapLong" />
-                <ScalarProperty Name="MapLat" ColumnName="MapLat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3499,20 +3292,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Articles">
-            <EntityTypeMapping TypeName="CrimsonCowardModel.Article">
-              <MappingFragment StoreEntitySet="Article">
-                <ScalarProperty Name="isDouble" ColumnName="isDouble" />
-                <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="link" ColumnName="link" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="CrimsonCowardModel.Reviews">
               <MappingFragment StoreEntitySet="Reviews">
@@ -3531,6 +3310,7 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySetMapping Name="FoodCategories">
             <EntityTypeMapping TypeName="CrimsonCowardModel.FoodCategory">
               <MappingFragment StoreEntitySet="FoodCategory">
+                <ScalarProperty Name="mobileOrder" ColumnName="mobileOrder" />
                 <ScalarProperty Name="catOrder" ColumnName="catOrder" />
                 <ScalarProperty Name="Order" ColumnName="Order" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -3668,19 +3448,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="HomeTips">
-            <EntityTypeMapping TypeName="CrimsonCowardModel.HomeTip">
-              <MappingFragment StoreEntitySet="HomeTips">
-                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
-                <ScalarProperty Name="text2" ColumnName="text2" />
-                <ScalarProperty Name="text1" ColumnName="text1" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="link" ColumnName="link" />
-                <ScalarProperty Name="image" ColumnName="image" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="News">
             <EntityTypeMapping TypeName="CrimsonCowardModel.News">
               <MappingFragment StoreEntitySet="News">
@@ -3706,19 +3473,18 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PropertyImages">
-            <EntityTypeMapping TypeName="CrimsonCowardModel.PropertyImage">
-              <MappingFragment StoreEntitySet="PropertyImage">
-                <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="District" ColumnName="District" />
-                <ScalarProperty Name="Qadaa" ColumnName="Qadaa" />
-                <ScalarProperty Name="PropertyFor" ColumnName="PropertyFor" />
-                <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
-                <ScalarProperty Name="PRL" ColumnName="PRL" />
-                <ScalarProperty Name="ShowAsFirstImage" ColumnName="ShowAsFirstImage" />
-                <ScalarProperty Name="Extension" ColumnName="Extension" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="CrimsonCowardModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="imageId" ColumnName="imageId" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="isDouble" ColumnName="isDouble" />
+                <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="link" ColumnName="link" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

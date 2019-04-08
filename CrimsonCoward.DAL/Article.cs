@@ -14,7 +14,7 @@ namespace CrimsonCoward.DAL
     
     public partial class Article
     {
-        public System.Guid Id { get; set; }
+        public int Id { get; set; }
         public string link { get; set; }
         public string title { get; set; }
         public string Body { get; set; }
@@ -22,5 +22,7 @@ namespace CrimsonCoward.DAL
         public Nullable<System.DateTime> date { get; set; }
         public string Subtitle { get; set; }
         public Nullable<bool> isDouble { get; set; }
+        public string position { get; set; }
+        public Nullable<int> imageId { get; set; }
     }
 }

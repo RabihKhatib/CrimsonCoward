@@ -19,6 +19,7 @@ namespace CrimsonCoward
             List<DAL.Image> lstImages = new List<DAL.Image>();
             List<DAL.Reviews> lstReviews = new List<Reviews>();
             List<DAL.FoodCategory> lstFoodCategory = new List<FoodCategory>();
+            List<DAL.Article> lstArticle = new List<Article>();
             CrimsonCowardEntities db = new CrimsonCowardEntities();
             var sliders = db.Sliders.Where(x => x.Active).ToList();
 
@@ -28,7 +29,13 @@ namespace CrimsonCoward
 
             lstFoodCategory = db.FoodCategories.OrderBy(x=>x.catOrder).ToList();
 
-      
+            lstArticle = db.Article.ToList();
+
+            if(lstArticle.Count > 0)
+            {
+                ourStoryTxt.Text = lstArticle.Where(x => x.position.Contains("center")).FirstOrDefault().Body;
+            }
+
             if (lstImages.Count > 0)
             {
                 rptBanner.DataSource = lstImages;

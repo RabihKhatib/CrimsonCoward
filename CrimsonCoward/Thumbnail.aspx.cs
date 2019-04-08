@@ -89,29 +89,50 @@ namespace CrimsonCoward
                       {
                     b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
                       }
-                }
-                else if (Request.Params["SliderId"] != null)
-                {
+            }
+            else if (Request.Params["SliderId"] != null)
+            {
                 var _id = int.Parse(Request.Params["SliderId"]);
-                         DAL.Slider slider = db.Sliders.Where(x=>x.Id== _id).FirstOrDefault();
-                         DAL.Image img = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
-                         if (img != null)
-                         {
-                     
-                             if (img.File == null || img.File.Length == 0)
-                                 b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
-                             else
-                             {
-                                
-                                     b = img.File;
-                               
-                     
-                             }
-                         }
-                         else
-                    b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+                DAL.Slider slider = db.Sliders.Where(x => x.Id == _id).FirstOrDefault();
+                DAL.Image img = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
+                if (img != null)
+                {
+
+                    if (img.File == null || img.File.Length == 0)
+                        b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+                    else
+                    {
+
+                        b = img.File;
+
+
+                    }
                 }
                 else
+                    b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+            }
+            else if (Request.Params["imageId"] != null)
+            {
+                var _id = int.Parse(Request.Params["imageId"]);
+                DAL.Article article = db.Article.Where(x => x.imageId == _id).FirstOrDefault();
+                DAL.Image img = db.Images.Where(x => x.Id == article.imageId).FirstOrDefault();
+                if (img != null)
+                {
+
+                    if (img.File == null || img.File.Length == 0)
+                        b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+                    else
+                    {
+
+                        b = img.File;
+
+
+                    }
+                }
+                else
+                    b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+            }
+            else
                 {
                 b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
                 }
@@ -137,45 +158,15 @@ namespace CrimsonCoward
                 thumbnailImage = ScaleImage(image, 150, 113);
                 //thumbnailImage = image.GetThumbnailImage(150, 113, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
             }
-            else if (Request.Params["secImg"] == "HomeTips")
-            {
-                thumbnailImage = ScaleImage(image, 1160, 510);
-                //thumbnailImage = image.GetThumbnailImage(1160, 510, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
-            }
             else if (Request.Params["secImg"] == "Latest")
             {
                 thumbnailImage = ScaleImage(image, 370, 250);
                 //thumbnailImage = image.GetThumbnailImage(370, 250, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
             }
-            else if (Request.Params["secImg"] == "HomeNewsThumb")
-            {
-                thumbnailImage = ScaleImage(image, 535, 200);
-                //thumbnailImage = image.GetThumbnailImage(535, 200, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
-            }
             else if (Request.Params["secImg"] == "logo")
             {
                 thumbnailImage = ScaleImage(image, 95, 95);
                 //thumbnailImage = image.GetThumbnailImage(95, 95, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
-            }
-            else if (Request.Params["secImg"] == "PartnershipThumb")
-            {
-                thumbnailImage = ScaleImage(image, 565, 280);
-                //thumbnailImage = image.GetThumbnailImage(565, 280, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
-            }
-            else if (Request.Params["secImg"] == "thumb")
-            {
-                thumbnailImage = ScaleImage(image, 220, 122);
-                //thumbnailImage = image.GetThumbnailImage(220, 122, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
-            }
-            else if (Request.Params["secImg"] == "big")
-            {
-                thumbnailImage = ScaleImage(image, 350, 280);
-                //thumbnailImage = image.GetThumbnailImage(350, 200, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
-            }
-            else if (Request.Params["secImg"] == "large")
-            {
-                thumbnailImage = ScaleImage(image, 600, 450);
-                //thumbnailImage = image.GetThumbnailImage(600, 450, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
             }
             else
             {

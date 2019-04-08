@@ -154,9 +154,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrimsonCowardData.edmx</DependentUpon>
     </Compile>
-    <Compile Include="HomeTip.cs">
-      <DependentUpon>CrimsonCowardData.tt</DependentUpon>
-    </Compile>
     <Compile Include="Image.cs">
       <DependentUpon>CrimsonCowardData.tt</DependentUpon>
     </Compile>
@@ -164,12 +161,6 @@
       <DependentUpon>CrimsonCowardData.tt</DependentUpon>
     </Compile>
     <Compile Include="Partnership.cs">
-      <DependentUpon>CrimsonCowardData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PropertyImage.cs">
-      <DependentUpon>CrimsonCowardData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RealEstateProperty.cs">
       <DependentUpon>CrimsonCowardData.tt</DependentUpon>
     </Compile>
     <Compile Include="Reviews.cs">

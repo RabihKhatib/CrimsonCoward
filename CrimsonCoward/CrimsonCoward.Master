@@ -84,7 +84,7 @@
                             <li class="MenuItem"  id="menu_ContactUs"><a href="javascript:$('html, body').animate({ scrollTop: $(document).height()},1000);">CONTACT US</a></li>
                             <li class="MenuItem" style="border-right: solid 2px #832623; height: 44px;" id="menu_seperator">&nbsp</li>
                         </ul>
-                        <ul class="nav navbar-nav desktop">
+                        <ul class="nav navbar-nav desktop"style="PADDING-LEFT: 15px;">
                             <li style="float: left; text-align:left; margin-top: 15px;">
                                 
                     <h5 style="color: #656565; margin-bottom: 5px;">HOURS OF OPERATION</h5>

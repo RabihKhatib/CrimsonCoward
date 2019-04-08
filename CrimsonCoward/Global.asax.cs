@@ -18,7 +18,7 @@ namespace CrimsonCoward
             MembershipUser mu = Membership.GetUser("Admin");
             if (mu == null)
             {
-                mu = Membership.CreateUser("Admin", "P@ssw0rd", "ibrahim.khatib@rems.me");
+                mu = Membership.CreateUser("Admin", "P@ssw0rd", "hello@crimsoncoward.com");
             }
             if (!Roles.RoleExists("Admin"))
             {
@@ -39,7 +39,8 @@ namespace CrimsonCoward
             RouteTable.Routes.MapPageRoute("Intrested", "ContactUs/{Prl}", "~/contactUs.aspx");
             RouteTable.Routes.MapPageRoute("careers", "Careers", "~/careers.aspx");
             RouteTable.Routes.MapPageRoute("login", "login", "~/login.aspx");
-            
+            RouteTable.Routes.MapPageRoute("admin", "login", "~/login.aspx");
+
         }
 
         void Application_End(object sender, EventArgs e)

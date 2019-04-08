@@ -115,9 +115,12 @@
     <Content Include="Admin\CategoryAdminEdit.aspx" />
     <Content Include="Admin\FoodMenuAdmin.aspx" />
     <Content Include="Admin\FoodMenuAdminEdit.aspx" />
+    <Content Include="Admin\RghtBdyImgAdminEdit.aspx" />
     <Content Include="Admin\ReviewsAdmin.aspx" />
     <Content Include="Admin\SliderAdmin.aspx" />
     <Content Include="Admin\ReviewsAdminEdit.aspx" />
+    <Content Include="Admin\OurStoryAdminEdit.aspx" />
+    <Content Include="Admin\LftBdyImgAdminEdit.aspx" />
     <Content Include="Admin\SliderAdminEdit.aspx" />
     <Content Include="Admin\PagesAdmin.aspx" />
     <Content Include="assets\AjaxControlToolkit.dll" />
@@ -139,6 +142,8 @@
     <Content Include="assets\footer_Snap.png" />
     <Content Include="assets\HeaderItem.png" />
     <Content Include="assets\FacebookHover.png" />
+    <Content Include="assets\order-online-bckg.png" />
+    <Content Include="assets\order-online-text.png" />
     <Content Include="assets\SnapHover.png" />
     <Content Include="assets\InstagramHover.png" />
     <Content Include="assets\Instagram.png" />
@@ -163,26 +168,10 @@
     <Content Include="email\property.htm" />
     <Content Include="email\request.htm" />
     <Content Include="Default.aspx" />
-    <Content Include="img\App-store.png" />
-    <Content Include="img\Email.png" />
-    <Content Include="img\google-play.png" />
-    <Content Include="img\Heart.png" />
-    <Content Include="img\minarow.png" />
-    <Content Include="img\phone.png" />
-    <Content Include="img\share.png" />
-    <Content Include="img\shutterstock_261828422.png" />
-    <Content Include="img\youtube.png" />
     <Content Include="js\gmap3.js" />
     <Content Include="js\jquery.star.rating.js" />
     <Content Include="js\jquery.sumoselect.js" />
     <Content Include="js\typeahead.js" />
-    <Content Include="img\bathrooms.png" />
-    <Content Include="img\bedrooms.png" />
-    <Content Include="img\imgLoading.gif" />
-    <Content Include="img\Next.png" />
-    <Content Include="img\parking.png" />
-    <Content Include="img\places.png" />
-    <Content Include="img\Prev.png" />
     <Content Include="js\buttons.js" />
     <Content Include="js\perfect-scrollbar.jquery.min.js" />
     <Content Include="js\Site.js" />
@@ -214,71 +203,6 @@
     <Content Include="fonts\customicon\Icons.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\about.jpg" />
-    <Content Include="img\AgentBadge.png" />
-    <Content Include="img\avatar.png" />
-    <Content Include="img\bg_direction_nav.png" />
-    <Content Include="img\callusback.png" />
-    <Content Include="img\childrencancercenter.png" />
-    <Content Include="img\Farah.png" />
-    <Content Include="img\favicon.ico" />
-    <Content Include="img\FiaBCI.png" />
-    <Content Include="img\FindYouProp.png" />
-    <Content Include="img\Gilbert.png" />
-    <Content Include="img\globebadge.png" />
-    <Content Include="img\glyphicons-halflings-white.png" />
-    <Content Include="img\glyphicons-halflings.png" />
-    <Content Include="img\homebadge.png" />
-    <Content Include="img\Housebadge.png" />
-    <Content Include="img\imgNotAvailable.jpg" />
-    <Content Include="img\img_1.png" />
-    <Content Include="img\jad.png" />
-    <Content Include="img\Joe.png" />
-    <Content Include="img\left-arrow.jpg" />
-    <Content Include="img\loader.gif" />
-    <Content Include="img\logo.png" />
-    <Content Include="img\nivo-bullets.png" />
-    <Content Include="img\Nizar.png" />
-    <Content Include="img\NoteBadge.png" />
-    <Content Include="img\pimg1.jpg" />
-    <Content Include="img\pimg2.jpg" />
-    <Content Include="img\pimg3.jpg" />
-    <Content Include="img\pimg4.jpg" />
-    <Content Include="img\preloader.gif" />
-    <Content Include="img\ralph.png" />
-    <Content Include="img\Rayan.png" />
-    <Content Include="img\Real.png" />
-    <Content Include="img\RealTor.png" />
-    <Content Include="img\right-arrow.jpg" />
-    <Content Include="img\service1.jpg" />
-    <Content Include="img\service2.jpg" />
-    <Content Include="img\service3.jpg" />
-    <Content Include="img\slides\1.jpg" />
-    <Content Include="img\slides\2.jpg" />
-    <Content Include="img\slides\3.jpg" />
-    <Content Include="img\Sodeco App icons\Bookmark.png" />
-    <Content Include="img\Sodeco App icons\Dollar.png" />
-    <Content Include="img\Sodeco App icons\Home.png" />
-    <Content Include="img\Sodeco App icons\Location.png" />
-    <Content Include="img\Sodeco App icons\Login.png" />
-    <Content Include="img\Sodeco App icons\Logout.png" />
-    <Content Include="img\Sodeco App icons\ManageProperty.png" />
-    <Content Include="img\Sodeco App icons\News.png" />
-    <Content Include="img\Sodeco App icons\newsletter.png" />
-    <Content Include="img\Sodeco App icons\Search.png" />
-    <Content Include="img\Sodeco App icons\Showing.png" />
-    <Content Include="img\Sodeco App icons\upload.png" />
-    <Content Include="img\Tracey.png" />
-    <Content Include="img\true.jpg" />
-    <Content Include="img\UBERLogo.png" />
-    <Content Include="img\works\1.jpg" />
-    <Content Include="img\works\2.jpg" />
-    <Content Include="img\works\3.jpg" />
-    <Content Include="img\works\4.jpg" />
-    <Content Include="img\works\5.jpg" />
-    <Content Include="img\works\6.jpg" />
-    <Content Include="img\works\7.jpg" />
-    <Content Include="img\works\8.jpg" />
     <Content Include="js\animate.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.js" />
@@ -355,6 +279,13 @@
     <Compile Include="Admin\FoodMenuAdminEdit.aspx.designer.cs">
       <DependentUpon>FoodMenuAdminEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\RghtBdyImgAdminEdit.aspx.cs">
+      <DependentUpon>RghtBdyImgAdminEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RghtBdyImgAdminEdit.aspx.designer.cs">
+      <DependentUpon>RghtBdyImgAdminEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ReviewsAdmin.aspx.cs">
       <DependentUpon>ReviewsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -375,6 +306,20 @@
     </Compile>
     <Compile Include="Admin\ReviewsAdminEdit.aspx.designer.cs">
       <DependentUpon>ReviewsAdminEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\OurStoryAdminEdit.aspx.cs">
+      <DependentUpon>OurStoryAdminEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\OurStoryAdminEdit.aspx.designer.cs">
+      <DependentUpon>OurStoryAdminEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LftBdyImgAdminEdit.aspx.cs">
+      <DependentUpon>LftBdyImgAdminEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LftBdyImgAdminEdit.aspx.designer.cs">
+      <DependentUpon>LftBdyImgAdminEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SliderAdminEdit.aspx.cs">
       <DependentUpon>SliderAdminEdit.aspx</DependentUpon>

@@ -25,6 +25,7 @@ namespace CrimsonCoward.DAL
         public string Description { get; set; }
         public int Order { get; set; }
         public Nullable<decimal> catOrder { get; set; }
+        public Nullable<decimal> mobileOrder { get; set; }
     
         public virtual FoodCategory FoodCategory1 { get; set; }
         public virtual FoodCategory FoodCategory2 { get; set; }

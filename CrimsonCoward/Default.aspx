@@ -27,7 +27,7 @@
     <section id="story" style="position: relative; display: grid;">
         <h3 class="title">
             <img src="assets/CC_Assets_Titles_OUR-STORY.png" alt="Our Story" /></h3>
-        <p class="text">
+<%--        <p class="text">
             Los Angeles native and Nashville inspired, Crimson Coward is dedicated to bringing the Nashville Hot Chicken phenomenon to the heart of Downey.  Our expertise for great quality and flavorful food is inspired by our time spent, meeting real Nashville chefs, and exploring the greatest eateries and hot chicken joints in Nashville.        
         </p>
         <p class="text" style="padding-bottom: 20px;">
@@ -35,7 +35,9 @@
         </p>
         <p class="text" style="padding-bottom: 20px;">
             The Crimson family is proud to bring authentic Nashville hot chicken to the heart of Downey, and Los Angeles area.
-
+        </p>--%>
+        <p class="text">
+             <asp:Label ID="ourStoryTxt" Style="display: block; text-align: center; font-weight: bold;" runat="server" />
         </p>
     </section>
     <section id="article" style="position: relative;">
@@ -270,7 +272,7 @@
                 </div>
                 <div class="col-lg-4 col-xs-12 desktop" style="text-align: center">
                     <h5 style="color: white; font-weight: lighter">“We're always a click away!.”</h5>
-                    <asp:HyperLink NavigateUrl="mailTo:alihijazi@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
+                    <asp:HyperLink NavigateUrl="mailTo:hello@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
 
                     <div class="clear"></div>
                     <a  target="_blank"  style="height:33px" href="https://www.facebook.com/crimsoncoward1/">
