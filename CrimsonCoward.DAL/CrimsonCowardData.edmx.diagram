@@ -33,9 +33,7 @@
         <EntityTypeShape EntityType="CrimsonCowardModel.Slider" Width="1.5" PointX="11.375" PointY="4.375" />
         <EntityTypeShape EntityType="CrimsonCowardModel.Reviews" Width="1.5" PointX="6.875" PointY="5.375" />
         <EntityTypeShape EntityType="CrimsonCowardModel.FoodCategory" Width="1.5" PointX="15.375" PointY="0.875" />
-        <EntityTypeShape EntityType="CrimsonCowardModel.FoodMenu" Width="1.5" PointX="17.625" PointY="0.875" />
         <AssociationConnector Association="CrimsonCowardModel.FK_FoodCategory_FoodCategory" />
-        <AssociationConnector Association="CrimsonCowardModel.FK_FoodMenu_FoodCategory" />
         <EntityTypeShape EntityType="CrimsonCowardModel.vw_aspnet_Applications" Width="1.5" PointX="15.75" PointY="10.75" />
         <EntityTypeShape EntityType="CrimsonCowardModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="12.75" PointY="15.75" />
         <EntityTypeShape EntityType="CrimsonCowardModel.vw_aspnet_Profiles" Width="1.5" PointX="15.75" PointY="13.75" />
@@ -49,6 +47,8 @@
         <EntityTypeShape EntityType="CrimsonCowardModel.News" Width="1.5" PointX="9.375" PointY="6.75" />
         <EntityTypeShape EntityType="CrimsonCowardModel.Partnership" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="CrimsonCowardModel.Article" Width="1.5" PointX="12.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CrimsonCowardModel.FoodMenu" Width="1.5" PointX="17.625" PointY="1.125" />
+        <AssociationConnector Association="CrimsonCowardModel.FK_FoodMenu_FoodCategory" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

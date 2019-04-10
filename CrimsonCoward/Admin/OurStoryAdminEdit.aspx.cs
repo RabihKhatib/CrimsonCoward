@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
-using System.IO;
 
 namespace CrimsonCoward.Admin
 {
@@ -15,15 +10,14 @@ namespace CrimsonCoward.Admin
         {
             if (!IsPostBack)
             {
-                    loadData();
+                loadData();
             }
         }
 
         private void loadData()
         {
             CrimsonCowardEntities db = new CrimsonCowardEntities();
-            Article article = db.Article.Where(x => x.position == "center").FirstOrDefault();
-          
+            Article article = db.Articles.Where(x => x.position == "center").FirstOrDefault();
 
             if (article != null)
             {
@@ -33,12 +27,11 @@ namespace CrimsonCoward.Admin
 
         protected void OSbtnSave_Click(object sender, EventArgs e)
         {
-            
             DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
-            var story = db.Article.Where(x => x.position == "center").FirstOrDefault();
-                db.Article.Remove(story);
-            
-            db.Article.Add(new Article { Id = 1, Body =  Body.Text, position = "center", description ="Our Story"});
+            Article story = db.Articles.Where(x => x.position == "center").FirstOrDefault();
+            db.Articles.Remove(story);
+
+            db.Articles.Add(new Article { Id = 1, Body = Body.Text, position = "center", description = "Our Story" });
             db.SaveChanges();
             Response.Redirect("~/Admin/OurStoryAdminEdit.aspx");
         }

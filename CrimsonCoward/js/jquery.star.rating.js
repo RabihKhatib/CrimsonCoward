@@ -34,11 +34,10 @@
                 }, function () {
                     obj.showRating(0, false);
                 }
-                );
-
+            );
         }
         $(this).append('<input type="hidden" name="' + settings.fieldName + '" id="' + settings.fieldId + '" value="' + settings.selectedRatings + '" />');
-       
+
         obj.showRating(settings.selectedRatings, true);
     };
 
@@ -63,7 +62,5 @@
                 $(this).html(icon);
             })
         }
-
     }
-
 }(jQuery));

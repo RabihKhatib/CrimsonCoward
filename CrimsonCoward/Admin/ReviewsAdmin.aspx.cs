@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
 
 namespace CrimsonCoward.Admin
 {
@@ -18,8 +15,8 @@ namespace CrimsonCoward.Admin
                 ReviewsGridView.DataSource = db.Reviews.ToList();
                 ReviewsGridView.DataBind();
             }
-
         }
+
         protected void ReviewsGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Edit")
@@ -30,7 +27,7 @@ namespace CrimsonCoward.Admin
             {
                 DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
                 Guid _id = new Guid(e.CommandArgument.ToString());
-                var review = db.Reviews.Where(x => x.Id == _id).FirstOrDefault();
+                Reviews review = db.Reviews.Where(x => x.Id == _id).FirstOrDefault();
                 //var image = db.Images.Where(x => x.Id == review.ImageID).FirstOrDefault();
                 //db.Images.Remove(image);
                 db.Reviews.Remove(review);
@@ -43,13 +40,13 @@ namespace CrimsonCoward.Admin
         protected void isActive_CheckedChanged(object sender, EventArgs e)
         {
             DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
-            var check = (CheckBox)sender;
-            var checkId = check.Attributes["reviewid"];
+            CheckBox check = (CheckBox)sender;
+            string checkId = check.Attributes["reviewid"];
 
             if (checkId != null)
             {
-                var id = new Guid(checkId);
-                var reviews = db.Reviews.Where(x => x.Id == id).FirstOrDefault();
+                Guid id = new Guid(checkId);
+                Reviews reviews = db.Reviews.Where(x => x.Id == id).FirstOrDefault();
                 db.Reviews.Remove(reviews);
                 db.SaveChanges();
                 if (reviews.IsActive == true)

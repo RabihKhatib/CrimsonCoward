@@ -1,10 +1,8 @@
-﻿using System;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
 
 namespace CrimsonCoward.Admin
 {
@@ -28,14 +26,13 @@ namespace CrimsonCoward.Admin
                 CrimsonCowardEntities db = new CrimsonCowardEntities();
                 Guid _id = Guid.Parse(e.CommandArgument.ToString());
 
-                var items = db.FoodMenus.Where(x=>x.CategoryID == _id).ToList();
+                List<FoodMenu> items = db.FoodMenus.Where(x => x.CategoryID == _id).ToList();
                 db.FoodMenus.RemoveRange(items);
-                var foodcat = db.FoodCategories.Where(x => x.Id == _id).FirstOrDefault();
+                FoodCategory foodcat = db.FoodCategories.Where(x => x.Id == _id).FirstOrDefault();
                 db.FoodCategories.Remove(foodcat);
                 db.SaveChanges();
                 CatGridView.DataSource = db.FoodCategories.ToList();
                 CatGridView.DataBind();
-
             }
         }
 

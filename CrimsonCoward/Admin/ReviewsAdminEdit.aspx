@@ -13,28 +13,26 @@
                 <div class="col-lg-6">
                     <asp:Label Text="" ID="lblID" runat="server" Visible="false" />
 
-                  
                     <div class="form-group">
-                        <label>Image</label> 
+                        <label>Image</label>
                         <asp:FileUpload runat="server" CssClass="form-control" ID="uplImage" />
                         <asp:Label Text="" ID="lblImage" CssClass="label-danger" runat="server" />
                     </div>
 
                     <div class="form-group">
-                         <label>Active</label> 
+                        <label>Active</label>
                         <asp:CheckBox runat="server" ID="chkActive" Checked="true" CssClass="form-control" />
                     </div>
                 </div>
-                 <div class="col-lg-6">
-                     <div class="row">
-                        <asp:Image runat="server" Width="100%" ID="imgview" Visible="false"/>
-                     </div>
+                <div class="col-lg-6">
                     <div class="row">
-                        <asp:Image runat="server" Width="50%" ID="logoView" Visible="false"/>
-                     </div>
+                        <asp:Image runat="server" Width="100%" ID="imgview" Visible="false" />
                     </div>
+                    <div class="row">
+                        <asp:Image runat="server" Width="50%" ID="logoView" Visible="false" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-   
 </asp:Content>

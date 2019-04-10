@@ -783,4 +783,3 @@ you can use the generic selector below, but it's slower:
 .font-icon-adjust:before {
 	content: "\e0f1";
 }
-

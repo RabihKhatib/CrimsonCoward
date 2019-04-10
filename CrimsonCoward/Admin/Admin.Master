@@ -52,7 +52,6 @@
                     <!-- end main dropdown -->
                 </ul>
                 <!-- end navbar-top-links -->
-
             </nav>
             <!-- end navbar top -->
 
@@ -147,12 +146,8 @@
                     </div>
                     <!--End Page Header -->
                 </div>
-
-
-
             </div>
             <!-- end page-wrapper -->
-
         </div>
         <!-- end wrapper -->
 
@@ -164,5 +159,4 @@
         <script src="assets/scripts/siminta.js"></script>
     </form>
 </body>
-
 </html>

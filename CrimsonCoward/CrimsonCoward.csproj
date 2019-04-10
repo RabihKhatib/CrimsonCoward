@@ -142,6 +142,7 @@
     <Content Include="assets\footer_Snap.png" />
     <Content Include="assets\HeaderItem.png" />
     <Content Include="assets\FacebookHover.png" />
+    <Content Include="assets\menu_separator.png" />
     <Content Include="assets\order-online-bckg.png" />
     <Content Include="assets\order-online-text.png" />
     <Content Include="assets\SnapHover.png" />
@@ -175,7 +176,6 @@
     <Content Include="js\buttons.js" />
     <Content Include="js\perfect-scrollbar.jquery.min.js" />
     <Content Include="js\Site.js" />
-    <Content Include="js\social-share-kit.js" />
     <Content Include="login.aspx" />
     <Content Include="SendSms.aspx" />
     <Content Include="Thumbnail.aspx" />
@@ -402,6 +402,7 @@
       <DependentUpon>real-estate-news.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -454,6 +455,8 @@
     <Content Include="fonts\Lato-LightItalic.ttf" />
     <Content Include="fonts\Lato-Regular.ttf" />
     <Content Include="fonts\PoetsenOne-Regular.ttf" />
+    <Content Include="fonts\materials.woff" />
+    <Content Include="fonts\materials1.woff2" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
   </ItemGroup>

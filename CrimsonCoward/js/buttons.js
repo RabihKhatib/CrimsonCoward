@@ -8,5 +8,3 @@ function doShare() {
         hashAddressBar: false
     });
 }
-
-

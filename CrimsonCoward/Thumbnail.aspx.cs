@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
-using System.IO;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Linq;
 
 namespace CrimsonCoward
 {
@@ -15,17 +11,17 @@ namespace CrimsonCoward
     {
         public void ResizeImage(double scaleFactor, Stream fromStream, Stream toStream)
         {
-            var image = System.Drawing.Image.FromStream(fromStream);
-            var newWidth = (int)(image.Width * scaleFactor);
-            var newHeight = (int)(image.Height * scaleFactor);
-            var thumbnailBitmap = new Bitmap(newWidth, newHeight);
+            System.Drawing.Image image = System.Drawing.Image.FromStream(fromStream);
+            int newWidth = (int)(image.Width * scaleFactor);
+            int newHeight = (int)(image.Height * scaleFactor);
+            Bitmap thumbnailBitmap = new Bitmap(newWidth, newHeight);
 
-            var thumbnailGraph = Graphics.FromImage(thumbnailBitmap);
+            Graphics thumbnailGraph = Graphics.FromImage(thumbnailBitmap);
             thumbnailGraph.CompositingQuality = CompositingQuality.HighQuality;
             thumbnailGraph.SmoothingMode = SmoothingMode.HighQuality;
             thumbnailGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
 
-            var imageRectangle = new Rectangle(0, 0, newWidth, newHeight);
+            Rectangle imageRectangle = new Rectangle(0, 0, newWidth, newHeight);
             thumbnailGraph.DrawImage(image, imageRectangle);
 
             thumbnailBitmap.Save(toStream, image.RawFormat);
@@ -37,111 +33,106 @@ namespace CrimsonCoward
 
         public System.Drawing.Image ScaleImage(System.Drawing.Image image, int maxWidth, int maxHeight)
         {
-            var ratioX = (double)maxWidth / image.Width;
-            var ratioY = (double)maxHeight / image.Height;
-            var ratio = Math.Min(ratioX, ratioY);
-            var newWidth = (int)(image.Width * ratio);
-            var newHeight = (int)(image.Height * ratio);
-            var newImage = new Bitmap(newWidth, newHeight);
+            double ratioX = (double)maxWidth / image.Width;
+            double ratioY = (double)maxHeight / image.Height;
+            double ratio = Math.Min(ratioX, ratioY);
+            int newWidth = (int)(image.Width * ratio);
+            int newHeight = (int)(image.Height * ratio);
+            Bitmap newImage = new Bitmap(newWidth, newHeight);
             Graphics.FromImage(newImage).DrawImage(image, 0, 0, newWidth, newHeight);
             return newImage;
         }
+
         public byte[] ImageToByteArray(System.Drawing.Image m_imageIn)
         {
-
             MemoryStream oMemoryStream = new MemoryStream();
             // ImageFormat could be other formats like bmp,gif,icon,png etc.
             m_imageIn.Save(oMemoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
             return oMemoryStream.ToArray();
         }
 
-
         public System.Drawing.Image ByteArrayToImage(byte[] m_byteArrayIn)
         {
-
             MemoryStream oMemoryStream = new MemoryStream(m_byteArrayIn);
             System.Drawing.Image oImage = System.Drawing.Image.FromStream(oMemoryStream);
             return oImage;
         }
+
         private void Page_Load(object sender, System.EventArgs e)
         {
             byte[] b = new byte[] { };
             CrimsonCowardEntities db = new CrimsonCowardEntities();
             if (Request.Params["id"] != null)
             {
-                
-                var _id = int.Parse(Request.Params["id"]);
+                int _id = int.Parse(Request.Params["id"]);
                 DAL.Image img = db.Images.Where(x => x.Id == _id).FirstOrDefault();
 
-
-                 if (img != null)
-                 {
-                          if (img.File == null || img.File.Length == 0)
-                          {
-                             
-                                  b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
-                              
-                          }
-                          else
-                              b = img.File;
-                      }
-                      else
-                      {
+                if (img != null)
+                {
+                    if (img.File == null || img.File.Length == 0)
+                    {
+                        b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+                    }
+                    else
+                    {
+                        b = img.File;
+                    }
+                }
+                else
+                {
                     b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
-                      }
+                }
             }
             else if (Request.Params["SliderId"] != null)
             {
-                var _id = int.Parse(Request.Params["SliderId"]);
+                int _id = int.Parse(Request.Params["SliderId"]);
                 DAL.Slider slider = db.Sliders.Where(x => x.Id == _id).FirstOrDefault();
                 DAL.Image img = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
                 if (img != null)
                 {
-
                     if (img.File == null || img.File.Length == 0)
+                    {
                         b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+                    }
                     else
                     {
-
                         b = img.File;
-
-
                     }
                 }
                 else
+                {
                     b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+                }
             }
             else if (Request.Params["imageId"] != null)
             {
-                var _id = int.Parse(Request.Params["imageId"]);
-                DAL.Article article = db.Article.Where(x => x.imageId == _id).FirstOrDefault();
+                int _id = int.Parse(Request.Params["imageId"]);
+                DAL.Article article = db.Articles.Where(x => x.imageId == _id).FirstOrDefault();
                 DAL.Image img = db.Images.Where(x => x.Id == article.imageId).FirstOrDefault();
                 if (img != null)
                 {
-
                     if (img.File == null || img.File.Length == 0)
+                    {
                         b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+                    }
                     else
                     {
-
                         b = img.File;
-
-
                     }
                 }
                 else
+                {
                     b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
+                }
             }
             else
-                {
+            {
                 b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
-                }
-
+            }
 
             //}
-                    MemoryStream imageStream = new MemoryStream();
+            MemoryStream imageStream = new MemoryStream();
             MemoryStream imageStream1 = new MemoryStream(b);
-
 
             // create an image object, using the filename we just retrieved
             System.Drawing.Image image = System.Drawing.Image.FromStream(imageStream1);
@@ -150,7 +141,7 @@ namespace CrimsonCoward
             System.Drawing.Image thumbnailImage = null;
             if (Request.Params["secImg"] == "footer")
             {
-                thumbnailImage = ScaleImage(image,100, 60);
+                thumbnailImage = ScaleImage(image, 100, 60);
                 //thumbnailImage = image.GetThumbnailImage(100, 60, new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
             }
             else if (Request.Params["secImg"] == "search")
@@ -178,12 +169,9 @@ namespace CrimsonCoward
                 thumbnailImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
             }
 
-            byte[] imageContent = new Byte[imageStream.Length];
+            byte[] imageContent = new byte[imageStream.Length];
             imageStream.Position = 0;
             imageStream.Read(imageContent, 0, (int)imageStream.Length);
-
-
-
 
             // return byte array to caller with image type
             Response.ContentType = "image/png";
@@ -200,6 +188,5 @@ namespace CrimsonCoward
         }
 
         // ... non-applicable infrastructure code removed for clarity ...
-
     }
 }

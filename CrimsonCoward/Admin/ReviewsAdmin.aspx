@@ -15,30 +15,27 @@
                     <asp:TemplateField HeaderText="Name">
                         <ItemTemplate>
 
-                            <asp:Label ID="reviewTitle" style="border-width:0px" Text='<%# Eval("Title") %>' runat="server" />
-
+                            <asp:Label ID="reviewTitle" Style="border-width: 0px" Text='<%# Eval("Title") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Review">
                         <ItemTemplate>
 
-                            <asp:Label ID="reviewText"  style="border-width:0px" Text='<%# Eval("Text") %>' runat="server" />
-
+                            <asp:Label ID="reviewText" Style="border-width: 0px" Text='<%# Eval("Text") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Rating">
                         <ItemTemplate>
-                            <asp:Label ID="reviewRating" Enabled="false" style="border-width:0px;" Text='<%# Eval("Rating") %>' runat="server" />
+                            <asp:Label ID="reviewRating" Enabled="false" Style="border-width: 0px;" Text='<%# Eval("Rating") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:checkbox Checked='<%# Eval("IsActive") %>' id="isActive" runat="server" reviewid='<%# Eval("Id") %>' AutoPostBack="true"  oncheckedchanged="isActive_CheckedChanged"/>
+                            <asp:CheckBox Checked='<%# Eval("IsActive") %>' ID="isActive" runat="server" reviewid='<%# Eval("Id") %>' AutoPostBack="true" OnCheckedChanged="isActive_CheckedChanged" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
     </div>
-
 </asp:Content>

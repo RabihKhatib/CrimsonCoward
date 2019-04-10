@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
 
 namespace CrimsonCoward.Admin
 {
@@ -12,7 +7,6 @@ namespace CrimsonCoward.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void PagesGridView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -24,12 +18,10 @@ namespace CrimsonCoward.Admin
             else if (e.CommandName == "del")
             {
                 //CrimsonCowardEntities db = new CrimsonCowardEntities();
-                //var page = 
+                //var page =
                 //Data.Delete(int.Parse(e.CommandArgument.ToString()));
                 //PagesGridView.DataBind();
             }
         }
-
-      
     }
 }

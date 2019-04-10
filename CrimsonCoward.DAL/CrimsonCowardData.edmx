@@ -206,7 +206,7 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="Name" Type="nvarchar" MaxLength="240" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="MENU_ORDER" Type="numeric" Precision="3" Scale="0" />
         </EntityType>
@@ -2489,14 +2489,9 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySet Name="Sliders" EntityType="CrimsonCowardModel.Slider" />
           <EntitySet Name="Reviews" EntityType="CrimsonCowardModel.Reviews" />
           <EntitySet Name="FoodCategories" EntityType="CrimsonCowardModel.FoodCategory" />
-          <EntitySet Name="FoodMenus" EntityType="CrimsonCowardModel.FoodMenu" />
           <AssociationSet Name="FK_FoodCategory_FoodCategory" Association="CrimsonCowardModel.FK_FoodCategory_FoodCategory">
             <End Role="FoodCategory" EntitySet="FoodCategories" />
             <End Role="FoodCategory1" EntitySet="FoodCategories" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FoodMenu_FoodCategory" Association="CrimsonCowardModel.FK_FoodMenu_FoodCategory">
-            <End Role="FoodCategory" EntitySet="FoodCategories" />
-            <End Role="FoodMenu" EntitySet="FoodMenus" />
           </AssociationSet>
           <EntitySet Name="vw_aspnet_Applications" EntityType="CrimsonCowardModel.vw_aspnet_Applications" />
           <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="CrimsonCowardModel.vw_aspnet_MembershipUsers" />
@@ -2511,6 +2506,11 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySet Name="News" EntityType="CrimsonCowardModel.News" />
           <EntitySet Name="Partnerships" EntityType="CrimsonCowardModel.Partnership" />
           <EntitySet Name="Articles" EntityType="CrimsonCowardModel.Article" />
+          <EntitySet Name="FoodMenus" EntityType="CrimsonCowardModel.FoodMenu" />
+          <AssociationSet Name="FK_FoodMenu_FoodCategory" Association="CrimsonCowardModel.FK_FoodMenu_FoodCategory">
+            <End Role="FoodCategory" EntitySet="FoodCategories" />
+            <End Role="FoodMenu" EntitySet="FoodMenus" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="aspnet_Membership_GetPassword_Result">
           <Property Type="String" Name="Column1" Nullable="true" MaxLength="128" />
@@ -2632,22 +2632,10 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <Property Name="Description" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="FoodCategory1" Relationship="CrimsonCowardModel.FK_FoodCategory_FoodCategory" FromRole="FoodCategory" ToRole="FoodCategory1" />
           <NavigationProperty Name="FoodCategory2" Relationship="CrimsonCowardModel.FK_FoodCategory_FoodCategory" FromRole="FoodCategory1" ToRole="FoodCategory" />
-          <NavigationProperty Name="FoodMenus" Relationship="CrimsonCowardModel.FK_FoodMenu_FoodCategory" FromRole="FoodCategory" ToRole="FoodMenu" />
           <Property Name="Order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="catOrder" Type="Decimal" Precision="2" Scale="0" />
           <Property Name="mobileOrder" Type="Decimal" Precision="2" Scale="0" />
-        </EntityType>
-        <EntityType Name="FoodMenu">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="240" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
-          <Property Name="CategoryID" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="FoodCategory" Relationship="CrimsonCowardModel.FK_FoodMenu_FoodCategory" FromRole="FoodMenu" ToRole="FoodCategory" />
-          <Property Name="MENU_ORDER" Type="Decimal" Precision="3" Scale="0" />
+          <NavigationProperty Name="FoodMenus" Relationship="CrimsonCowardModel.FK_FoodMenu_FoodCategory" FromRole="FoodCategory" ToRole="FoodMenu" />
         </EntityType>
         <Association Name="FK_FoodCategory_FoodCategory">
           <End Type="CrimsonCowardModel.FoodCategory" Role="FoodCategory" Multiplicity="1" />
@@ -2658,18 +2646,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
             </Principal>
             <Dependent Role="FoodCategory1">
               <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FoodMenu_FoodCategory">
-          <End Type="CrimsonCowardModel.FoodCategory" Role="FoodCategory" Multiplicity="1" />
-          <End Type="CrimsonCowardModel.FoodMenu" Role="FoodMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FoodCategory">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FoodMenu">
-              <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2849,6 +2825,30 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <Property Name="position" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="imageId" Type="Int32" />
         </EntityType>
+        <EntityType Name="FoodMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="240" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Guid" Nullable="false" />
+          <Property Name="MENU_ORDER" Type="Decimal" Precision="3" Scale="0" />
+          <NavigationProperty Name="FoodCategory" Relationship="CrimsonCowardModel.FK_FoodMenu_FoodCategory" FromRole="FoodMenu" ToRole="FoodCategory" />
+        </EntityType>
+        <Association Name="FK_FoodMenu_FoodCategory">
+          <End Type="CrimsonCowardModel.FoodCategory" Role="FoodCategory" Multiplicity="1" />
+          <End Type="CrimsonCowardModel.FoodMenu" Role="FoodMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FoodMenu">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3319,18 +3319,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FoodMenus">
-            <EntityTypeMapping TypeName="CrimsonCowardModel.FoodMenu">
-              <MappingFragment StoreEntitySet="FoodMenu">
-                <ScalarProperty Name="MENU_ORDER" ColumnName="MENU_ORDER" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vw_aspnet_Applications">
             <EntityTypeMapping TypeName="CrimsonCowardModel.vw_aspnet_Applications">
               <MappingFragment StoreEntitySet="vw_aspnet_Applications">
@@ -3485,6 +3473,18 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
                 <ScalarProperty Name="Body" ColumnName="Body" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodMenus">
+            <EntityTypeMapping TypeName="CrimsonCowardModel.FoodMenu">
+              <MappingFragment StoreEntitySet="FoodMenu">
+                <ScalarProperty Name="MENU_ORDER" ColumnName="MENU_ORDER" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

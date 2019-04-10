@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.IO;
+using System.Linq;
 
 namespace CrimsonCoward.Admin
 {
@@ -27,16 +23,14 @@ namespace CrimsonCoward.Admin
             CrimsonCowardEntities db = new CrimsonCowardEntities();
             int _id = int.Parse(p);
             Slider slider = db.Sliders.Where(x => x.Id == _id).FirstOrDefault();
-          
 
             if (slider != null)
             {
-             
-                var data = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
+                DAL.Image data = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
                 if (data != null)
                 {
                     lblID.Text = data.Id.ToString();
-                    
+
                     if (data.File != null)
                     {
                         imgview.ImageUrl = ResolveUrl("~/") + "Thumbnail.aspx?SliderId=" + _id + "&secImg=HomeTips";
@@ -55,11 +49,11 @@ namespace CrimsonCoward.Admin
                 {
                     if (uplImage.FileName.Split('.')[1].ToLower() == "jpeg" || uplImage.FileName.Split('.')[1].ToLower() == "jpg" || uplImage.FileName.Split('.')[1].ToLower() == "png" || uplImage.FileName.Split('.')[1].ToLower() == "gif")
                     {
-                            Session["image"] = Path.GetFileName(uplImage.FileName);
-                            data.Name = uplImage.FileName.Split('.')[0].ToLower();
-                            data.Ext = uplImage.FileName.Split('.')[1].ToLower();
-                            data.Desc = "slider";
-                            data.File = uplImage.FileBytes;                                                       
+                        Session["image"] = Path.GetFileName(uplImage.FileName);
+                        data.Name = uplImage.FileName.Split('.')[0].ToLower();
+                        data.Ext = uplImage.FileName.Split('.')[1].ToLower();
+                        data.Desc = "slider";
+                        data.File = uplImage.FileBytes;
                     }
                     else
                     {
@@ -77,13 +71,12 @@ namespace CrimsonCoward.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            
             DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
             if (Request.Params["id"] != null)
             {
-                var id = int.Parse(Request.Params["id"]);
-                var slider = db.Sliders.Where(x => x.Id == id).FirstOrDefault();
-                var image = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
+                int id = int.Parse(Request.Params["id"]);
+                Slider slider = db.Sliders.Where(x => x.Id == id).FirstOrDefault();
+                DAL.Image image = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
                 db.Images.Remove(image);
                 db.Sliders.Remove(slider);
             }

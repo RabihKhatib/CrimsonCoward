@@ -45,7 +45,6 @@ namespace CrimsonCoward.DAL
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<Reviews> Reviews { get; set; }
         public virtual DbSet<FoodCategory> FoodCategories { get; set; }
-        public virtual DbSet<FoodMenu> FoodMenus { get; set; }
         public virtual DbSet<vw_aspnet_Applications> vw_aspnet_Applications { get; set; }
         public virtual DbSet<vw_aspnet_MembershipUsers> vw_aspnet_MembershipUsers { get; set; }
         public virtual DbSet<vw_aspnet_Profiles> vw_aspnet_Profiles { get; set; }
@@ -58,7 +57,8 @@ namespace CrimsonCoward.DAL
         public virtual DbSet<Subscriber> Subscribers { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Partnership> Partnerships { get; set; }
-        public virtual DbSet<Article> Article { get; set; }
+        public virtual DbSet<Article> Articles { get; set; }
+        public virtual DbSet<FoodMenu> FoodMenus { get; set; }
     
         [DbFunction("CrimsonCowardEntities", "fn_ParseCSVString")]
         public virtual IQueryable<fn_ParseCSVString_Result> fn_ParseCSVString(string iDS)

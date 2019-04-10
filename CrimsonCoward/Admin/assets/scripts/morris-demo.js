@@ -1,8 +1,6 @@
-
 //morris area chart
 
 $(function () {
-
     Morris.Area({
         element: 'morris-area-chart',
         data: [{
@@ -154,5 +152,4 @@ $(function () {
         hideHover: 'auto',
         resize: true
     });
-
 });

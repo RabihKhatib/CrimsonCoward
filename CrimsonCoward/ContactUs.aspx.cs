@@ -1,20 +1,15 @@
 ﻿using CrimsonCoward.DAL;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace CrimsonCoward
 {
     public partial class ContactUs : System.Web.UI.Page
     {
-       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.RouteData.Values.Count == 1)
@@ -23,7 +18,7 @@ namespace CrimsonCoward
                 {
                     PageTitle.Text = "Intrested in this property";
                     ContactText.Visible = false;
-                    Prl.Text ="Ref#: "+ Page.RouteData.Values["Prl"].ToString();
+                    Prl.Text = "Ref#: " + Page.RouteData.Values["Prl"].ToString();
                     map.Visible = false;
                     PropertyDetails.Visible = true;
                     CrimsonCowardEntities db = new CrimsonCowardEntities();
@@ -39,12 +34,13 @@ namespace CrimsonCoward
                 }
             }
         }
+
         public static bool IsPhoneNumber(string number)
         {
             if (number.StartsWith("03") ||
                 number.StartsWith("70") ||
-                number.StartsWith("71") || 
-                number.StartsWith("76") || 
+                number.StartsWith("71") ||
+                number.StartsWith("76") ||
                 number.StartsWith("78") ||
                 number.StartsWith("80") ||
                 number.StartsWith("81"))
@@ -55,14 +51,12 @@ namespace CrimsonCoward
             {
                 return false;
             }
-             
         }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-          
             if (Page.RouteData.Values["Prl"] != null && Page.RouteData.Values["Prl"].ToString().ToLower() != "Prl")
             {
-
                 if (IsPhoneNumber(txtPhone.Text))
                 {
                     string username, pass, from, to, text;
@@ -91,8 +85,6 @@ namespace CrimsonCoward
 
                     try
                     {
-
-
                         //  This actually does the request and gets the response back
                         HttpWebResponse resp = (HttpWebResponse)webRequest.GetResponse();
 
@@ -104,20 +96,17 @@ namespace CrimsonCoward
                             responseData = responseReader.ReadToEnd();
                         }
 
-                        //  Now, find the index of some word on the page that would be 
+                        //  Now, find the index of some word on the page that would be
                         //     displayed if the login was successful
                         int index = responseData.IndexOf("OK");
-
-                         
                     }
                     catch (Exception)
                     {
-
                         //ScriptManager.RegisterClientScriptBlock(this, GetType(), this.UniqueID, "alert('SendError')", true);
                         //return;
                     }
                 }
-             
+
                 string body = GetEmail(Page.RouteData.Values["Prl"].ToString());
                 EmailHelper.SendEmail(ConfigurationManager.AppSettings["EmailTo"],
                     "Contact Intrested In this Property " + Page.RouteData.Values["Prl"].ToString(), body);
@@ -148,6 +137,7 @@ namespace CrimsonCoward
             emailBody = emailBody.Replace("[DATE]", DateTime.Now.ToShortDateString());
             return emailBody;
         }
+
         private string GetEmail(string Prl)
         {
             string emailBody = "";

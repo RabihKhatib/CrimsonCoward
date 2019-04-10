@@ -3,12 +3,11 @@ URI: https://github.com/onokumus/metisMenu
 
 =======================================*/
 ; (function ($, window, document, undefined) {
-
     var pluginName = "metisMenu",
         defaults = {
             toggle: true
         };
-        
+
     function Plugin(element, options) {
         this.element = element;
         this.settings = $.extend({}, defaults, options);
@@ -19,7 +18,6 @@ URI: https://github.com/onokumus/metisMenu
 
     Plugin.prototype = {
         init: function () {
-
             var $this = $(this.element),
                 $toggle = this.settings.toggle;
 
@@ -38,12 +36,11 @@ URI: https://github.com/onokumus/metisMenu
         }
     };
 
-    $.fn[ pluginName ] = function (options) {
+    $.fn[pluginName] = function (options) {
         return this.each(function () {
             if (!$.data(this, "plugin_" + pluginName)) {
                 $.data(this, "plugin_" + pluginName, new Plugin(this, options));
             }
         });
     };
-
 })(jQuery, window, document);

@@ -3,13 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-  
-    <div class="container">
-          <h1 class="Title">About Us</h1><br />
-        <div class="about">
-         
 
-            
+    <div class="container">
+        <h1 class="Title">About Us</h1>
+        <br />
+        <div class="about">
+
             <div class="col-lg-12">
                 <div class="project">
                     <div class="row" style="position: relative">
@@ -54,21 +53,17 @@
                     <div class="block-heading-two">
                         <h3><span>WHY CHOOSE US?</span></h3>
                     </div>
-                    <p style="border-top: solid 1px darkgray; padding-top: 15px;padding-bottom: 15px">CrimsonCoward provides full-fledged services that tackle the dual aspect of the industry; our professionals are split into two highly dedicated teams, one that focuses on marketing and sales strategies for sellers, the other working tirelessly to meet the demands of our clients. Whether selling, renting or buying, CrimsonCoward is the answer to your real estate needs.</p>
+                    <p style="border-top: solid 1px darkgray; padding-top: 15px; padding-bottom: 15px">CrimsonCoward provides full-fledged services that tackle the dual aspect of the industry; our professionals are split into two highly dedicated teams, one that focuses on marketing and sales strategies for sellers, the other working tirelessly to meet the demands of our clients. Whether selling, renting or buying, CrimsonCoward is the answer to your real estate needs.</p>
                 </div>
 
                 <div class="col-md-6">
                     <!-- Heading and para -->
                     <div class="block-heading-two">
-                        <h3><span >OUR TEAM</span></h3>
+                        <h3><span>OUR TEAM</span></h3>
                     </div>
-                    <p style="border-top: solid 1px darkgray; padding-top: 15px;padding-bottom: 15px">Our team forms a wide network of certified agents with insider knowledge and an established reputation in their communities. Each agent at CrimsonCoward provides personalized real estate solutions, connecting the right buyer with the right seller, the ideal renter with the ideal tenant, and customers with their dream homes.</p>
+                    <p style="border-top: solid 1px darkgray; padding-top: 15px; padding-bottom: 15px">Our team forms a wide network of certified agents with insider knowledge and an established reputation in their communities. Each agent at CrimsonCoward provides personalized real estate solutions, connecting the right buyer with the right seller, the ideal renter with the ideal tenant, and customers with their dream homes.</p>
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
 </asp:Content>

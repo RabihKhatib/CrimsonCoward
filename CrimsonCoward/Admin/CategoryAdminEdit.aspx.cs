@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
-using System.IO;
 
 namespace CrimsonCoward.Admin
 {
@@ -24,8 +19,7 @@ namespace CrimsonCoward.Admin
 
         private void loadData(string p)
         {
-            Guid _id;
-            if (Guid.TryParse(p, out _id))
+            if (Guid.TryParse(p, out Guid _id))
             {
                 DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
                 FoodCategory data = db.FoodCategories.Where(x => x.Id == _id).FirstOrDefault();
@@ -34,7 +28,6 @@ namespace CrimsonCoward.Admin
                     lblID.Text = data.Id.ToString();
                     txtName.Text = data.Name;
                     txtTitle.Text = data.Description;
-                    
                 }
             }
         }
@@ -55,8 +48,8 @@ namespace CrimsonCoward.Admin
             DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
             if (Request.Params["id"] != null)
             {
-                var id = Guid.Parse(Request.Params["id"]);
-                var Cat = db.FoodCategories.Where(x => x.Id == id).FirstOrDefault();
+                Guid id = Guid.Parse(Request.Params["id"]);
+                FoodCategory Cat = db.FoodCategories.Where(x => x.Id == id).FirstOrDefault();
                 db.FoodCategories.Remove(Cat);
             }
             FoodCategory data = FillCat();

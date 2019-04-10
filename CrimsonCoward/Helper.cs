@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Reflection;
 
 namespace CrimsonCoward
@@ -12,11 +11,16 @@ namespace CrimsonCoward
         {
             string Str = string.Empty;
             if (ids != null)
+            {
                 foreach (Guid item in ids)
+                {
                     Str = Str + item.ToString() + "|";
+                }
+            }
 
             return Str;
         }
+
         public static Guid[] GetGuids(this string idsStr)
         {
             string[] split = idsStr.Split('|');
@@ -26,7 +30,9 @@ namespace CrimsonCoward
             {
                 item = str.ToGuid();
                 if (item != Guid.Empty)
+                {
                     retVal.Add(item);
+                }
             }
             return retVal.ToArray<Guid>();
         }
@@ -43,15 +49,19 @@ namespace CrimsonCoward
                 return Guid.Empty;
             }
         }
+
         public static int ToInt(this string str)
         {
-
-            int retVal = 0;
-            if (int.TryParse(str, out retVal))
+            if (int.TryParse(str, out int retVal))
+            {
                 return retVal;
+            }
             else
+            {
                 return 0;
+            }
         }
+
         public static TimeSpan ToTimeSpan(this string timespanStr)
         {
             TimeSpan retVal;
@@ -59,54 +69,77 @@ namespace CrimsonCoward
             {
                 string[] all = timespanStr.Split(":".ToCharArray());
                 if ((all != null) && (all.Length == 2))
+                {
                     retVal = new TimeSpan(all[0].ToInt(), all[1].ToInt(), 0);
+                }
                 else
+                {
                     retVal = new TimeSpan();
+                }
             }
             else
+            {
                 retVal = new TimeSpan(timespanStr.ToInt(), 0, 0);
-            return retVal;
+            }
 
+            return retVal;
         }
+
         public static TimeSpan ToTimeSpan(this int minutes)
         {
             TimeSpan retVal = new TimeSpan(0, minutes, 0);
             return retVal;
         }
+
         public static double ToDouble(this string str)
         {
-
             double retVal = double.MinValue;
             if (double.TryParse(str, out retVal))
+            {
                 return retVal;
+            }
             else
+            {
                 return 0.0;
+            }
         }
+
         public static float ToFloat(this string str)
         {
-
             float retVal = float.MinValue;
             if (float.TryParse(str, out retVal))
+            {
                 return retVal;
+            }
             else
+            {
                 return 0;
+            }
         }
+
         public static DateTime ToDateTime(this string str)
         {
-
             DateTime retVal = DateTime.MinValue;
             if (DateTime.TryParse(str, out retVal))
+            {
                 return retVal;
+            }
             else
+            {
                 return DateTime.MinValue;
+            }
         }
+
         public static bool ToBool(this string str)
         {
-            bool retVal = false;
-            if (bool.TryParse(str, out retVal))
+            if (bool.TryParse(str, out bool retVal))
+            {
                 return retVal;
+            }
             else
-                return false; ;
+            {
+                return false;
+            };
         }
 
         public static T GetAttribute<T>(Enum en)
@@ -117,7 +150,9 @@ namespace CrimsonCoward
             {
                 object[] attrs = memInfo[0].GetCustomAttributes(typeof(T), false);
                 if (attrs != null && attrs.Length > 0)
+                {
                     return ((T)attrs[0]);
+                }
             }
             return default(T);
         }

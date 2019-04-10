@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" validateRequest="false" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="OurStoryAdminEdit.aspx.cs" Inherits="CrimsonCoward.Admin.OurStoryAdminEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" ValidateRequest="false" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="OurStoryAdminEdit.aspx.cs" Inherits="CrimsonCoward.Admin.OurStoryAdminEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,21 +10,19 @@
         <div class="panel-body">
             <h1 class="Title">Edit Our Story</h1>
             <div class="row" style="margin-top: 20px;">
-                <div class="col-lg-6">                    
-                                 
+                <div class="col-lg-6">
+
                     <div class="form-group">
                         <label>Our Story Text</label>
-                        <asp:TextBox runat="server" CssClass="form-control" ID="Body" TextMode="MultiLine" ValidateRequestMode="Disabled"/>
+                        <asp:TextBox runat="server" CssClass="form-control" ID="Body" TextMode="MultiLine" ValidateRequestMode="Disabled" />
                     </div>
                     <div class="form-group">
-                         <asp:Button Text="Save" CssClass="form-control" ID="OSbtnSave" runat="server" OnClick="OSbtnSave_Click" />
+                        <asp:Button Text="Save" CssClass="form-control" ID="OSbtnSave" runat="server" OnClick="OSbtnSave_Click" />
                     </div>
                 </div>
-                 <div class="col-lg-6">
-
-                    </div>
+                <div class="col-lg-6">
+                </div>
             </div>
         </div>
     </div>
-   
 </asp:Content>

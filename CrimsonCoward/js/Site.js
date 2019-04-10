@@ -1,5 +1,4 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $(".various").fancybox({
         maxWidth: 850,
         maxHeight: 600,
@@ -11,26 +10,26 @@ $(document).ready(function () {
         openEffect: 'none',
         closeEffect: 'none'
     });
-     $('.fancybox-media').fancybox({
+    $('.fancybox-media').fancybox({
         openEffect: 'none',
         closeEffect: 'none',
         helpers: {
             media: {}
         }
     });
-//    $("#brokerage_menu").mouseover
-//    $(".fancybox").fancybox({
-//        iframe: {
-//            preload: false
-//        }
-//    });
-//    $("a.iframe").fancybox({
-//        'transitionIn': 'elastic',
-//        'transitionOut': 'elastic',
-//        'speedIn': 600,
-//        'speedOut': 200,
-//        'overlayShow': false
-//    });
+    //    $("#brokerage_menu").mouseover
+    //    $(".fancybox").fancybox({
+    //        iframe: {
+    //            preload: false
+    //        }
+    //    });
+    //    $("a.iframe").fancybox({
+    //        'transitionIn': 'elastic',
+    //        'transitionOut': 'elastic',
+    //        'speedIn': 600,
+    //        'speedOut': 200,
+    //        'overlayShow': false
+    //    });
     $("#responsive_menu_icon").click(function () {
         $("#responsive_menu").toggle(800);
     });
@@ -40,7 +39,6 @@ $(document).ready(function () {
 
     $(".main_banner_text").fadeIn(2000);
 });
-
 
 //function AdvertisementBanner(width, height) {
 //    $("#advertisement_banner").bjqs({
@@ -77,7 +75,6 @@ function showSelectValue(labelID, ddlValue) {
 }
 
 function jsDecimals(e) {
-
     var evt = (e) ? e : window.event;
     var key = (evt.keyCode) ? evt.keyCode : evt.which;
     if (key != null) {
@@ -96,15 +93,15 @@ function jsDecimals(e) {
     return true;
 }
 function jsIsUserFriendlyChar(val) {
-    // Backspace, Tab, Enter, Insert, and Delete  
+    // Backspace, Tab, Enter, Insert, and Delete
     if (val == 8 || val == 9 || val == 13 || val == 45 || val == 46) {
         return true;
     }
-    // Ctrl, Alt, CapsLock, Home, End, and Arrows  
+    // Ctrl, Alt, CapsLock, Home, End, and Arrows
     if ((val > 16 && val < 21) || (val > 34 && val < 41)) {
         return true;
     }
-    // The rest  
+    // The rest
     return false;
 }
 
@@ -128,9 +125,7 @@ function changeAboutDept(dept) {
 //  // google.maps.event.addDomListener(window, 'load', initialize);
 //}
 
-
 //function clickroute(lati, long) {
-
 //    map = google.maps.Map(document.getElementById("map_canvas"));
 //    map.panTo(lati, long);
 //}
@@ -157,5 +152,5 @@ function changeAboutDept(dept) {
 //            collapsecurrent: false //<- No comma following very last setting!
 //        });
 //    }
-//        
+//
 // });

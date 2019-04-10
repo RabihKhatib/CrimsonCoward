@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace CrimsonCoward
 {
@@ -46,8 +42,6 @@ namespace CrimsonCoward
 
                 try
                 {
-
-
                     //  This actually does the request and gets the response back
                     HttpWebResponse resp = (HttpWebResponse)webRequest.GetResponse();
 
@@ -59,17 +53,16 @@ namespace CrimsonCoward
                         responseData = responseReader.ReadToEnd();
                     }
 
-                    //  Now, find the index of some word on the page that would be 
+                    //  Now, find the index of some word on the page that would be
                     //     displayed if the login was successful
                     int index = responseData.IndexOf("OK");
 
-                    ScriptManager.RegisterClientScriptBlock(this, GetType(), this.UniqueID, "alert('Sent')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(), UniqueID, "alert('Sent')", true);
                     return;
                 }
                 catch (Exception)
                 {
-
-                    ScriptManager.RegisterClientScriptBlock(this, GetType(), this.UniqueID, "alert('SendError')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(), UniqueID, "alert('SendError')", true);
                     return;
                 }
             }
@@ -78,6 +71,5 @@ namespace CrimsonCoward
                 Response.Redirect("~/");
             }
         }
-
     }
 }

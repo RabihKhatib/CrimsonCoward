@@ -14,11 +14,11 @@
                                     <td>
                                         <table cellpadding="0">
                                             <tr>
-                                                <td class="Title center" style="width:200px !important" colspan="2">Log In</td>
+                                                <td class="Title center" style="width: 200px !important" colspan="2">Log In</td>
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <asp:Label runat="server" style="color:black;" AssociatedControlID="UserName" ID="UserNameLabel">User Name:</asp:Label></td>
+                                                    <asp:Label runat="server" Style="color: black;" AssociatedControlID="UserName" ID="UserNameLabel">User Name:</asp:Label></td>
                                                 <td>
                                                     <asp:TextBox runat="server" CssClass="form-control" ID="UserName"></asp:TextBox>
                                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ValidationGroup="Login1" ToolTip="User Name is required." ID="UserNameRequired">*</asp:RequiredFieldValidator>
@@ -26,9 +26,9 @@
                                             </tr>
                                             <tr>
                                                 <td align="right">
-                                                    <asp:Label runat="server" style="color:black;" AssociatedControlID="Password" ID="PasswordLabel">Password:</asp:Label></td>
+                                                    <asp:Label runat="server" Style="color: black;" AssociatedControlID="Password" ID="PasswordLabel">Password:</asp:Label></td>
                                                 <td>
-                                                    <asp:TextBox runat="server" CssClass="form-control"  TextMode="Password" ID="Password"></asp:TextBox>
+                                                    <asp:TextBox runat="server" CssClass="form-control" TextMode="Password" ID="Password"></asp:TextBox>
                                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ValidationGroup="Login1" ToolTip="Password is required." ID="PasswordRequired">*</asp:RequiredFieldValidator>
                                                 </td>
                                             </tr>
@@ -36,7 +36,7 @@
                                                 <td></td>
                                                 <td colspan="1">
                                                     <asp:Label Text="Remember me" runat="server" />
-                                                    <asp:CheckBox runat="server" style="color:black !important;" ID="RememberMe"></asp:CheckBox>
+                                                    <asp:CheckBox runat="server" Style="color: black !important;" ID="RememberMe"></asp:CheckBox>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -60,4 +60,3 @@
         </div>
     </div>
 </asp:Content>
-

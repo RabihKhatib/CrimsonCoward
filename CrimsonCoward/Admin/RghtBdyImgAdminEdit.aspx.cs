@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.IO;
+using System.Linq;
 
 namespace CrimsonCoward.Admin
 {
@@ -15,22 +11,20 @@ namespace CrimsonCoward.Admin
         {
             if (!IsPostBack)
             {
-                    loadData();
+                loadData();
             }
         }
 
         private void loadData()
         {
             CrimsonCowardEntities db = new CrimsonCowardEntities();
-            Article rghtImg = db.Article.Where(x => x.position == "right").FirstOrDefault();
-          
+            Article rghtImg = db.Articles.Where(x => x.position == "right").FirstOrDefault();
 
             if (rghtImg != null)
             {
-             
-                var data = db.Images.Where(x => x.Id == rghtImg.imageId).FirstOrDefault();
+                DAL.Image data = db.Images.Where(x => x.Id == rghtImg.imageId).FirstOrDefault();
                 if (data != null)
-                {                    
+                {
                     if (data.File != null)
                     {
                         rghtimgview.ImageUrl = ResolveUrl("~/") + "Thumbnail.aspx?imageId=" + rghtImg.imageId;
@@ -49,11 +43,11 @@ namespace CrimsonCoward.Admin
                 {
                     if (uplImage.FileName.Split('.')[1].ToLower() == "jpeg" || uplImage.FileName.Split('.')[1].ToLower() == "jpg" || uplImage.FileName.Split('.')[1].ToLower() == "png" || uplImage.FileName.Split('.')[1].ToLower() == "gif")
                     {
-                            Session["image"] = Path.GetFileName(uplImage.FileName);
-                            data.Name = uplImage.FileName.Split('.')[0].ToLower();
-                            data.Ext = uplImage.FileName.Split('.')[1].ToLower();
-                            data.Desc = "Right Body";
-                            data.File = uplImage.FileBytes;                                                       
+                        Session["image"] = Path.GetFileName(uplImage.FileName);
+                        data.Name = uplImage.FileName.Split('.')[0].ToLower();
+                        data.Ext = uplImage.FileName.Split('.')[1].ToLower();
+                        data.Desc = "Right Body";
+                        data.File = uplImage.FileBytes;
                     }
                     else
                     {
@@ -71,16 +65,15 @@ namespace CrimsonCoward.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            
             DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
-                var rghtImg = db.Article.Where(x => x.position == "right").FirstOrDefault();
-                var image = db.Images.Where(x => x.Id == rghtImg.imageId).FirstOrDefault();
-                db.Images.Remove(image);
-                db.Article.Remove(rghtImg);
+            Article rghtImg = db.Articles.Where(x => x.position == "right").FirstOrDefault();
+            DAL.Image image = db.Images.Where(x => x.Id == rghtImg.imageId).FirstOrDefault();
+            db.Images.Remove(image);
+            db.Articles.Remove(rghtImg);
             DAL.Image data = FillSliders();
             db.Images.Add(data);
             db.SaveChanges();
-            db.Article.Add(new Article { Id = 3, imageId = data.Id, position = "right", title = "Right Image Body" });
+            db.Articles.Add(new Article { Id = 3, imageId = data.Id, position = "right", title = "Right Image Body" });
             db.SaveChanges();
             Response.Redirect("~/Admin/RghtBdyImgAdminEdit.aspx");
         }

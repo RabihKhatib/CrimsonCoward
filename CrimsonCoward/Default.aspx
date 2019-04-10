@@ -4,7 +4,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script type="text/javascript">        menuID = "menu_home"</script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <section id="featured" style="position: relative; display: grid">
@@ -27,29 +26,30 @@
     <section id="story" style="position: relative; display: grid;">
         <h3 class="title">
             <img src="assets/CC_Assets_Titles_OUR-STORY.png" alt="Our Story" /></h3>
-<%--        <p class="text">
-            Los Angeles native and Nashville inspired, Crimson Coward is dedicated to bringing the Nashville Hot Chicken phenomenon to the heart of Downey.  Our expertise for great quality and flavorful food is inspired by our time spent, meeting real Nashville chefs, and exploring the greatest eateries and hot chicken joints in Nashville.        
+        <%--        <p class="text">
+            Los Angeles native and Nashville inspired, Crimson Coward is dedicated to bringing the Nashville Hot Chicken phenomenon to the heart of Downey.  Our expertise for great quality and flavorful food is inspired by our time spent, meeting real Nashville chefs, and exploring the greatest eateries and hot chicken joints in Nashville.
         </p>
         <p class="text" style="padding-bottom: 20px;">
-            Here at Crimson Coward, we pride ourselves in serving chicken that does not compromise quality and flavor.  Our chicken and food redefine quality and is made from the freshest  ingredients.  We only serve premium, all-natural, Non-GMO chicken, from some of the most reputable farms in California. We only carry all natural, antibiotic & hormone free chicken, and our signature sides are all made fresh daily. 
+            Here at Crimson Coward, we pride ourselves in serving chicken that does not compromise quality and flavor.  Our chicken and food redefine quality and is made from the freshest  ingredients.  We only serve premium, all-natural, Non-GMO chicken, from some of the most reputable farms in California. We only carry all natural, antibiotic & hormone free chicken, and our signature sides are all made fresh daily.
         </p>
         <p class="text" style="padding-bottom: 20px;">
             The Crimson family is proud to bring authentic Nashville hot chicken to the heart of Downey, and Los Angeles area.
         </p>--%>
         <p class="text">
-             <asp:Label ID="ourStoryTxt" Style="display: block; text-align: center; font-weight: bold;" runat="server" />
+            <asp:Label ID="ourStoryTxt" Style="display: block; text-align: center; font-weight: bold;" runat="server" />
         </p>
     </section>
-    <section id="article" style="position: relative;">
-        <div id="article1" class="col-lg-6 article">
-            <div class="CenteredImage">
-                <h2 style="color: white;">HOURS OF OPERATION</h2>
-                <h3 style="color: white;">Sunday - Thursday 11am to 10pm<br />
-                    Friday - Saturday 11am to midnight</h3>
+    <section id="article" style="position: relative; overflow: hidden;">
+        <div id="article1" class="col-lg-6 article" style="background-image: linear-gradient( rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(<%=leftBody.ImageUrl%>)">
+            <div class="CenteredImage" style="transform: translate(-75%, 0%);">
+                <a target="_blank" href="https://www.toasttab.com/crimson-coward/">
+                    <img src="assets/order-online-bckg.png" style="position: absolute; z-index: 1;" />
+                    <img src="assets/order-online-text.png" style="position: absolute; z-index: 2;" />
+                </a>
             </div>
         </div>
 
-        <div id="article2" class="col-lg-6 article">
+        <div id="article2" class="col-lg-6 article" style="background-image: linear-gradient( rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(<%=rightBody.ImageUrl%>)">
             <div class="CenteredImage">
                 <h3 style="color: white;">10405 Lakewood Blvd
                     <br />
@@ -64,55 +64,95 @@
         <div class=" col-lg-8 CenteredImage">
             <img src="assets/MenuText.jpg" alt="Alternate Text" style="margin-bottom: 20px; max-width: 100%;" />
         </div>
-        <asp:Repeater ID="rptMenuCat" runat="server">
-            <HeaderTemplate>
-                <div class="col-lg-8 CenteredImage" style="text-align: left; margin-bottom: 15px;">
-            </HeaderTemplate>
-            <ItemTemplate>
-                <%# (Container.ItemIndex) % 2 == 0 ? "<div class='row justify-content-center'>" : string.Empty%>
-                <div class="col-md-6">
-                    <div class="align-middle">
-                        <table style="margin-bottom: 15px;">
-                            <tr>
-                                <td class="foodcat">
-                                    <span style="font-weight: bold; font-size: 24pt; color: #842522"><%# Eval("Name") %></span>
-                                </td>
-                            </tr>
-                            <tr class="description">
-                                <td>
-                                    <span style="float: left; font-size: 11pt; vertical-align: top; line-height: 11px;"><%# Eval("Description") %></span>
-                                </td>
-                            </tr>
-                        </table>
-                        <asp:Repeater ID="rptMenuFood" DataSource="<%# GetFoodList(Container.DataItem).OrderBy(x => x.MENU_ORDER).ToList() %>" runat="server">
-                            <ItemTemplate>
-                                <table style="margin-bottom: 15px;">
-                                    <tr>
-                                        <td class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
-                                            <span <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "":"hidden"     %> style="float: left; font-size: 11pt; padding-top: 2px; padding-left: 20px; text-transform: initial !important;"><%# Eval("Description")%></span>
-                                        </td>
-                                        <td class="line" <%# Eval("Price").ToString() == "0"||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>&nbsp;</td>
-                                        <td class="price" <%# Eval("Price").ToString() == "0"||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>
-                                            <span style="font-size: 16pt; float: right;"><%# decimal.Parse(Eval("Price").ToString()).ToString("G29")  %></span>
-                                        </td>
-                                    </tr>
-                                    <tr class="fooddesc">
-                                        <td colspan="4" <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "hidden":""     %>>
-                                            <span style="float: left; font-size: 11pt; vertical-align: top; line-height: 11pt;"><%# Eval("Description")%></span> </td>
-                                    </tr>
-                                </table>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                        <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top: 5px; padding-bottom: 20px" />
-                    </div>
-                </div>
-                <%# (Container.ItemIndex-1) % 2 == 0 ? "</div>" : string.Empty%>
-            </ItemTemplate>
+        <div class="container" style="text-align: left; margin-bottom: 15px;">
+            <div class="row">
+                <div class='col-md-6 col-lg-6 col-sm-12' style="background-image: url('assets/menu_separator.png'); background-position: right; background-repeat: no-repeat;">
+                    <asp:Repeater ID="rptMenuCatSing" runat="server">
+                        <ItemTemplate>
+                            <div class='row'>
+                                <div class='col-md-8 col-lg-10 col-sm-12'>
+                                    <table style="margin-bottom: 15px;">
+                                        <tr>
+                                            <td class="foodcat">
+                                                <span style="font-weight: bold; font-size: 24pt; color: #842522"><%# Eval("Name") %></span>
+                                            </td>
+                                        </tr>
+                                        <tr class="description">
+                                            <td>
+                                                <span style="float: left; font-size: 11pt; vertical-align: top; line-height: 11px;"><%# Eval("Description") %></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <asp:Repeater ID="rptMenuFood" DataSource="<%# GetFoodList(Container.DataItem).OrderBy(x => x.MENU_ORDER).ToList() %>" runat="server">
+                                        <ItemTemplate>
+                                            <table style="margin-bottom: 15px;">
+                                                <tr>
+                                                    <td class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
+                                                        <span <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "":"hidden"     %> style="float: left; font-size: 11pt; padding-top: 2px; padding-left: 20px; text-transform: initial !important;"><%# Eval("Description")%></span>
+                                                    </td>
+                                                    <td class="line" <%# "0".Equals(Eval("Price"))||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>&nbsp;</td>
+                                                    <td class="price" <%# "0".Equals(Eval("Price")) ||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>
+                                                        <span style="font-size: 16pt; float: right;"><%# Eval("Price")%></span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="fooddesc">
+                                                    <td colspan="4" <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "hidden":""     %>>
+                                                        <span style="float: left; font-size: 11pt; vertical-align: top; line-height: 11pt;"><%# Eval("Description")%></span> </td>
+                                                </tr>
+                                            </table>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <img src="assets/Dots.jpg" alt="Alternate Text" style="padding-top: 20px; padding-bottom: 35px; margin-left: auto; margin-right: auto; display: block;" />
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div> 
 
-            <FooterTemplate>
+                <div class='col-md-6 col-lg-6 col-sm-12'>
+                    <asp:Repeater ID="rptMenuCat" runat="server">
+                        <ItemTemplate>
+                            <div class='row'>
+                                <div class='col-md-8 col-lg-10 col-sm-12'>
+                                    <table style="margin-bottom: 15px;">
+                                        <tr>
+                                            <td class="foodcat">
+                                                <span style="font-weight: bold; font-size: 24pt; color: #842522"><%# Eval("Name") %></span>
+                                            </td>
+                                        </tr>
+                                        <tr class="description">
+                                            <td>
+                                                <span style="float: left; font-size: 11pt; vertical-align: top; line-height: 11px;"><%# Eval("Description") %></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <asp:Repeater ID="rptMenuFood" DataSource="<%# GetFoodList(Container.DataItem).OrderBy(x => x.MENU_ORDER).ToList() %>" runat="server">
+                                        <ItemTemplate>
+                                            <table style="margin-bottom: 15px;">
+                                                <tr>
+                                                    <td class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
+                                                        <span <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "":"hidden"     %> style="float: left; font-size: 11pt; padding-top: 2px; padding-left: 20px; text-transform: initial !important;"><%# Eval("Description")%></span>
+                                                    </td>
+                                                    <td class="line" <%# "0".Equals(Eval("Price")) ||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>&nbsp;</td>
+                                                    <td class="price" <%# "0".Equals(Eval("Price")) ||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>
+                                                        <span style="font-size: 16pt; float: right;"><%# Eval("Price")  %></span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="fooddesc">
+                                                    <td colspan="4" <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "hidden":""     %>>
+                                                        <span style="float: left; font-size: 11pt; vertical-align: top; line-height: 11pt;"><%# Eval("Description")%></span> </td>
+                                                </tr>
+                                            </table>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top: 5px; padding-bottom: 20px" />
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
-            </FooterTemplate>
-        </asp:Repeater>
+            </div>
+        </div>
     </section>
 
     <section id="banner" style="position: relative;">
@@ -176,9 +216,9 @@
                                                             disabled: true,
 
                                                             fieldName: 'rating_<%# Eval("Id") %>',
-                                                                fieldId: 'rating_<%# Eval("Id") %>',
-                                                                icon: 'star',
-                                                                selectedRatings: '<%# Eval("Rating") %>'
+                                                            fieldId: 'rating_<%# Eval("Id") %>',
+                                                            icon: 'star',
+                                                            selectedRatings: '<%# Eval("Rating") %>'
 
                                                         });
                                            <%-- $("#rating_<%# Eval("Id") %>").find('.stars').unbind(); $("#rating_<%# Eval("Id") %>").find('.stars .star').unbind();--%>
@@ -196,34 +236,9 @@
             </div>
         </div>
     </section>
-    <section id="map" style="position: relative;">
-        <div id="map1" class="col-lg-12 " style="padding: 0px; height: 300px">
-            <div class="col-md-12 newsbox" style="padding-left: 0px !important; padding-right: 0px !important; background-color: darkgray">
-                <%-- <iframe width="100%" height="300px"
-                    frameborder="0" style="border: 0"
-                    src="https://www.google.com/maps/embed/v1/place?key=*********************&q=CrimsonCoward" allowfullscreen></iframe>--%>
-                <div class="mapouter">
-                    <div class="gmap_canvas">
-                        <iframe width="100%" height="300px" id="gmap_canvas" src="https://maps.google.com/maps?q=10405+Lakewood+Blvd,+Downey,+CA+90241&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                        <%--<a href="https://www.pureblack.de"></a>--%>
-                    </div>
-                    <style>
-                        .mapouter {
-                            text-align: right;
-                            height: 300px;
-                            width: 100%;
-                        }
 
-                        .gmap_canvas {
-                            overflow: hidden;
-                            background: none !important;
-                            height: 300px;
-                            width: 100%;
-                        }
-                    </style>
-                </div>
-            </div>
-        </div>
+    <section id="map" style="position: relative;">
+        <iframe src="https://www.google.com/maps/embed?key=AIzaSyDo7yOkXN6BP9UjJ16EUwqXFJ151YVbDd8&pb=!1m18!1m12!1m3!1d1654.9289251449945!2d-118.11998209946823!3d33.94478402133917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cd85f4471c67%3A0x70c4dbced4907f19!2s10405+Lakewood+Blvd%2C+Downey%2C+CA+90241%2C+USA!5e0!3m2!1sen!2slb!4v1554898596630!5m2!1sen!2slb" width="100%" height="300" frameborder="0" style="border: 0" allowfullscreen></iframe>
     </section>
     <section id="footer">
         <div style="background-color: #842522; display: inline-block; width: 100%; border-top: 10px solid #E9B244">
@@ -236,7 +251,6 @@
                             <asp:Button runat="server" OnClick="btnSubscribe_Click" ID="btnSubscribe" Width="25%" Height="50px" Text="STAY TUNED" BackColor="#E9B244" BorderStyle="None" ForeColor="White" Font-Bold="true" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
-
                 </div>
             </div>
             <div class="col-lg-12" style="text-align: center">
@@ -275,13 +289,12 @@
                     <asp:HyperLink NavigateUrl="mailTo:hello@crimsoncoward.com" Text="CONTACT US!" BackColor="White" BorderStyle="None" Style="border-radius: 5px;" Font-Bold="true" ForeColor="#842522" Width="140px" Height="22px" runat="server" />
 
                     <div class="clear"></div>
-                    <a  target="_blank"  style="height:33px" href="https://www.facebook.com/crimsoncoward1/">
-                        <img  src="/assets/footer_Facebook.png" style="margin-top: 20px; margin-bottom: 5px;" />
-
+                    <a target="_blank" style="height: 33px" href="https://www.facebook.com/crimsoncoward1/">
+                        <img src="/assets/footer_Facebook.png" style="margin-top: 20px; margin-bottom: 5px;" />
                     </a>
-                    <a  target="_blank"  style="height:33px" href="https://www.instagram.com/crimsoncoward">
-                    <img imageheight="33px" src="~/assets/footer_Insta.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
-                        </a>
+                    <a target="_blank" style="height: 33px" href="https://www.instagram.com/crimsoncoward">
+                        <img imageheight="33px" src="~/assets/footer_Insta.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
+                    </a>
                     <img imageheight="33px" src="~/assets/footer_Snap.png" style="margin-top: 20px; margin-bottom: 5px;" runat="server" />
                 </div>
                 <div class="col-lg-pull-1 col-lg-4 col-xs-12 footerlogo" style="text-align: center;">
@@ -293,4 +306,3 @@
         </div>
     </section>
 </asp:Content>
-

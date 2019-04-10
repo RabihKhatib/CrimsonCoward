@@ -14,7 +14,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
@@ -52,7 +51,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
   $(function () {
     $.support.transition = transitionEnd()
   })
-
 }(jQuery);
 
 /* ========================================================================
@@ -62,7 +60,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -109,7 +106,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
       removeElement()
   }
 
-
   // ALERT PLUGIN DEFINITION
   // =======================
 
@@ -127,7 +123,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.alert.Constructor = Alert
 
-
   // ALERT NO CONFLICT
   // =================
 
@@ -136,12 +131,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     return this
   }
 
-
   // ALERT DATA-API
   // ==============
 
   $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
-
 }(jQuery);
 
 /* ========================================================================
@@ -151,7 +144,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -209,7 +201,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     if (changed) this.$element.toggleClass('active')
   }
 
-
   // BUTTON PLUGIN DEFINITION
   // ========================
 
@@ -230,7 +221,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.button.Constructor = Button
 
-
   // BUTTON NO CONFLICT
   // ==================
 
@@ -238,7 +228,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.button = old
     return this
   }
-
 
   // BUTTON DATA-API
   // ===============
@@ -249,7 +238,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $btn.button('toggle')
     e.preventDefault()
   })
-
 }(jQuery);
 
 /* ========================================================================
@@ -259,7 +247,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -398,7 +385,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     return this
   }
 
-
   // CAROUSEL PLUGIN DEFINITION
   // ==========================
 
@@ -420,7 +406,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.carousel.Constructor = Carousel
 
-
   // CAROUSEL NO CONFLICT
   // ====================
 
@@ -428,7 +413,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.carousel = old
     return this
   }
-
 
   // CAROUSEL DATA-API
   // =================
@@ -455,7 +439,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
       $carousel.carousel($carousel.data())
     })
   })
-
 }(jQuery);
 
 /* ========================================================================
@@ -465,7 +448,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -575,7 +557,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     this[this.$element.hasClass('in') ? 'hide' : 'show']()
   }
 
-
   // COLLAPSE PLUGIN DEFINITION
   // ==========================
 
@@ -595,7 +576,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.collapse.Constructor = Collapse
 
-
   // COLLAPSE NO CONFLICT
   // ====================
 
@@ -603,7 +583,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.collapse = old
     return this
   }
-
 
   // COLLAPSE DATA-API
   // =================
@@ -626,7 +605,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
     $target.collapse(option)
   })
-
 }(jQuery);
 
 /* ========================================================================
@@ -636,7 +614,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -738,7 +715,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     return $parent && $parent.length ? $parent : $this.parent()
   }
 
-
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
 
@@ -756,7 +732,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.dropdown.Constructor = Dropdown
 
-
   // DROPDOWN NO CONFLICT
   // ====================
 
@@ -764,7 +739,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.dropdown = old
     return this
   }
-
 
   // APPLY TO STANDARD DROPDOWN ELEMENTS
   // ===================================
@@ -774,7 +748,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
     .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu], [role=listbox]', Dropdown.prototype.keydown)
-
 }(jQuery);
 
 /* ========================================================================
@@ -784,7 +757,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -952,7 +924,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
           .one($.support.transition.end, callback)
           .emulateTransitionEnd(150) :
         callback()
-
     } else if (!this.isShown && this.$backdrop) {
       this.$backdrop.removeClass('in')
 
@@ -961,12 +932,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
           .one($.support.transition.end, callback)
           .emulateTransitionEnd(150) :
         callback()
-
     } else if (callback) {
       callback()
     }
   }
-
 
   // MODAL PLUGIN DEFINITION
   // =======================
@@ -987,7 +956,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.modal.Constructor = Modal
 
-
   // MODAL NO CONFLICT
   // =================
 
@@ -995,7 +963,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.modal = old
     return this
   }
-
 
   // MODAL DATA-API
   // ==============
@@ -1018,7 +985,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
   $(document)
     .on('show.bs.modal', '.modal', function () { $(document.body).addClass('modal-open') })
     .on('hidden.bs.modal', '.modal', function () { $(document.body).removeClass('modal-open') })
-
 }(jQuery);
 
 /* ========================================================================
@@ -1029,7 +995,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -1390,7 +1355,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     this.hide().$element.off('.' + this.type).removeData('bs.' + this.type)
   }
 
-
   // TOOLTIP PLUGIN DEFINITION
   // =========================
 
@@ -1410,7 +1374,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.tooltip.Constructor = Tooltip
 
-
   // TOOLTIP NO CONFLICT
   // ===================
 
@@ -1418,7 +1381,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.tooltip = old
     return this
   }
-
 }(jQuery);
 
 /* ========================================================================
@@ -1428,7 +1390,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -1448,7 +1409,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     content: '',
     template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
   })
-
 
   // NOTE: POPOVER EXTENDS tooltip.js
   // ================================
@@ -1501,7 +1461,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     return this.$tip
   }
 
-
   // POPOVER PLUGIN DEFINITION
   // =========================
 
@@ -1521,7 +1480,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.popover.Constructor = Popover
 
-
   // POPOVER NO CONFLICT
   // ===================
 
@@ -1529,7 +1487,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.popover = old
     return this
   }
-
 }(jQuery);
 
 /* ========================================================================
@@ -1539,7 +1496,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -1645,7 +1601,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     active.trigger('activate.bs.scrollspy')
   }
 
-
   // SCROLLSPY PLUGIN DEFINITION
   // ===========================
 
@@ -1664,7 +1619,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.scrollspy.Constructor = ScrollSpy
 
-
   // SCROLLSPY NO CONFLICT
   // =====================
 
@@ -1672,7 +1626,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.scrollspy = old
     return this
   }
-
 
   // SCROLLSPY DATA-API
   // ==================
@@ -1683,7 +1636,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
       $spy.scrollspy($spy.data())
     })
   })
-
 }(jQuery);
 
 /* ========================================================================
@@ -1693,7 +1645,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -1774,7 +1725,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $active.removeClass('in')
   }
 
-
   // TAB PLUGIN DEFINITION
   // =====================
 
@@ -1792,7 +1742,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.tab.Constructor = Tab
 
-
   // TAB NO CONFLICT
   // ===============
 
@@ -1801,7 +1750,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     return this
   }
 
-
   // TAB DATA-API
   // ============
 
@@ -1809,7 +1757,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     e.preventDefault()
     $(this).tab('show')
   })
-
 }(jQuery);
 
 /* ========================================================================
@@ -1819,7 +1766,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -1902,7 +1848,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     }
   }
 
-
   // AFFIX PLUGIN DEFINITION
   // =======================
 
@@ -1921,7 +1866,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
 
   $.fn.affix.Constructor = Affix
 
-
   // AFFIX NO CONFLICT
   // =================
 
@@ -1929,7 +1873,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
     $.fn.affix = old
     return this
   }
-
 
   // AFFIX DATA-API
   // ==============
@@ -1947,5 +1890,4 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap requires jQuery'
       $spy.affix(data)
     })
   })
-
 }(jQuery);

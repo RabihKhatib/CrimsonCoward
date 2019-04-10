@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
 
 namespace CrimsonCoward.Admin
 {
@@ -16,7 +13,8 @@ namespace CrimsonCoward.Admin
             SlidersGridView.DataSource = db.Sliders.ToList();
             SlidersGridView.DataBind();
         }
-         protected void SlidersGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+
+        protected void SlidersGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Edit")
             {
@@ -26,8 +24,8 @@ namespace CrimsonCoward.Admin
             {
                 DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
                 int _id = int.Parse(e.CommandArgument.ToString());
-                var slider = db.Sliders.Where(x => x.Id == _id).FirstOrDefault();
-                var image = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
+                Slider slider = db.Sliders.Where(x => x.Id == _id).FirstOrDefault();
+                DAL.Image image = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
                 db.Images.Remove(image);
                 db.Sliders.Remove(slider);
                 db.SaveChanges();

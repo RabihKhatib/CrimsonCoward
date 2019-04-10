@@ -5,7 +5,7 @@
  * Copyright 2010, Gilbert Pellegrom
  * Free to use and abuse under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * May 2010 - Pick random effect from specified set of effects by toronegro
  * May 2010 - controlNavThumbsFromRel option added by nerd-sh
  * May 2010 - Do not start nivoRun timer if there is only 1 slide by msielski
@@ -14,7 +14,6 @@
  */
 
 (function ($) {
-
     var NivoSlider = function (element, options) {
         //Defaults are below
         var settings = $.extend({}, $.fn.nivoSlider.defaults, options);
@@ -168,7 +167,6 @@
                 } else {
                     nivoControl.append('<a class="nivo-control" rel="' + i + '">' + (i + 1) + '</a>');
                 }
-
             }
             //Set initial active link
             $('.nivo-controlNav a:eq(' + vars.currentSlide + ')', slider).addClass('active');
@@ -332,7 +330,7 @@
             //Run effects
             vars.running = true;
             if (settings.effect == 'sliceDown' || settings.effect == 'sliceDownRight' || vars.randAnim == 'sliceDownRight' ||
-				settings.effect == 'sliceDownLeft' || vars.randAnim == 'sliceDownLeft') {
+                settings.effect == 'sliceDownLeft' || vars.randAnim == 'sliceDownLeft') {
                 var timeBuff = 0;
                 var i = 0;
                 var slices = $('.nivo-slice', slider);
@@ -354,7 +352,7 @@
                 });
             }
             else if (settings.effect == 'sliceUp' || settings.effect == 'sliceUpRight' || vars.randAnim == 'sliceUpRight' ||
-					settings.effect == 'sliceUpLeft' || vars.randAnim == 'sliceUpLeft') {
+                settings.effect == 'sliceUpLeft' || vars.randAnim == 'sliceUpLeft') {
                 var timeBuff = 0;
                 var i = 0;
                 var slices = $('.nivo-slice', slider);
@@ -376,7 +374,7 @@
                 });
             }
             else if (settings.effect == 'sliceUpDown' || settings.effect == 'sliceUpDownRight' || vars.randAnim == 'sliceUpDown' ||
-					settings.effect == 'sliceUpDownLeft' || vars.randAnim == 'sliceUpDownLeft') {
+                settings.effect == 'sliceUpDownLeft' || vars.randAnim == 'sliceUpDownLeft') {
                 var timeBuff = 0;
                 var i = 0;
                 var v = 0;
@@ -465,7 +463,6 @@
     };
 
     $.fn.nivoSlider = function (options) {
-
         return this.each(function () {
             var element = $(this);
             // Return early if this element already has a plugin instance
@@ -475,7 +472,6 @@
             // Store plugin object in this element's data
             element.data('nivoslider', nivoslider);
         });
-
     };
 
     //Default settings
@@ -504,5 +500,4 @@
     };
 
     $.fn._reverse = [].reverse;
-
 })(jQuery);

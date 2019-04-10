@@ -31,7 +31,6 @@
                         <ItemTemplate>
                             <asp:Image CssClass="col-md-3" ImageUrl='<%# ResolveUrl("~/") + "Thumbnail.aspx?SliderId=" + Eval("Id") + "&secImg=logo" %>'
                                 Style="margin-right: 15px" runat="server" />
-
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>
@@ -50,5 +49,4 @@
             </asp:GridView>
         </div>
     </div>
-
 </asp:Content>
