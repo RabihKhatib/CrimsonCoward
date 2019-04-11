@@ -135,7 +135,7 @@
                                             </table>
                                         </ItemTemplate>
                                     </asp:Repeater>
-                                    <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top: 20px; padding-bottom: 35px; margin-left: auto; margin-right: auto; display: block;"  />
+                                    <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top: 20px; padding-bottom: 35px; margin-left: auto; margin-right: auto; display: block;" />
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -264,8 +264,8 @@
                     <br />
                         Downey CA 90241</h4>
                     <h4 style="color: white;">HOURS OF OPERATION</h4>
-                    <h5 style="color: white;">Sunday - Thursday 11am to 10pm<br />
-                        Friday - Saturday 11am to midnight</h5>
+                    <h5 style="color: white;">
+                       <%=this.operationHours.Text%></h5>
                     <div>
                         <%--<a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: 0 }, 700);">HOME</a>&nbsp-&nbsp--%>
                         <h5><a style="color: white;" href="#">CRIMSON COWARD</a>&nbsp-&nbsp

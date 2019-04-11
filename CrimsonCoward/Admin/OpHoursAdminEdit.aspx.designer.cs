@@ -7,45 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CrimsonCoward {
+namespace CrimsonCoward.Admin {
     
     
-    public partial class CrimsonCoward {
+    public partial class OpHoursAdminEdit {
         
         /// <summary>
-        /// HeadContent control.
+        /// Notifications control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        protected global::System.Web.UI.WebControls.Literal Notifications;
         
         /// <summary>
-        /// MainForm control.
+        /// Body control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm MainForm;
+        protected global::System.Web.UI.WebControls.TextBox Body;
         
         /// <summary>
-        /// operationHours control.
+        /// OSbtnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.Label operationHours = new System.Web.UI.WebControls.Label();
-        
-        /// <summary>
-        /// MainContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Button OSbtnSave;
     }
 }

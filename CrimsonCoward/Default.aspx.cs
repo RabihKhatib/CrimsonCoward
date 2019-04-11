@@ -60,6 +60,15 @@ namespace CrimsonCoward
                             ImageUrl = "data:image/png;base64," + base64String
                         };
                     }
+                    if (art.position.Contains("operation"))
+                    {
+                        string opBody = art.Body;
+                        operationHours = new Label
+                        {
+                            Text = opBody
+                        };
+                        ((CrimsonCoward)Master).operationHours.Text = opBody;
+                    }
                 }
             }
 

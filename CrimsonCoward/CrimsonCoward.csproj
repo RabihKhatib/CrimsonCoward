@@ -115,6 +115,7 @@
     <Content Include="Admin\CategoryAdminEdit.aspx" />
     <Content Include="Admin\FoodMenuAdmin.aspx" />
     <Content Include="Admin\FoodMenuAdminEdit.aspx" />
+    <Content Include="Admin\OpHoursAdminEdit.aspx" />
     <Content Include="Admin\RghtBdyImgAdminEdit.aspx" />
     <Content Include="Admin\ReviewsAdmin.aspx" />
     <Content Include="Admin\SliderAdmin.aspx" />
@@ -278,6 +279,13 @@
     </Compile>
     <Compile Include="Admin\FoodMenuAdminEdit.aspx.designer.cs">
       <DependentUpon>FoodMenuAdminEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\OpHoursAdminEdit.aspx.cs">
+      <DependentUpon>OpHoursAdminEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\OpHoursAdminEdit.aspx.designer.cs">
+      <DependentUpon>OpHoursAdminEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\RghtBdyImgAdminEdit.aspx.cs">
       <DependentUpon>RghtBdyImgAdminEdit.aspx</DependentUpon>
@@ -457,7 +465,10 @@
     <Content Include="fonts\PoetsenOne-Regular.ttf" />
     <Content Include="fonts\materials.woff" />
     <Content Include="fonts\materials1.woff2" />
+    <None Include="Properties\PublishProfiles\crimsoncoward.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\crimsoncoward.com - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
   </ItemGroup>
   <PropertyGroup>

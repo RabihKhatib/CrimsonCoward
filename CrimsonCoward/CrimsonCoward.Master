@@ -89,8 +89,7 @@
                             <li style="float: left; text-align: left; margin-top: 15px;">
 
                                 <h5 style="color: #656565; margin-bottom: 5px;">HOURS OF OPERATION</h5>
-                                <h6 style="color: #656565; margin-bottom: 5px;">Sunday - Thursday 11am to 10pm<br />
-                                    Friday - Saturday 11am to midnight</h6>
+                                <h6 style="color: #656565; margin-bottom: 5px;"><%=this.operationHours.Text%></h6>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav ">
