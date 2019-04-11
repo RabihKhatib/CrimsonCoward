@@ -26,15 +26,6 @@
     <section id="story" style="position: relative; display: grid;">
         <h3 class="title">
             <img src="assets/CC_Assets_Titles_OUR-STORY.png" alt="Our Story" /></h3>
-        <%--        <p class="text">
-            Los Angeles native and Nashville inspired, Crimson Coward is dedicated to bringing the Nashville Hot Chicken phenomenon to the heart of Downey.  Our expertise for great quality and flavorful food is inspired by our time spent, meeting real Nashville chefs, and exploring the greatest eateries and hot chicken joints in Nashville.
-        </p>
-        <p class="text" style="padding-bottom: 20px;">
-            Here at Crimson Coward, we pride ourselves in serving chicken that does not compromise quality and flavor.  Our chicken and food redefine quality and is made from the freshest  ingredients.  We only serve premium, all-natural, Non-GMO chicken, from some of the most reputable farms in California. We only carry all natural, antibiotic & hormone free chicken, and our signature sides are all made fresh daily.
-        </p>
-        <p class="text" style="padding-bottom: 20px;">
-            The Crimson family is proud to bring authentic Nashville hot chicken to the heart of Downey, and Los Angeles area.
-        </p>--%>
         <p class="text">
             <asp:Label ID="ourStoryTxt" Style="display: block; text-align: center; font-weight: bold;" runat="server" />
         </p>
@@ -43,8 +34,8 @@
         <div id="article1" class="col-lg-6 article" style="background-image: linear-gradient( rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(<%=leftBody.ImageUrl%>)">
             <div class="CenteredImage" style="transform: translate(-75%, 0%);">
                 <a target="_blank" href="https://www.toasttab.com/crimson-coward/">
-                    <img src="assets/order-online-bckg.png" style="position: absolute; z-index: 1;" />
-                    <img src="assets/order-online-text.png" style="position: absolute; z-index: 2;" />
+                    <img src="assets/order-online-bckg.png" style="position: absolute; z-index: 1; width: 50%;" />
+                    <img src="assets/order-online-text.png" style="position: absolute; z-index: 2; width: 50%;" />
                 </a>
             </div>
         </div>
@@ -57,16 +48,16 @@
             </div>
         </div>
     </section>
-    <section id="foodmenu" style="position: relative; margin-bottom: 15px;">
+    <section id="foodmenu" style="position: relative; margin-bottom: 15px; margin-top: 50px;">
         <div class=" col-lg-8 CenteredImage">
             <img src="assets/CC_Assets_Titles_MENU.png" alt="Alternate Text" />
         </div>
-        <div class=" col-lg-8 CenteredImage">
+        <div class=" col-lg-8 CenteredImage" style="padding-bottom: 50px;">
             <img src="assets/MenuText.jpg" alt="Alternate Text" style="margin-bottom: 20px; max-width: 100%;" />
         </div>
         <div class="container" style="text-align: left; margin-bottom: 15px;">
-            <div class="row">
-                <div class='col-md-6 col-lg-6 col-sm-12' style="background-image: url('assets/menu_separator.png'); background-position: right; background-repeat: no-repeat;">
+            <div class="row menusep">
+                <div class='col-md-6 col-lg-6 col-sm-12'>
                     <asp:Repeater ID="rptMenuCatSing" runat="server">
                         <ItemTemplate>
                             <div class='row'>
@@ -107,9 +98,8 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                </div> 
-
-                <div class='col-md-6 col-lg-6 col-sm-12'>
+                </div>
+                <div class='col-md-6 col-lg-6 col-sm-12 rightmenupadding'>
                     <asp:Repeater ID="rptMenuCat" runat="server">
                         <ItemTemplate>
                             <div class='row'>
@@ -145,7 +135,7 @@
                                             </table>
                                         </ItemTemplate>
                                     </asp:Repeater>
-                                    <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top: 5px; padding-bottom: 20px" />
+                                    <img src="assets/Dots.jpg" width="70%" alt="Alternate Text" style="padding-top: 20px; padding-bottom: 35px; margin-left: auto; margin-right: auto; display: block;"  />
                                 </div>
                             </div>
                         </ItemTemplate>

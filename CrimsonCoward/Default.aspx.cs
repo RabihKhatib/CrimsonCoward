@@ -1,34 +1,68 @@
-﻿using System;
+﻿using CrimsonCoward.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using CrimsonCoward.DAL;
 
 namespace CrimsonCoward
 {
     public partial class Default : System.Web.UI.Page
     {
+        public System.Web.UI.WebControls.Image rightBody;
+        public System.Web.UI.WebControls.Image leftBody;
 
         public void Page_Load(object sender, EventArgs e)
         {
             if (ViewState["LatestNb"] == null)
-            ViewState["LatestNb"] = 3;
+            {
+                ViewState["LatestNb"] = 3;
+            }
 
             List<DAL.Image> lstImages = new List<DAL.Image>();
             List<DAL.Reviews> lstReviews = new List<Reviews>();
             List<DAL.FoodCategory> lstFoodCategory = new List<FoodCategory>();
+            List<DAL.Article> lstArticle = new List<Article>();
             CrimsonCowardEntities db = new CrimsonCowardEntities();
-            var sliders = db.Sliders.Where(x => x.Active).ToList();
+            List<Slider> sliders = db.Sliders.Where(x => x.Active).ToList();
 
             lstImages = (from s in db.Sliders join i in db.Images on s.ImageId equals i.Id select i).ToList();
             lstReviews = db.Reviews.ToList();
 
+            lstFoodCategory = db.FoodCategories.OrderBy(x => x.catOrder).ToList();
 
-            lstFoodCategory = db.FoodCategories.OrderBy(x=>x.catOrder).ToList();
+            lstArticle = db.Articles.ToList();
 
-      
+            if (lstArticle.Count > 0)
+            {
+                foreach (Article art in lstArticle)
+                {
+                    if (art.position.Contains("center"))
+                    {
+                        ourStoryTxt.Text = art.Body;
+                    }
+                    else if (art.position.Contains("left"))
+                    {
+                        int imageID = (int)art.imageId;
+                        byte[] bytes = db.Images.Where(x => x.Id == imageID).FirstOrDefault().File;
+                        string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                        leftBody = new System.Web.UI.WebControls.Image
+                        {
+                            ImageUrl = "data:image/png;base64," + base64String
+                        };
+                    }
+                    else if (art.position.Contains("right"))
+                    {
+                        int imageID = (int)art.imageId;
+                        byte[] bytes = db.Images.Where(x => x.Id == imageID).FirstOrDefault().File;
+                        string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
+                        rightBody = new System.Web.UI.WebControls.Image
+                        {
+                            ImageUrl = "data:image/png;base64," + base64String
+                        };
+                    }
+                }
+            }
+
             if (lstImages.Count > 0)
             {
                 rptBanner.DataSource = lstImages;
@@ -41,26 +75,31 @@ namespace CrimsonCoward
             }
             if (lstFoodCategory.Count > 0)
             {
-                rptMenuCat.DataSource = lstFoodCategory;
+                rptMenuCat.DataSource = lstFoodCategory.Where(x => x.catOrder % 2 == 0);
                 rptMenuCat.DataBind();
+                rptMenuCatSing.DataSource = lstFoodCategory.Where(x => x.catOrder % 2 != 0);
+                rptMenuCatSing.DataBind();
             }
         }
-protected void rptMenuCat_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                int count = ((List<string>)rptMenuCat.DataSource).Count;
-                if (e.Item.ItemIndex != 0 && e.Item.ItemIndex % 2 == 0 && e.Item.ItemIndex == count - 1)
-                {
-                    PlaceHolder PlaceHolder1 = e.Item.FindControl("PlaceHolder1") as PlaceHolder;
-                    System.Web.UI.WebControls.Image img = new System.Web.UI.WebControls.Image();
-                    img.ImageUrl = "pholder.jpg";
-                    TableCell td = new TableCell();
-                    td.Controls.Add(img);
-                    PlaceHolder1.Controls.Add(td);
-                }
-            }
-        }
+
+        //protected void rptMenuCat_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        //{
+        //    if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        //    {
+        //        int count = ((List<string>)rptMenuCat.DataSource).Count;
+        //        if (e.Item.ItemIndex != 0 && e.Item.ItemIndex % 2 == 0 && e.Item.ItemIndex == count - 1)
+        //        {
+        //            PlaceHolder PlaceHolder1 = e.Item.FindControl("PlaceHolder1") as PlaceHolder;
+        //            System.Web.UI.WebControls.Image img = new System.Web.UI.WebControls.Image
+        //            {
+        //                ImageUrl = "pholder.jpg"
+        //            };
+        //            TableCell td = new TableCell();
+        //            td.Controls.Add(img);
+        //            PlaceHolder1.Controls.Add(td);
+        //        }
+        //    }
+        //}
 
         protected List<DAL.FoodMenu> GetFoodList(object dataItem)
         {
@@ -68,11 +107,12 @@ protected void rptMenuCat_ItemDataBound(object sender, RepeaterItemEventArgs e)
             ICollection<DAL.FoodMenu> foodmenu = c.FoodMenus;
             return foodmenu.OrderBy(x => x.MENU_ORDER).ToList();
         }
-        bool IsValidEmail(string email)
+
+        private bool IsValidEmail(string email)
         {
             try
             {
-                var addr = new System.Net.Mail.MailAddress(email);
+                System.Net.Mail.MailAddress addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == email;
             }
             catch
@@ -84,7 +124,7 @@ protected void rptMenuCat_ItemDataBound(object sender, RepeaterItemEventArgs e)
         protected void btnReview_Click(object sender, EventArgs e)
         {
             CrimsonCowardEntities db = new CrimsonCowardEntities();
-            if(string.IsNullOrEmpty(hdnRating.Value))
+            if (string.IsNullOrEmpty(hdnRating.Value))
             {
                 lblReview.Text = "Please select star rating";
                 lblReview.ForeColor = System.Drawing.Color.Red;
@@ -108,7 +148,7 @@ protected void rptMenuCat_ItemDataBound(object sender, RepeaterItemEventArgs e)
                     IsActive = false,
                     Date = DateTime.Now,
                     Text = txtReview.Text,
-                    Rating = int.Parse(hdnRating.Value.Length>0?hdnRating.Value:"0"),
+                    Rating = int.Parse(hdnRating.Value.Length > 0 ? hdnRating.Value : "0"),
                     Title = txtReviewTitle.Text
                 };
                 db.Reviews.Add(review);
@@ -119,6 +159,7 @@ protected void rptMenuCat_ItemDataBound(object sender, RepeaterItemEventArgs e)
                 txtReviewTitle.Text = "";
             }
         }
+
         protected void btnSubscribe_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtSubscribe.Text))
@@ -143,9 +184,7 @@ protected void rptMenuCat_ItemDataBound(object sender, RepeaterItemEventArgs e)
                     lblSubscribe.Text = "Please enter a valid email address!";
                     lblSubscribe.ForeColor = System.Drawing.Color.Yellow;
                 }
-
             }
-
         }
     }
 }

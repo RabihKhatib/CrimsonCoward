@@ -2697,3 +2697,25 @@ td {
 .goldenfont {
     color: #E9B244;
 }
+
+.menusep {
+    background-image: url('../assets/menu_separator.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 200px;
+    background-size:unset;
+}
+
+@media all and (max-width: 800px) {
+    .menusep {
+        background: none;
+        margin-top: 0px;
+    }
+}
+
+
+@media all and (min-width: 800px) {
+    .rightmenupadding {
+        padding-left: 100px;
+    }
+}

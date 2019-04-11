@@ -1559,8 +1559,8 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
         </EntityType>
         <EntityType Name="aspnet_SchemaVersions">
           <Key>
-            <PropertyRef Name="Feature" />
             <PropertyRef Name="CompatibleSchemaVersion" />
+            <PropertyRef Name="Feature" />
           </Key>
           <Property Name="Feature" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CompatibleSchemaVersion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
