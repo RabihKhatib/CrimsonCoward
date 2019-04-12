@@ -10,6 +10,7 @@ namespace CrimsonCoward
     {
         public System.Web.UI.WebControls.Image rightBody;
         public System.Web.UI.WebControls.Image leftBody;
+        public System.Web.UI.WebControls.Label operationHours = new Label();
 
         public void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +27,8 @@ namespace CrimsonCoward
             List<Slider> sliders = db.Sliders.Where(x => x.Active).ToList();
 
             lstImages = (from s in db.Sliders join i in db.Images on s.ImageId equals i.Id select i).ToList();
-            lstReviews = db.Reviews.ToList();
+
+            lstReviews = db.Reviews.Where(x=> x.IsActive == true).ToList();
 
             lstFoodCategory = db.FoodCategories.OrderBy(x => x.catOrder).ToList();
 

@@ -10,7 +10,7 @@ namespace CrimsonCoward.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             CrimsonCowardEntities db = new CrimsonCowardEntities();
-            FoodGridView.DataSource = db.FoodMenus.ToList();
+            FoodGridView.DataSource = db.FoodMenus.OrderBy(x => new { x.CategoryID, x.MENU_ORDER }  ).ToList();
             FoodGridView.DataBind();
         }
 

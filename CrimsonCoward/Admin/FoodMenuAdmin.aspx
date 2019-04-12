@@ -32,6 +32,7 @@
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="text"></asp:BoundField>
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="text" />
                     <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="text" />
+                    <asp:BoundField DataField="MENU_ORDER" HeaderText="Order" SortExpression="text" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton ID="LinkButton1" Text="Edit" CommandName="Edit" CommandArgument='<%# Eval("Id") %>'

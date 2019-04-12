@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="FoodMenuAdminEdit.aspx.cs" Inherits="CrimsonCoward.Admin.FoodMenuAdminEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" ValidateRequest="false"  EnableEventValidation="false" AutoEventWireup="true" CodeBehind="FoodMenuAdminEdit.aspx.cs" Inherits="CrimsonCoward.Admin.FoodMenuAdminEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -14,15 +14,19 @@
                     <asp:Label Text="" ID="lblID" runat="server" Visible="false" />
                     <div class="form-group">
                         <label>Title</label>
-                        <asp:TextBox runat="server" CssClass="form-control" ID="txtTitle" />
+                        <asp:TextBox runat="server" CssClass="form-control" ID="txtTitle" ValidateRequestMode="Disabled" />
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <asp:TextBox runat="server" CssClass="form-control" ID="txtDescription" />
+                        <asp:TextBox runat="server" CssClass="form-control" ID="txtDescription" ValidateRequestMode="Disabled" />
                     </div>
                     <div class="form-group">
                         <label>Price</label>
-                        <asp:TextBox TextMode="Number" runat="server" CssClass="form-control" ID="txtPrice" />
+                        <asp:TextBox runat="server" CssClass="form-control" ID="txtPrice" />
+                    </div>
+                    <div class="form-group">
+                        <label>Order</label>
+                        <asp:TextBox runat="server" CssClass="form-control" ID="txtOrder" />
                     </div>
                     <asp:DropDownList runat="server" ID="drpFoodCats"></asp:DropDownList>
                     <%-- <div class="form-group">
@@ -31,7 +35,7 @@
                     </div>--%>
 
                     <div class="form-group">
-                        <asp:Button Text="Save" ONCLI CssClass="form-control" ID="btnSave" runat="server" OnClick="btnSave_Click" />
+                        <asp:Button Text="Save" CssClass="form-control" ID="btnSave" runat="server" OnClick="btnSave_Click" />
                     </div>
                 </div>
                 <div class="col-lg-6">

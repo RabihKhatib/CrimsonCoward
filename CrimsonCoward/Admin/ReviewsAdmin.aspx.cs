@@ -28,8 +28,6 @@ namespace CrimsonCoward.Admin
                 DAL.CrimsonCowardEntities db = new DAL.CrimsonCowardEntities();
                 Guid _id = new Guid(e.CommandArgument.ToString());
                 Reviews review = db.Reviews.Where(x => x.Id == _id).FirstOrDefault();
-                //var image = db.Images.Where(x => x.Id == review.ImageID).FirstOrDefault();
-                //db.Images.Remove(image);
                 db.Reviews.Remove(review);
                 db.SaveChanges();
                 ReviewsGridView.DataSource = db.Reviews.ToList();

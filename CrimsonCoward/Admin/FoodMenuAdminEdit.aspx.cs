@@ -7,6 +7,7 @@ namespace CrimsonCoward.Admin
 {
     public partial class FoodMenuAdminEdit : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -36,6 +37,7 @@ namespace CrimsonCoward.Admin
                     txtTitle.Text = item.Name;
                     txtDescription.Text = item.Description;
                     txtPrice.Text = item.Price.ToString();
+                    txtOrder.Text = item.MENU_ORDER.ToString();
                     drpFoodCats.SelectedValue = item.CategoryID.ToString();
                 }
             }
@@ -50,6 +52,11 @@ namespace CrimsonCoward.Admin
             data.Name = txtTitle.Text;
             data.Description = txtDescription.Text;
             data.Price = string.IsNullOrEmpty(txtPrice.Text) ? "0" : txtPrice.Text;
+
+            decimal val;
+            if (Decimal.TryParse(txtOrder.Text, out val))
+                data.MENU_ORDER = val;
+
             data.CategoryID = Guid.Parse(drpFoodCats.SelectedValue);
 
             return data;

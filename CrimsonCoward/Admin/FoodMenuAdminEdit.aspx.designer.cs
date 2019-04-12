@@ -47,7 +47,7 @@ namespace CrimsonCoward.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
-        
+
         /// <summary>
         /// txtPrice control.
         /// </summary>
@@ -56,7 +56,16 @@ namespace CrimsonCoward.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
-        
+
+        /// <summary>
+        /// txtOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOrder;
+
         /// <summary>
         /// drpFoodCats control.
         /// </summary>

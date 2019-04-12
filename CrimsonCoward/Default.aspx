@@ -78,7 +78,7 @@
                                         <ItemTemplate>
                                             <table style="margin-bottom: 15px;">
                                                 <tr>
-                                                    <td class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
+                                                    <td class="foodsample" style="white-space: nowrap;"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
                                                         <span <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "":"hidden"     %> style="float: left; font-size: 11pt; padding-top: 2px; padding-left: 20px; text-transform: initial !important;"><%# Eval("Description")%></span>
                                                     </td>
                                                     <td class="line" <%# "0".Equals(Eval("Price"))||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>&nbsp;</td>
@@ -120,7 +120,7 @@
                                         <ItemTemplate>
                                             <table style="margin-bottom: 15px;">
                                                 <tr>
-                                                    <td class="foodsample"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
+                                                    <td class="foodsample"style="white-space: nowrap;"><span style="float: left; font-weight: bold; font-size: 14pt;"><%# Eval("Name")%></span>
                                                         <span <%# "HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())? "":"hidden"     %> style="float: left; font-size: 11pt; padding-top: 2px; padding-left: 20px; text-transform: initial !important;"><%# Eval("Description")%></span>
                                                     </td>
                                                     <td class="line" <%# "0".Equals(Eval("Price")) ||"HEAT LEVEL".Equals(DataBinder.Eval(Container.Parent.Parent, "DataItem.Name").ToString().ToUpper())?"hidden":"" %>>&nbsp;</td>
@@ -146,13 +146,13 @@
     </section>
 
     <section id="banner" style="position: relative;">
-        <div id="banner1" class="col-lg-12 article" style="height: 400px;">
+        <div id="banner1" class="col-lg-12 article"> <%--style="height: 400px;">--%>
             <img src="assets/CC_Assets_Titles_Follow-US.png" alt="Follow us" style="width: 100%" />
         </div>
     </section>
     <section id="ReviewsSection" style="position: relative;">
 
-        <div id="Reviews" class="col-lg-8 CenteredImage" style="height: 335px;">
+        <div id="Reviews" class="col-lg-8 CenteredImage" style=" top:0%;">
             <div id="ReviewsBox" style="min-height: 200px; box-shadow: 5px 10px 30px 10px #c7c6c6; border-radius: 20px; margin-left: auto; margin-right: auto; background-color: #f5f5f594;">
                 <br />
                 <h2 style="display: inline; color: #842522;">YOUR OPINION</h2>
@@ -227,8 +227,8 @@
         </div>
     </section>
 
-    <section id="map" style="position: relative;">
-        <iframe src="https://www.google.com/maps/embed?key=AIzaSyDo7yOkXN6BP9UjJ16EUwqXFJ151YVbDd8&pb=!1m18!1m12!1m3!1d1654.9289251449945!2d-118.11998209946823!3d33.94478402133917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cd85f4471c67%3A0x70c4dbced4907f19!2s10405+Lakewood+Blvd%2C+Downey%2C+CA+90241%2C+USA!5e0!3m2!1sen!2slb!4v1554898596630!5m2!1sen!2slb" width="100%" height="300" frameborder="0" style="border: 0" allowfullscreen></iframe>
+    <section id="map" style="position: relative; display:inline-block">
+        <iframe style=" width:100vw; height:300px;"  src="https://www.google.com/maps/embed?key=AIzaSyDo7yOkXN6BP9UjJ16EUwqXFJ151YVbDd8&pb=!1m18!1m12!1m3!1d1654.9289251449945!2d-118.11998209946823!3d33.94478402133917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cd85f4471c67%3A0x70c4dbced4907f19!2s10405+Lakewood+Blvd%2C+Downey%2C+CA+90241%2C+USA!5e0!3m2!1sen!2slb!4v1554898596630!5m2!1sen!2slb"style="border: 0"></iframe>
     </section>
     <section id="footer">
         <div style="background-color: #842522; display: inline-block; width: 100%; border-top: 10px solid #E9B244">

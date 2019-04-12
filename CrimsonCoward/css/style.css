@@ -2611,14 +2611,17 @@ td {
     td.price {
         text-align: right;
         font-family: PoetsenOne-Regular;
+        width: 10%;
     }
 
     td.line {
-        width: 50%;
+        width: 90%;
         background: center;
         background-image: url(../assets/MenuLine.jpg);
         background-repeat: no-repeat;
         background-position-y: 15px;
+        background-size: 95%;
+        background-position-x: right;
     }
 
     td > span.product {

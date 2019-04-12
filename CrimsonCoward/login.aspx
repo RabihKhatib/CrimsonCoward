@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login | CrimsonCoward - Real Estate Consultancy And Brokerage In Lebanon" Language="C#" MasterPageFile="~/CrimsonCoward.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="CrimsonCoward.login" %>
+﻿<%@ Page Title="Login | CrimsonCoward" Language="C#" MasterPageFile="~/CrimsonCoward.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="CrimsonCoward.login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>

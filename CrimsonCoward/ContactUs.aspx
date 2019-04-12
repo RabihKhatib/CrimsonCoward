@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contact Us | CrimsonCoward - Real Estate Consultancy And Brokerage In Lebanon" Language="C#" MasterPageFile="~/CrimsonCoward.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="ContactUs.aspx.cs" Inherits="CrimsonCoward.ContactUs" %>
+﻿<%@ Page Title="Contact Us | CrimsonCoward" Language="C#" MasterPageFile="~/CrimsonCoward.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="ContactUs.aspx.cs" Inherits="CrimsonCoward.ContactUs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -10,13 +10,13 @@
             <div class="col-md-12">
                 <div class="col-md-6">
 
-                    <span runat="server" id="ContactText" style="float: left; color: black; font: 18px; font-weight: bold;">Zahia Kaddoura Street, Khatchadourian Bld,<br />
-                        1st floor, Down Town Beirut, Lebanon<br />
-                        <span style="color: red">P.O. Box:</span> 175 315 Beirut, Lebanon<br />
-                        <span style="color: red">T /F</span> +961 1 993399 (ext.101)<br />
-                        <span style="color: red">M</span> +961 70 600670
+                    <span runat="server" id="ContactText" style="float: left; color: black; font: 18px; font-weight: bold;">h Bld,<br />
+                        Down Town Beirut, Lebanon<br />
+                        <span style="color: red">P.O. Box:</span> 0000 0000 Beirut, Lebanon<br />
+                        <span style="color: red">T /F</span> 0000000000 (ext.101)<br />
+                        <span style="color: red">M</span> 00000000000
                         <br />
-                        info@pbm-leb.com
+                        info@somewebsite.com
                     </span>
 
                     <div class="alert alert-success hidden" id="contactSuccess">
@@ -66,7 +66,7 @@
                     <iframe width="100%"
                         height="450"
                         frameborder="0" style="border: 0"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAc_M_kWLeLkrZ7rUfL_orpAaBJB9b4ogY&q=CrimsonCoward : Real Estate in Lebanon-Apartments for Sale in Lebanon-Apartment for rent in Lebanon" allowfullscreen></iframe>
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAc_M_kWLeLkrZ7rUfL_orpAaBJB9b4ogY&q=CrimsonCoward : " allowfullscreen></iframe>
                 </div>
                 <div class="col-md-6" runat="server" id="PropertyDetails" visible="false">
                     <div>
