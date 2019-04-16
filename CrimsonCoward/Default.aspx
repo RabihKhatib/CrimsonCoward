@@ -9,8 +9,6 @@
     <section id="featured" style="position: relative; display: grid">
         <!-- Slider -->
         <div id="main-slider" class="flexslider">
-            <div class="flex-caption">
-            </div>
             <ul class="slides">
                 <asp:Repeater runat="server" ID="rptBanner">
                     <ItemTemplate>
@@ -269,7 +267,7 @@
                     <div>
                         <%--<a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: 0 }, 700);">HOME</a>&nbsp-&nbsp--%>
                         <h5><a style="color: white;" href="#">CRIMSON COWARD</a>&nbsp-&nbsp
-                                <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#menu').position().top},700);">MENU</a>&nbsp-&nbsp
+                                <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#foodmenu').position().top},700);">MENU</a>&nbsp-&nbsp
                                 <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $('#story').position().top},700);">OUR STORY</a>&nbsp-&nbsp</h5>
                         <%-- <a style="color: white; font-weight: bold" href="javascript:$('html, body').animate({ scrollTop: $(document).height()},700);">CONTACT US</a>--%>
                     </div>

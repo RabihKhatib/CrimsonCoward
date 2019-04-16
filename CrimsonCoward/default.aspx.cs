@@ -3,15 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
+using System.Web.Mvc;
 
 namespace CrimsonCoward
 {
+    
     public partial class Default : System.Web.UI.Page
     {
         public System.Web.UI.WebControls.Image rightBody;
         public System.Web.UI.WebControls.Image leftBody;
         public System.Web.UI.WebControls.Label operationHours = new Label();
 
+        [OutputCache(Duration = 999999, VaryByParam = "none")]
         public void Page_Load(object sender, EventArgs e)
         {
             if (ViewState["LatestNb"] == null)
