@@ -172,6 +172,7 @@
     <Content Include="email\property.htm" />
     <Content Include="email\request.htm" />
     <Content Include="Default.aspx" />
+    <Content Include="js\compressed.js" />
     <Content Include="js\jquery.star.rating.js" />
     <Content Include="login.aspx" />
     <Content Include="SendSms.aspx" />
