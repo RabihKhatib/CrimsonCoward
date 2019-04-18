@@ -27,6 +27,7 @@ namespace CrimsonCoward
             List<DAL.FoodCategory> lstFoodCategory = new List<FoodCategory>();
             List<DAL.Article> lstArticle = new List<Article>();
             CrimsonCowardEntities db = new CrimsonCowardEntities();
+
             List<Slider> sliders = db.Sliders.Where(x => x.Active).ToList();
 
             lstImages = (from s in db.Sliders join i in db.Images on s.ImageId equals i.Id select i).ToList();

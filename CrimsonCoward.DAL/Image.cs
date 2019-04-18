@@ -19,5 +19,6 @@ namespace CrimsonCoward.DAL
         public string Name { get; set; }
         public string Desc { get; set; }
         public string Ext { get; set; }
+        public string FILE_LOCATION { get; set; }
     }
 }

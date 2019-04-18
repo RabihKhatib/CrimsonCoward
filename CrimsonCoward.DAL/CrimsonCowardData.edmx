@@ -219,6 +219,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Desc" Type="nvarchar(max)" />
           <Property Name="Ext" Type="nchar" MaxLength="10" />
+          <Property Name="FILE_LOCATION" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -2600,6 +2601,7 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ext" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FILE_LOCATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Slider">
           <Key>
@@ -3275,6 +3277,7 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
           <EntitySetMapping Name="Images">
             <EntityTypeMapping TypeName="CrimsonCowardModel.Image">
               <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="FILE_LOCATION" ColumnName="FILE_LOCATION" />
                 <ScalarProperty Name="Ext" ColumnName="Ext" />
                 <ScalarProperty Name="Desc" ColumnName="Desc" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

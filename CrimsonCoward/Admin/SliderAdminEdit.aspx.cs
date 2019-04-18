@@ -47,6 +47,8 @@ namespace CrimsonCoward.Admin
             {
                 try
                 {
+                    DynamicUtils dUtils = new DynamicUtils();
+                    string target = dUtils.uploadimage(uplImage);
                     if (uplImage.FileName.Split('.')[1].ToLower() == "jpeg" || uplImage.FileName.Split('.')[1].ToLower() == "jpg" || uplImage.FileName.Split('.')[1].ToLower() == "png" || uplImage.FileName.Split('.')[1].ToLower() == "gif")
                     {
                         Session["image"] = Path.GetFileName(uplImage.FileName);
@@ -54,6 +56,7 @@ namespace CrimsonCoward.Admin
                         data.Ext = uplImage.FileName.Split('.')[1].ToLower();
                         data.Desc = "slider";
                         data.File = uplImage.FileBytes;
+                        data.FILE_LOCATION = target;
                     }
                     else
                     {
