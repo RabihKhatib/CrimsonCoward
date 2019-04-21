@@ -15,7 +15,6 @@ namespace CrimsonCoward.DAL
     public partial class Image
     {
         public int Id { get; set; }
-        public byte[] File { get; set; }
         public string Name { get; set; }
         public string Desc { get; set; }
         public string Ext { get; set; }

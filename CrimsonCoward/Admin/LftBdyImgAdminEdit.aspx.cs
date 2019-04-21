@@ -25,7 +25,7 @@ namespace CrimsonCoward.Admin
                 DAL.Image data = db.Images.Where(x => x.Id == lftImg.imageId).FirstOrDefault();
                 if (data != null)
                 {
-                    if (data.File != null)
+                    if (!string.IsNullOrEmpty(data.FILE_LOCATION))
                     {
                         lftimgview.ImageUrl = ResolveUrl("~/") + "Thumbnail.aspx?imageId=" + lftImg.imageId;
                         lftimgview.Visible = true;
@@ -43,11 +43,13 @@ namespace CrimsonCoward.Admin
                 {
                     if (uplImage.FileName.Split('.')[1].ToLower() == "jpeg" || uplImage.FileName.Split('.')[1].ToLower() == "jpg" || uplImage.FileName.Split('.')[1].ToLower() == "png" || uplImage.FileName.Split('.')[1].ToLower() == "gif")
                     {
+                        DynamicUtils dUtils = new DynamicUtils();
+                        string target = dUtils.uploadimage(uplImage);
                         Session["image"] = Path.GetFileName(uplImage.FileName);
                         data.Name = uplImage.FileName.Split('.')[0].ToLower();
                         data.Ext = uplImage.FileName.Split('.')[1].ToLower();
                         data.Desc = "Left Body";
-                        data.File = uplImage.FileBytes;
+                        data.FILE_LOCATION = target;
                     }
                     else
                     {
@@ -69,10 +71,10 @@ namespace CrimsonCoward.Admin
             Article lftImg = db.Articles.Where(x => x.position == "left").FirstOrDefault();
             DAL.Image image = db.Images.Where(x => x.Id == lftImg.imageId).FirstOrDefault();
             db.Images.Remove(image);
-            db.Articles.Remove(lftImg);
             DAL.Image data = FillSliders();
             db.Images.Add(data);
             db.SaveChanges();
+            db.Articles.Remove(lftImg);
             db.Articles.Add(new Article { Id = 2, imageId = data.Id, position = "left", title = "Left Image Body" });
             db.SaveChanges();
             Response.Redirect("~/Admin/LftBdyImgAdminEdit.aspx");

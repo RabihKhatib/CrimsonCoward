@@ -215,7 +215,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="File" Type="image" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Desc" Type="nvarchar(max)" />
           <Property Name="Ext" Type="nchar" MaxLength="10" />
@@ -2597,7 +2596,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="File" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ext" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
@@ -3281,7 +3279,6 @@ warning 6002: The table/view 'CrimsonCoward.dbo.vw_aspnet_WebPartState_User' doe
                 <ScalarProperty Name="Ext" ColumnName="Ext" />
                 <ScalarProperty Name="Desc" ColumnName="Desc" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="File" ColumnName="File" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

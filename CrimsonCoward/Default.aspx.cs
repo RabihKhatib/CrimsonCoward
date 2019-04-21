@@ -49,22 +49,18 @@ namespace CrimsonCoward
                     else if (art.position.Contains("left"))
                     {
                         int imageID = (int)art.imageId;
-                        byte[] bytes = db.Images.Where(x => x.Id == imageID).FirstOrDefault().File;
-                        string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
                         leftBody = new System.Web.UI.WebControls.Image
                         {
-                            ImageUrl = "data:image/png;base64," + base64String
+                            ImageUrl = db.Images.Where(x => x.Id == imageID).FirstOrDefault().FILE_LOCATION.Replace("~/", "")
                         };
                     }
                     else if (art.position.Contains("right"))
                     {
                         int imageID = (int)art.imageId;
-                        byte[] bytes = db.Images.Where(x => x.Id == imageID).FirstOrDefault().File;
-                        string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
                         rightBody = new System.Web.UI.WebControls.Image
                         {
-                            ImageUrl = "data:image/png;base64," + base64String
-                        };
+                            ImageUrl = db.Images.Where(x => x.Id == imageID).FirstOrDefault().FILE_LOCATION.Replace("~/", "")
+                };
                     }
                     if (art.position.Contains("operation"))
                     {

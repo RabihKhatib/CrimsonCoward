@@ -25,7 +25,7 @@ namespace CrimsonCoward
                 string extention = GetExtension(filename);
                 if (extention == "jpg" || extention == "gif" || extention == "jpeg" || extention == "bmp" || extention == "png")
                 {
-                    savepath = "~/images/" + filename; //foldername
+                    savepath = "~/Admin/images/" + filename; //foldername
                     uplImage.PostedFile.SaveAs(filepath + "/" + filename);
                     return savepath;
                 }

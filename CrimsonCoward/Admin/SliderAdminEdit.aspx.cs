@@ -31,7 +31,7 @@ namespace CrimsonCoward.Admin
                 {
                     lblID.Text = data.Id.ToString();
 
-                    if (data.File != null)
+                    if (!string.IsNullOrEmpty(data.FILE_LOCATION))
                     {
                         imgview.ImageUrl = ResolveUrl("~/") + "Thumbnail.aspx?SliderId=" + _id + "&secImg=HomeTips";
                         imgview.Visible = true;
@@ -55,7 +55,7 @@ namespace CrimsonCoward.Admin
                         data.Name = uplImage.FileName.Split('.')[0].ToLower();
                         data.Ext = uplImage.FileName.Split('.')[1].ToLower();
                         data.Desc = "slider";
-                        data.File = uplImage.FileBytes;
+                        //data.File = uplImage.FileBytes;
                         data.FILE_LOCATION = target;
                     }
                     else

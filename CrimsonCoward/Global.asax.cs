@@ -26,15 +26,8 @@ namespace CrimsonCoward
             }
 
             RouteTable.Routes.MapPageRoute("home", "", "~/Default.aspx");
-            RouteTable.Routes.MapPageRoute("about", "AboutUs", "~/aboutUs.aspx");
-            RouteTable.Routes.MapPageRoute("news", "News", "~/news.aspx");
-            RouteTable.Routes.MapPageRoute("Blog", "Blog", "~/Blog.aspx");
-            RouteTable.Routes.MapPageRoute("news details", "News/{title}/{ID}", "~/news-details.aspx");
-            RouteTable.Routes.MapPageRoute("contact", "ContactUs", "~/contactUs.aspx");
-            RouteTable.Routes.MapPageRoute("Intrested", "ContactUs/{Prl}", "~/contactUs.aspx");
-            RouteTable.Routes.MapPageRoute("careers", "Careers", "~/careers.aspx");
-            RouteTable.Routes.MapPageRoute("login", "login", "~/login.aspx");
-            RouteTable.Routes.MapPageRoute("admin", "login", "~/login.aspx");
+            RouteTable.Routes.MapPageRoute("login", "login/", "~/login.aspx");
+            RouteTable.Routes.MapPageRoute("defaultRoute", "{*value}", "~/login.aspx");
         }
 
         private void Application_End(object sender, EventArgs e)

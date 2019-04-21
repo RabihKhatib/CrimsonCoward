@@ -30,7 +30,7 @@ namespace CrimsonCoward.Admin
                 {
                     lblID.Text = data.Id.ToString();
 
-                    if (data.File != null)
+                    if (!string.IsNullOrEmpty(data.FILE_LOCATION))
                     {
                         imgview.ImageUrl = ResolveUrl("~/") + "Thumbnail.aspx?ReviewsId=" + _id + "&secImg=HomeTips";
                         imgview.Visible = true;

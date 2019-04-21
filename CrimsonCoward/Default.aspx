@@ -15,7 +15,7 @@
                         <li>
                                                         <%--<asp:Image runat="server" class="sliderimg" Style="max-height: 680px; min-height: 500px;" ImageUrl='<%# Eval("FILE_LOCATION")%>' />--%>
 
-                            <asp:Image runat="server" class="sliderimg" Style="max-height: 680px; min-height: 500px;" ImageUrl='<%# ResolveUrl("~/") + "Thumbnail.aspx?id=" + Eval("Id") + "&secImg=HomeTips&r="+Guid.NewGuid()  %>' />
+                            <asp:Image runat="server" class="sliderimg" Style="max-height: 680px; min-height: 500px;" ImageUrl='<%# Eval("FILE_LOCATION")  %>' />
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>

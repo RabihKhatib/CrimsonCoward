@@ -69,13 +69,13 @@ namespace CrimsonCoward
 
                 if (img != null)
                 {
-                    if (img.File == null || img.File.Length == 0)
+                    if (string.IsNullOrEmpty(img.FILE_LOCATION))
                     {
                         b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
                     }
                     else
                     {
-                        b = img.File;
+                        b = File.ReadAllBytes(MapPath(img.FILE_LOCATION));
                     }
                 }
                 else
@@ -90,13 +90,13 @@ namespace CrimsonCoward
                 DAL.Image img = db.Images.Where(x => x.Id == slider.ImageId).FirstOrDefault();
                 if (img != null)
                 {
-                    if (img.File == null || img.File.Length == 0)
+                    if (string.IsNullOrEmpty(img.FILE_LOCATION))
                     {
                         b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
                     }
                     else
                     {
-                        b = img.File;
+                        b = File.ReadAllBytes(MapPath(img.FILE_LOCATION));
                     }
                 }
                 else
@@ -111,13 +111,13 @@ namespace CrimsonCoward
                 DAL.Image img = db.Images.Where(x => x.Id == article.imageId).FirstOrDefault();
                 if (img != null)
                 {
-                    if (img.File == null || img.File.Length == 0)
+                    if (string.IsNullOrEmpty(img.FILE_LOCATION))
                     {
                         b = File.ReadAllBytes(MapPath("~/assets/logo.png"));
                     }
                     else
                     {
-                        b = img.File;
+                        b = File.ReadAllBytes(MapPath(img.FILE_LOCATION));
                     }
                 }
                 else

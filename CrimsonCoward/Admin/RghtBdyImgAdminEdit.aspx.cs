@@ -25,7 +25,7 @@ namespace CrimsonCoward.Admin
                 DAL.Image data = db.Images.Where(x => x.Id == rghtImg.imageId).FirstOrDefault();
                 if (data != null)
                 {
-                    if (data.File != null)
+                    if (!string.IsNullOrEmpty(data.FILE_LOCATION))
                     {
                         rghtimgview.ImageUrl = ResolveUrl("~/") + "Thumbnail.aspx?imageId=" + rghtImg.imageId;
                         rghtimgview.Visible = true;
@@ -43,11 +43,13 @@ namespace CrimsonCoward.Admin
                 {
                     if (uplImage.FileName.Split('.')[1].ToLower() == "jpeg" || uplImage.FileName.Split('.')[1].ToLower() == "jpg" || uplImage.FileName.Split('.')[1].ToLower() == "png" || uplImage.FileName.Split('.')[1].ToLower() == "gif")
                     {
+                        DynamicUtils dUtils = new DynamicUtils();
+                        string target = dUtils.uploadimage(uplImage);
                         Session["image"] = Path.GetFileName(uplImage.FileName);
                         data.Name = uplImage.FileName.Split('.')[0].ToLower();
                         data.Ext = uplImage.FileName.Split('.')[1].ToLower();
                         data.Desc = "Right Body";
-                        data.File = uplImage.FileBytes;
+                        data.FILE_LOCATION = target;
                     }
                     else
                     {
